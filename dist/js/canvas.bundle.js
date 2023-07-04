@@ -2,6 +2,62 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/img/aa_left_stand_small_sheet.png":
+/*!***********************************************!*\
+  !*** ./src/img/aa_left_stand_small_sheet.png ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "224e51e80d043a981dcad198255aa309.png");
+
+/***/ }),
+
+/***/ "./src/img/aa_left_walk2_sheet_fixed.png":
+/*!***********************************************!*\
+  !*** ./src/img/aa_left_walk2_sheet_fixed.png ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "12a90cd96dd58fbcc70abb4bdb0ad27d.png");
+
+/***/ }),
+
+/***/ "./src/img/aa_right_stand_small_sheet.png":
+/*!************************************************!*\
+  !*** ./src/img/aa_right_stand_small_sheet.png ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "c8f91d1ef154619a62b7a8b3d041869c.png");
+
+/***/ }),
+
+/***/ "./src/img/aa_right_walk2_sheet_fixed.png":
+/*!************************************************!*\
+  !*** ./src/img/aa_right_walk2_sheet_fixed.png ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "51dff7a5953d523b17a7fa5236e2e1f4.png");
+
+/***/ }),
+
 /***/ "./src/img/background.png":
 /*!********************************!*\
   !*** ./src/img/background.png ***!
@@ -13,6 +69,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "072d51bcc9c09311d4c2a6708b05bddc.png");
+
+/***/ }),
+
+/***/ "./src/img/cloud.png":
+/*!***************************!*\
+  !*** ./src/img/cloud.png ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "ebd01fd0df3c49ae1e1db924b79e726d.png");
 
 /***/ }),
 
@@ -58,59 +128,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/img/spriteRunLeft.png":
-/*!***********************************!*\
-  !*** ./src/img/spriteRunLeft.png ***!
-  \***********************************/
+/***/ "./src/img/smb3.gif":
+/*!**************************!*\
+  !*** ./src/img/smb3.gif ***!
+  \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "c67ea51444aafa9bdcd5bdfd4f4a55bb.png");
-
-/***/ }),
-
-/***/ "./src/img/spriteRunRight.png":
-/*!************************************!*\
-  !*** ./src/img/spriteRunRight.png ***!
-  \************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "a2f75989924952a7e49ce0405d487c93.png");
-
-/***/ }),
-
-/***/ "./src/img/spriteStandLeft.png":
-/*!*************************************!*\
-  !*** ./src/img/spriteStandLeft.png ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "11514f48f22f6d8e3cf748e45e3e1ffb.png");
-
-/***/ }),
-
-/***/ "./src/img/spriteStandRight.png":
-/*!**************************************!*\
-  !*** ./src/img/spriteStandRight.png ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "01e8f15e899155c68950c40e0a6b8df0.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "40ff1c3c2e1fd7c085cfa36d2871266b.gif");
 
 /***/ })
 
@@ -216,10 +244,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../img/platformSmallTall.png */ "./src/img/platformSmallTall.png");
 /* harmony import */ var _img_hills_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/hills.png */ "./src/img/hills.png");
 /* harmony import */ var _img_background_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/background.png */ "./src/img/background.png");
-/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
-/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
-/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
-/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
+/* harmony import */ var _img_aa_left_walk2_sheet_fixed_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/aa_left_walk2_sheet_fixed.png */ "./src/img/aa_left_walk2_sheet_fixed.png");
+/* harmony import */ var _img_aa_right_walk2_sheet_fixed_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/aa_right_walk2_sheet_fixed.png */ "./src/img/aa_right_walk2_sheet_fixed.png");
+/* harmony import */ var _img_aa_left_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/aa_left_stand_small_sheet.png */ "./src/img/aa_left_stand_small_sheet.png");
+/* harmony import */ var _img_aa_right_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/aa_right_stand_small_sheet.png */ "./src/img/aa_right_stand_small_sheet.png");
+/* harmony import */ var _img_smb3_gif__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../img/smb3.gif */ "./src/img/smb3.gif");
+/* harmony import */ var _img_cloud_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../img/cloud.png */ "./src/img/cloud.png");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -229,6 +259,15 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
 
 
+
+// import spriteRunLeft from "../img/spriteRunLeft.png";
+// import spriteRunRight from "../img/spriteRunRight.png";
+
+
+
+
+// import spriteStandLeft from "../img/spriteStandLeft.png";
+// import spriteStandRight from "../img/spriteStandRight.png";
 
 
 
@@ -251,10 +290,12 @@ var SPACEBAR = 32;
 //Environmental
 var INITIAL_JUMPVELOCITY = 15;
 var INITIAL_PLAYERSPEED = 5;
+var HIGH_SPEED_FACTOR = 3;
 var JUMPVELOCITY = INITIAL_JUMPVELOCITY;
 var PLAYERSPEED = INITIAL_PLAYERSPEED;
 var BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
 var hitSpaceCount = 0;
+var gameTimer = 0;
 
 // Define your game variables here
 function createImage(imageSrc) {
@@ -264,10 +305,11 @@ function createImage(imageSrc) {
 }
 // Player object
 var gravity = 0.5;
-var spriteStandRightImage = createImage(_img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
-var spriteStandLeftImage = createImage(_img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_6__["default"]);
-var spriteRunRightImage = createImage(_img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
-var spriteRunLeftImage = createImage(_img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
+var spriteStandRightImage = createImage(_img_aa_right_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
+var spriteStandLeftImage = createImage(_img_aa_left_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_6__["default"]);
+var spriteRunRightImage = createImage(_img_aa_right_walk2_sheet_fixed_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
+var spriteRunLeftImage = createImage(_img_aa_left_walk2_sheet_fixed_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
+var smb3BackgroundImage = createImage(_img_smb3_gif__WEBPACK_IMPORTED_MODULE_8__["default"]);
 
 //let spriteStandRightImage = createImage(spriteStandRight);
 var Player = /*#__PURE__*/function () {
@@ -282,39 +324,50 @@ var Player = /*#__PURE__*/function () {
       x: 0,
       y: 1
     };
-    this.width = 66;
-    this.height = 150;
+    // this.width = 66;
+    // this.height = 150;
     this.image = spriteStandRightImage;
+    this.width = 77;
+    //this.height = 333;
+    this.height = this.image.height;
     this.frames = 0;
     this.sprites = {
       stand: {
         right: spriteStandRightImage,
         left: spriteStandLeftImage,
-        cropWidth: 177,
-        width: 66
+        //cropWidth: 177,
+        cropWidth: 77,
+        //width: 66,
+        width: 77
       },
       run: {
         right: spriteRunRightImage,
         left: spriteRunLeftImage,
-        cropWidth: 341,
-        width: 127.875
+        cropWidth: 161,
+        width: 161
+        //cropWidth: 341,
+        //width: 127.875,
       }
     };
+
     this.currentSprite = this.sprites.stand.right;
-    this.currentCropWidth = 177;
+    //this.currentCropWidth = 177;
+    this.currentCropWidth = 77;
   }
   _createClass(Player, [{
     key: "draw",
     value: function draw() {
-      canvasCtx.drawImage(this.currentSprite, this.currentCropWidth * this.frames, 0, this.currentCropWidth, 400, this.position.x, this.position.y, this.width, this.height);
+      canvasCtx.drawImage(this.currentSprite, this.currentCropWidth * this.frames, 0, this.currentCropWidth, 333, this.position.x, this.position.y, this.width, this.height);
     }
   }, {
     key: "update",
     value: function update() {
       this.frames++;
-      if (this.frames > 59 && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
+      if (
+      //this.frames > 59 &&
+      this.frames > 2 && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
         this.frames = 0;
-      } else if (this.frames > 29 && (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left)) {
+      } else if (this.frames > 8 && (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left)) {
         this.frames = 0;
       }
       this.draw();
@@ -349,11 +402,33 @@ var Platform = /*#__PURE__*/function () {
   }]);
   return Platform;
 }();
-var GenericObject = /*#__PURE__*/function () {
-  function GenericObject(_ref2) {
+var Cloud = /*#__PURE__*/function () {
+  function Cloud(_ref2) {
     var x = _ref2.x,
       y = _ref2.y,
       image = _ref2.image;
+    _classCallCheck(this, Cloud);
+    this.position = {
+      x: x,
+      y: y
+    };
+    this.image = image;
+    this.width = image.width;
+    this.height = image.height;
+  }
+  _createClass(Cloud, [{
+    key: "draw",
+    value: function draw() {
+      canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+    }
+  }]);
+  return Cloud;
+}();
+var GenericObject = /*#__PURE__*/function () {
+  function GenericObject(_ref3) {
+    var x = _ref3.x,
+      y = _ref3.y,
+      image = _ref3.image;
     _classCallCheck(this, GenericObject);
     this.position = {
       x: x,
@@ -375,6 +450,7 @@ var platformImage = createImage(_img_platform_png__WEBPACK_IMPORTED_MODULE_0__["
 var platformImageSmallTall = createImage(_img_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var player = new Player();
 var platforms = [];
+var clouds = [];
 var genericObjects = [];
 var lastKey = "";
 var keys = {
@@ -429,6 +505,15 @@ function init() {
     y: -1,
     image: createImage(_img_hills_png__WEBPACK_IMPORTED_MODULE_2__["default"])
   })];
+  clouds = [new Cloud({
+    x: 200,
+    y: 0,
+    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_9__["default"])
+  }), new Cloud({
+    x: 300,
+    y: 0,
+    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_9__["default"])
+  })];
   keys = {
     right: {
       pressed: false
@@ -441,6 +526,8 @@ function init() {
 
 // Game loop function
 function gameLoop() {
+  gameTimer++;
+  //console.log(gameTimer);
   requestAnimationFrame(gameLoop);
   canvasCtx.fillStyle = "white";
   canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
@@ -450,6 +537,11 @@ function gameLoop() {
   platforms.forEach(function (platform) {
     platform.draw();
   });
+
+  // clouds.forEach((cloud) => {
+  //   cloud.draw();
+  // })
+
   player.update();
   if (keys.right.pressed && player.position.x < 400) {
     player.velocity.x = player.speed;
@@ -513,8 +605,8 @@ function gameLoop() {
 // Start the game loop
 init();
 gameLoop();
-addEventListener("keydown", function (_ref3) {
-  var keyCode = _ref3.keyCode;
+addEventListener("keydown", function (_ref4) {
+  var keyCode = _ref4.keyCode;
   console.log(keyCode);
   switch (keyCode) {
     case LEFTARROW:
@@ -531,11 +623,12 @@ addEventListener("keydown", function (_ref3) {
       console.log("jump");
       hitSpaceCount++;
       if (hitSpaceCount == 1) player.velocity.y -= JUMPVELOCITY;
+      //player.velocity.y -= JUMPVELOCITY; //This makes him jump mid air multiple times
       break;
     case SHIFT:
       console.log("shift");
       JUMPVELOCITY *= 1.3;
-      PLAYERSPEED *= 2.5;
+      PLAYERSPEED *= HIGH_SPEED_FACTOR;
       player.speed = PLAYERSPEED;
       break;
     case CTRL:
@@ -543,11 +636,12 @@ addEventListener("keydown", function (_ref3) {
       break;
     case ALT:
       console.log("alt");
+      //PLAYERSPEED = PLAYERSPEED - 10;
       break;
   }
 });
-addEventListener("keyup", function (_ref4) {
-  var keyCode = _ref4.keyCode;
+addEventListener("keyup", function (_ref5) {
+  var keyCode = _ref5.keyCode;
   switch (keyCode) {
     case LEFTARROW:
       console.log("left");

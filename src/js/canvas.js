@@ -2,10 +2,22 @@ import platformImageSrc from "../img/platform.png";
 import platformImageSmallTallSrc from "../img/platformSmallTall.png";
 import hills from "../img/hills.png";
 import background from "../img/background.png";
-import spriteRunLeft from "../img/spriteRunLeft.png";
-import spriteRunRight from "../img/spriteRunRight.png";
-import spriteStandLeft from "../img/spriteStandLeft.png";
-import spriteStandRight from "../img/spriteStandRight.png";
+// import spriteRunLeft from "../img/spriteRunLeft.png";
+// import spriteRunRight from "../img/spriteRunRight.png";
+
+import spriteRunLeft from "../img/aa_left_walk2_sheet_fixed.png";
+import spriteRunRight from "../img/aa_right_walk2_sheet_fixed.png";
+
+
+// import spriteStandLeft from "../img/spriteStandLeft.png";
+// import spriteStandRight from "../img/spriteStandRight.png";
+
+import spriteStandLeft from "../img/aa_left_stand_small_sheet.png";
+import spriteStandRight from "../img/aa_right_stand_small_sheet.png";
+
+
+import marioBackground from "../img/smb3.gif";
+import cloud from "../img/cloud.png";
 
 const canvas = document.querySelector("canvas");
 const canvasCtx = canvas.getContext("2d");
@@ -24,12 +36,14 @@ const SPACEBAR = 32;
 //Environmental
 const INITIAL_JUMPVELOCITY = 15;
 const INITIAL_PLAYERSPEED = 5;
+const HIGH_SPEED_FACTOR = 3;
 
 let JUMPVELOCITY = INITIAL_JUMPVELOCITY;
 let PLAYERSPEED = INITIAL_PLAYERSPEED;
 const BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
 
 let hitSpaceCount = 0;
+let gameTimer = 0;
 
 // Define your game variables here
 function createImage(imageSrc) {
@@ -45,6 +59,8 @@ let spriteStandLeftImage = createImage(spriteStandLeft);
 let spriteRunRightImage = createImage(spriteRunRight);
 let spriteRunLeftImage = createImage(spriteRunLeft);
 
+let smb3BackgroundImage = createImage(marioBackground);
+
 //let spriteStandRightImage = createImage(spriteStandRight);
 
 class Player {
@@ -58,26 +74,36 @@ class Player {
       x: 0,
       y: 1,
     };
-    this.width = 66;
-    this.height = 150;
+    // this.width = 66;
+    // this.height = 150;
     this.image = spriteStandRightImage;
+
+    this.width = 77;
+    //this.height = 333;
+    this.height = this.image.height; 
+
     this.frames = 0;
     this.sprites = {
       stand: {
         right: spriteStandRightImage,
         left: spriteStandLeftImage,
-        cropWidth: 177,
-        width: 66,
+        //cropWidth: 177,
+        cropWidth: 77,
+        //width: 66,
+        width: 77
       },
       run: {
         right: spriteRunRightImage,
         left: spriteRunLeftImage,
-        cropWidth: 341,
-        width: 127.875,
+        cropWidth: 161,
+        width: 161
+        //cropWidth: 341,
+        //width: 127.875,
       },
     };
     this.currentSprite = this.sprites.stand.right;
-    this.currentCropWidth = 177;
+    //this.currentCropWidth = 177;
+    this.currentCropWidth=77;
   }
 
   draw() {
@@ -86,7 +112,7 @@ class Player {
       this.currentCropWidth * this.frames,
       0,
       this.currentCropWidth,
-      400,
+      333,
       this.position.x,
       this.position.y,
       this.width,
@@ -97,13 +123,14 @@ class Player {
   update() {
     this.frames++;
     if (
-      this.frames > 59 &&
+      //this.frames > 59 &&
+      this.frames > 2 &&
       (this.currentSprite === this.sprites.stand.right ||
         this.currentSprite === this.sprites.stand.left)
     ) {
       this.frames = 0;
     } else if (
-      this.frames > 29 &&
+      this.frames > 8 &&
       (this.currentSprite === this.sprites.run.right ||
         this.currentSprite === this.sprites.run.left)
     ) {
@@ -132,6 +159,22 @@ class Platform {
     canvasCtx.drawImage(this.image, this.position.x, this.position.y);
   }
 }
+
+class Cloud {
+  constructor({ x, y, image }) {
+    this.position = {
+      x,
+      y,
+    };
+    this.image = image;
+    this.width = image.width;
+    this.height = image.height;
+  }
+  draw() {
+    canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+  }
+}
+
 class GenericObject {
   constructor({ x, y, image }) {
     this.position = {
@@ -151,6 +194,7 @@ let platformImage = createImage(platformImageSrc);
 let platformImageSmallTall = createImage(platformImageSmallTallSrc);
 let player = new Player();
 let platforms = [];
+let clouds = [];
 let genericObjects = [];
 let lastKey = "";
 let keys = {
@@ -211,7 +255,6 @@ function init() {
       image: platformImage,
     }),
   ];
-
   genericObjects = [
     new GenericObject({
       x: -1,
@@ -222,8 +265,22 @@ function init() {
       x: -1,
       y: -1,
       image: createImage(hills),
-    }),
+    })
   ];
+
+  clouds = [
+    new Cloud({
+      x: 200,
+      y: 0,
+      image: createImage(cloud),
+    }),
+    new Cloud({
+      x: 300,
+      y: 0,
+      image: createImage(cloud),
+    })
+  ];
+
 
   keys = {
     right: {
@@ -237,6 +294,8 @@ function init() {
 
 // Game loop function
 function gameLoop() {
+  gameTimer++;
+  //console.log(gameTimer);
   requestAnimationFrame(gameLoop);
   canvasCtx.fillStyle = "white";
   canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
@@ -248,6 +307,10 @@ function gameLoop() {
   platforms.forEach((platform) => {
     platform.draw();
   });
+
+  // clouds.forEach((cloud) => {
+  //   cloud.draw();
+  // })
 
   player.update();
 
@@ -361,11 +424,12 @@ addEventListener("keydown", ({ keyCode }) => {
       console.log("jump");
       hitSpaceCount++;
       if (hitSpaceCount == 1) player.velocity.y -= JUMPVELOCITY;
+      //player.velocity.y -= JUMPVELOCITY; //This makes him jump mid air multiple times
       break;
     case SHIFT:
       console.log("shift");
       JUMPVELOCITY *= 1.3;
-      PLAYERSPEED *= 2.5;
+      PLAYERSPEED *= HIGH_SPEED_FACTOR;
       player.speed = PLAYERSPEED;
       break;
     case CTRL:
@@ -373,6 +437,7 @@ addEventListener("keydown", ({ keyCode }) => {
       break;
     case ALT:
       console.log("alt");
+      //PLAYERSPEED = PLAYERSPEED - 10;
       break;
   }
 });
