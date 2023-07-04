@@ -63,6 +63,14 @@ let smb3BackgroundImage = createImage(marioBackground);
 
 //let spriteStandRightImage = createImage(spriteStandRight);
 
+function sleep(milliseconds) {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
+
 class Player {
   constructor() {
     this.speed = PLAYERSPEED;
@@ -137,6 +145,7 @@ class Player {
       this.frames = 0;
     }
     this.draw();
+    //sleep(1000);
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
     if (this.position.y + this.height + this.velocity.y <= canvas.height) {

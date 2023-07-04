@@ -312,6 +312,14 @@ var spriteRunLeftImage = createImage(_img_aa_left_walk2_sheet_fixed_png__WEBPACK
 var smb3BackgroundImage = createImage(_img_smb3_gif__WEBPACK_IMPORTED_MODULE_8__["default"]);
 
 //let spriteStandRightImage = createImage(spriteStandRight);
+
+function sleep(milliseconds) {
+  var date = Date.now();
+  var currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
 var Player = /*#__PURE__*/function () {
   function Player() {
     _classCallCheck(this, Player);
@@ -371,6 +379,7 @@ var Player = /*#__PURE__*/function () {
         this.frames = 0;
       }
       this.draw();
+      //sleep(1000);
       this.position.x += this.velocity.x;
       this.position.y += this.velocity.y;
       if (this.position.y + this.height + this.velocity.y <= canvas.height) {
