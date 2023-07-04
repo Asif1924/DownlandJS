@@ -5,8 +5,8 @@ import background from "../img/background.png";
 // import spriteRunLeft from "../img/spriteRunLeft.png";
 // import spriteRunRight from "../img/spriteRunRight.png";
 
-import spriteRunLeft from "../img/aa_left_walk2_sheet_fixed.png";
-import spriteRunRight from "../img/aa_right_walk2_sheet_fixed.png";
+import spriteRunLeft from "../img/aa_left_64.png";
+import spriteRunRight from "../img/aa_right_64.png";
 
 
 // import spriteStandLeft from "../img/spriteStandLeft.png";
@@ -138,7 +138,7 @@ class Player {
     ) {
       this.frames = 0;
     } else if (
-      this.frames > 8 &&
+      this.frames > 63 &&
       (this.currentSprite === this.sprites.run.right ||
         this.currentSprite === this.sprites.run.left)
     ) {

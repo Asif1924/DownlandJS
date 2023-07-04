@@ -31,7 +31,7 @@ public class ImageConcatenator {
             graphics.dispose();
 
             // Save the output image
-            ImageIO.write(outputImage, "jpg", new File(outputImagePath));
+            ImageIO.write(outputImage, "png", new File(outputImagePath));
 
             System.out.println("Image concatenation complete. Output saved to: " + outputImagePath);
         } catch (IOException e) {
