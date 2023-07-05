@@ -5,8 +5,8 @@ import background from "../img/background.png";
 // import spriteRunLeft from "../img/spriteRunLeft.png";
 // import spriteRunRight from "../img/spriteRunRight.png";
 
-import spriteRunLeft from "../img/aa_left_64.png";
-import spriteRunRight from "../img/aa_right_64.png";
+import spriteRunLeft from "../img/aalw_full.png";
+import spriteRunRight from "../img/aarw_full.png";
 
 
 // import spriteStandLeft from "../img/spriteStandLeft.png";
@@ -132,7 +132,7 @@ class Player {
     this.frames++;
     if (
       //this.frames > 59 &&
-      this.frames > 2 &&
+      this.frames > 3 &&
       (this.currentSprite === this.sprites.stand.right ||
         this.currentSprite === this.sprites.stand.left)
     ) {

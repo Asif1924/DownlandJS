@@ -2,20 +2,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/img/aa_left_64.png":
-/*!********************************!*\
-  !*** ./src/img/aa_left_64.png ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "d8084ed6010ff26876de4a3e6d081a27.png");
-
-/***/ }),
-
 /***/ "./src/img/aa_left_stand_small_sheet.png":
 /*!***********************************************!*\
   !*** ./src/img/aa_left_stand_small_sheet.png ***!
@@ -30,20 +16,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/img/aa_right_64.png":
-/*!*********************************!*\
-  !*** ./src/img/aa_right_64.png ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "e5113c764e3ab9d8a478006ff295423c.png");
-
-/***/ }),
-
 /***/ "./src/img/aa_right_stand_small_sheet.png":
 /*!************************************************!*\
   !*** ./src/img/aa_right_stand_small_sheet.png ***!
@@ -55,6 +27,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "c8f91d1ef154619a62b7a8b3d041869c.png");
+
+/***/ }),
+
+/***/ "./src/img/aalw_full.png":
+/*!*******************************!*\
+  !*** ./src/img/aalw_full.png ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "51aad8d3c64515b615c5e75141c57b2b.png");
+
+/***/ }),
+
+/***/ "./src/img/aarw_full.png":
+/*!*******************************!*\
+  !*** ./src/img/aarw_full.png ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "2c8079ecab30eac99f1482a8c70e1aea.png");
 
 /***/ }),
 
@@ -244,8 +244,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../img/platformSmallTall.png */ "./src/img/platformSmallTall.png");
 /* harmony import */ var _img_hills_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/hills.png */ "./src/img/hills.png");
 /* harmony import */ var _img_background_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/background.png */ "./src/img/background.png");
-/* harmony import */ var _img_aa_left_64_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/aa_left_64.png */ "./src/img/aa_left_64.png");
-/* harmony import */ var _img_aa_right_64_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/aa_right_64.png */ "./src/img/aa_right_64.png");
+/* harmony import */ var _img_aalw_full_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/aalw_full.png */ "./src/img/aalw_full.png");
+/* harmony import */ var _img_aarw_full_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/aarw_full.png */ "./src/img/aarw_full.png");
 /* harmony import */ var _img_aa_left_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/aa_left_stand_small_sheet.png */ "./src/img/aa_left_stand_small_sheet.png");
 /* harmony import */ var _img_aa_right_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/aa_right_stand_small_sheet.png */ "./src/img/aa_right_stand_small_sheet.png");
 /* harmony import */ var _img_smb3_gif__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../img/smb3.gif */ "./src/img/smb3.gif");
@@ -307,8 +307,8 @@ function createImage(imageSrc) {
 var gravity = 0.5;
 var spriteStandRightImage = createImage(_img_aa_right_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
 var spriteStandLeftImage = createImage(_img_aa_left_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_6__["default"]);
-var spriteRunRightImage = createImage(_img_aa_right_64_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
-var spriteRunLeftImage = createImage(_img_aa_left_64_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
+var spriteRunRightImage = createImage(_img_aarw_full_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
+var spriteRunLeftImage = createImage(_img_aalw_full_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
 var smb3BackgroundImage = createImage(_img_smb3_gif__WEBPACK_IMPORTED_MODULE_8__["default"]);
 
 //let spriteStandRightImage = createImage(spriteStandRight);
@@ -373,7 +373,7 @@ var Player = /*#__PURE__*/function () {
       this.frames++;
       if (
       //this.frames > 59 &&
-      this.frames > 2 && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
+      this.frames > 3 && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
         this.frames = 0;
       } else if (this.frames > 63 && (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left)) {
         this.frames = 0;
