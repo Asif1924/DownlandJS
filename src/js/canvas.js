@@ -42,6 +42,9 @@ let JUMPVELOCITY = INITIAL_JUMPVELOCITY;
 let PLAYERSPEED = INITIAL_PLAYERSPEED;
 const BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
 
+const STAND_IMAGE_WIDTH = 77;
+const RUN_IMAGE_WIDTH=161;
+
 let hitSpaceCount = 0;
 let gameTimer = 0;
 
@@ -86,7 +89,7 @@ class Player {
     // this.height = 150;
     this.image = spriteStandRightImage;
 
-    this.width = 77;
+    this.width = STAND_IMAGE_WIDTH;
     //this.height = 333;
     this.height = this.image.height; 
 
@@ -96,22 +99,22 @@ class Player {
         right: spriteStandRightImage,
         left: spriteStandLeftImage,
         //cropWidth: 177,
-        cropWidth: 77,
+        cropWidth: STAND_IMAGE_WIDTH,
         //width: 66,
-        width: 77
+        width: STAND_IMAGE_WIDTH
       },
       run: {
         right: spriteRunRightImage,
         left: spriteRunLeftImage,
-        cropWidth: 161,
-        width: 161
+        cropWidth: RUN_IMAGE_WIDTH,
+        width: RUN_IMAGE_WIDTH
         //cropWidth: 341,
         //width: 127.875,
       },
     };
     this.currentSprite = this.sprites.stand.right;
     //this.currentCropWidth = 177;
-    this.currentCropWidth=77;
+    this.currentCropWidth=STAND_IMAGE_WIDTH;
   }
 
   draw() {
@@ -120,7 +123,8 @@ class Player {
       this.currentCropWidth * this.frames,
       0,
       this.currentCropWidth,
-      333,
+      //333,
+      this.image.height,
       this.position.x,
       this.position.y,
       this.width,
@@ -432,7 +436,7 @@ addEventListener("keydown", ({ keyCode }) => {
     case SPACEBAR:
       console.log("jump");
       hitSpaceCount++;
-      if (hitSpaceCount == 1) player.velocity.y -= JUMPVELOCITY;
+      if (hitSpaceCount === 1) player.velocity.y -= JUMPVELOCITY;
       //player.velocity.y -= JUMPVELOCITY; //This makes him jump mid air multiple times
       break;
     case SHIFT:

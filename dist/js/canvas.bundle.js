@@ -294,6 +294,8 @@ var HIGH_SPEED_FACTOR = 3;
 var JUMPVELOCITY = INITIAL_JUMPVELOCITY;
 var PLAYERSPEED = INITIAL_PLAYERSPEED;
 var BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
+var STAND_IMAGE_WIDTH = 77;
+var RUN_IMAGE_WIDTH = 161;
 var hitSpaceCount = 0;
 var gameTimer = 0;
 
@@ -335,7 +337,7 @@ var Player = /*#__PURE__*/function () {
     // this.width = 66;
     // this.height = 150;
     this.image = spriteStandRightImage;
-    this.width = 77;
+    this.width = STAND_IMAGE_WIDTH;
     //this.height = 333;
     this.height = this.image.height;
     this.frames = 0;
@@ -344,15 +346,15 @@ var Player = /*#__PURE__*/function () {
         right: spriteStandRightImage,
         left: spriteStandLeftImage,
         //cropWidth: 177,
-        cropWidth: 77,
+        cropWidth: STAND_IMAGE_WIDTH,
         //width: 66,
-        width: 77
+        width: STAND_IMAGE_WIDTH
       },
       run: {
         right: spriteRunRightImage,
         left: spriteRunLeftImage,
-        cropWidth: 161,
-        width: 161
+        cropWidth: RUN_IMAGE_WIDTH,
+        width: RUN_IMAGE_WIDTH
         //cropWidth: 341,
         //width: 127.875,
       }
@@ -360,12 +362,14 @@ var Player = /*#__PURE__*/function () {
 
     this.currentSprite = this.sprites.stand.right;
     //this.currentCropWidth = 177;
-    this.currentCropWidth = 77;
+    this.currentCropWidth = STAND_IMAGE_WIDTH;
   }
   _createClass(Player, [{
     key: "draw",
     value: function draw() {
-      canvasCtx.drawImage(this.currentSprite, this.currentCropWidth * this.frames, 0, this.currentCropWidth, 333, this.position.x, this.position.y, this.width, this.height);
+      canvasCtx.drawImage(this.currentSprite, this.currentCropWidth * this.frames, 0, this.currentCropWidth,
+      //333,
+      this.image.height, this.position.x, this.position.y, this.width, this.height);
     }
   }, {
     key: "update",
@@ -631,7 +635,7 @@ addEventListener("keydown", function (_ref4) {
     case SPACEBAR:
       console.log("jump");
       hitSpaceCount++;
-      if (hitSpaceCount == 1) player.velocity.y -= JUMPVELOCITY;
+      if (hitSpaceCount === 1) player.velocity.y -= JUMPVELOCITY;
       //player.velocity.y -= JUMPVELOCITY; //This makes him jump mid air multiple times
       break;
     case SHIFT:
