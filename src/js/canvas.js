@@ -1,7 +1,11 @@
 import platformImageSrc from "../img/platform.png";
 import platformImageSmallTallSrc from "../img/platformSmallTall.png";
-import hills from "../img/hills.png";
-import background from "../img/background.png";
+import hills from "../img/Mushroom_Cave_L3.png";
+import background from "../img/Mushroom_Cave_L2.png";
+import cave1 from "../img/Mushroom_Cave_L1.png";
+import cave2 from "../img/Mushroom_Cave_L2.png";
+import cave3 from "../img/Mushroom_Cave_L3.png";
+import cave4 from "../img/Mushroom_Cave_L4.png";
 // import spriteRunLeft from "../img/spriteRunLeft.png";
 // import spriteRunRight from "../img/spriteRunRight.png";
 
@@ -73,6 +77,22 @@ function sleep(milliseconds) {
     currentDate = Date.now();
   } while (currentDate - date < milliseconds);
 }
+
+class BackgroundAsset {
+  constructor({ x, y, image }) {
+    this.position = {
+      x,
+      y,
+    };
+    this.image = image;
+    this.width = image.width;
+    this.height = image.height;
+  }
+  draw() {
+    canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+  }
+}
+
 
 class Player {
   constructor() {
@@ -205,8 +225,13 @@ class GenericObject {
 
 let platformImage = createImage(platformImageSrc);
 let platformImageSmallTall = createImage(platformImageSmallTallSrc);
+let cave1Image = createImage(cave1);
+let cave2Image = createImage(cave2);
+let cave3Image = createImage(cave3);
+
 let player = new Player();
 let platforms = [];
+let backgroundAssets = [];
 let clouds = [];
 let genericObjects = [];
 let lastKey = "";
@@ -224,8 +249,24 @@ let scrollOffset = 0;
 function init() {
   platformImage = createImage(platformImageSrc);
   platformImageSmallTall = createImage(platformImageSmallTallSrc);
+  cave1Image = createImage(cave1);
+  cave2Image = createImage(cave2);
+  cave3Image = createImage(cave3);
+  
   // Load player image
   player = new Player();
+  backgroundAssets = [
+    new GenericObject({
+      x: 0,
+      y: 0,
+      image: cave2Image,      
+    }),
+    new GenericObject({
+      x: 0,
+      y: 0,
+      image: cave3Image,      
+    })
+  ];
   platforms = [
     new Platform({
       x:
@@ -294,7 +335,6 @@ function init() {
     })
   ];
 
-
   keys = {
     right: {
       pressed: false,
@@ -312,6 +352,10 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
   canvasCtx.fillStyle = "white";
   canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+  backgroundAssets.forEach((bg) => {
+    bg.draw();
+  });
 
   genericObjects.forEach((genericObject) => {
     genericObject.draw();

@@ -2,6 +2,62 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/img/Mushroom_Cave_L1.png":
+/*!**************************************!*\
+  !*** ./src/img/Mushroom_Cave_L1.png ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "70f458ae64625905a79e99e429197822.png");
+
+/***/ }),
+
+/***/ "./src/img/Mushroom_Cave_L2.png":
+/*!**************************************!*\
+  !*** ./src/img/Mushroom_Cave_L2.png ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "bba7dae225cf40fd3000a1ddee7da85a.png");
+
+/***/ }),
+
+/***/ "./src/img/Mushroom_Cave_L3.png":
+/*!**************************************!*\
+  !*** ./src/img/Mushroom_Cave_L3.png ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "d9f5a64c0a0309dc4419f6f1ab59413e.png");
+
+/***/ }),
+
+/***/ "./src/img/Mushroom_Cave_L4.png":
+/*!**************************************!*\
+  !*** ./src/img/Mushroom_Cave_L4.png ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "3abfbedf43f685649703f3e082506858.png");
+
+/***/ }),
+
 /***/ "./src/img/aa_left_stand_small_sheet.png":
 /*!***********************************************!*\
   !*** ./src/img/aa_left_stand_small_sheet.png ***!
@@ -58,20 +114,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/img/background.png":
-/*!********************************!*\
-  !*** ./src/img/background.png ***!
-  \********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "072d51bcc9c09311d4c2a6708b05bddc.png");
-
-/***/ }),
-
 /***/ "./src/img/cloud.png":
 /*!***************************!*\
   !*** ./src/img/cloud.png ***!
@@ -83,20 +125,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "ebd01fd0df3c49ae1e1db924b79e726d.png");
-
-/***/ }),
-
-/***/ "./src/img/hills.png":
-/*!***************************!*\
-  !*** ./src/img/hills.png ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "cfffe4c371f5e11d372b398a87c51dd0.png");
 
 /***/ }),
 
@@ -242,20 +270,26 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_platform_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../img/platform.png */ "./src/img/platform.png");
 /* harmony import */ var _img_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../img/platformSmallTall.png */ "./src/img/platformSmallTall.png");
-/* harmony import */ var _img_hills_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/hills.png */ "./src/img/hills.png");
-/* harmony import */ var _img_background_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/background.png */ "./src/img/background.png");
-/* harmony import */ var _img_aalw_full_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/aalw_full.png */ "./src/img/aalw_full.png");
-/* harmony import */ var _img_aarw_full_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/aarw_full.png */ "./src/img/aarw_full.png");
-/* harmony import */ var _img_aa_left_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/aa_left_stand_small_sheet.png */ "./src/img/aa_left_stand_small_sheet.png");
-/* harmony import */ var _img_aa_right_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/aa_right_stand_small_sheet.png */ "./src/img/aa_right_stand_small_sheet.png");
-/* harmony import */ var _img_smb3_gif__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../img/smb3.gif */ "./src/img/smb3.gif");
-/* harmony import */ var _img_cloud_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../img/cloud.png */ "./src/img/cloud.png");
+/* harmony import */ var _img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/Mushroom_Cave_L3.png */ "./src/img/Mushroom_Cave_L3.png");
+/* harmony import */ var _img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/Mushroom_Cave_L2.png */ "./src/img/Mushroom_Cave_L2.png");
+/* harmony import */ var _img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/Mushroom_Cave_L1.png */ "./src/img/Mushroom_Cave_L1.png");
+/* harmony import */ var _img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/Mushroom_Cave_L4.png */ "./src/img/Mushroom_Cave_L4.png");
+/* harmony import */ var _img_aalw_full_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/aalw_full.png */ "./src/img/aalw_full.png");
+/* harmony import */ var _img_aarw_full_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/aarw_full.png */ "./src/img/aarw_full.png");
+/* harmony import */ var _img_aa_left_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../img/aa_left_stand_small_sheet.png */ "./src/img/aa_left_stand_small_sheet.png");
+/* harmony import */ var _img_aa_right_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../img/aa_right_stand_small_sheet.png */ "./src/img/aa_right_stand_small_sheet.png");
+/* harmony import */ var _img_smb3_gif__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../img/smb3.gif */ "./src/img/smb3.gif");
+/* harmony import */ var _img_cloud_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../img/cloud.png */ "./src/img/cloud.png");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+
+
 
 
 
@@ -307,11 +341,11 @@ function createImage(imageSrc) {
 }
 // Player object
 var gravity = 0.5;
-var spriteStandRightImage = createImage(_img_aa_right_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
-var spriteStandLeftImage = createImage(_img_aa_left_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_6__["default"]);
-var spriteRunRightImage = createImage(_img_aarw_full_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
-var spriteRunLeftImage = createImage(_img_aalw_full_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
-var smb3BackgroundImage = createImage(_img_smb3_gif__WEBPACK_IMPORTED_MODULE_8__["default"]);
+var spriteStandRightImage = createImage(_img_aa_right_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_9__["default"]);
+var spriteStandLeftImage = createImage(_img_aa_left_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_8__["default"]);
+var spriteRunRightImage = createImage(_img_aarw_full_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
+var spriteRunLeftImage = createImage(_img_aalw_full_png__WEBPACK_IMPORTED_MODULE_6__["default"]);
+var smb3BackgroundImage = createImage(_img_smb3_gif__WEBPACK_IMPORTED_MODULE_10__["default"]);
 
 //let spriteStandRightImage = createImage(spriteStandRight);
 
@@ -322,6 +356,28 @@ function sleep(milliseconds) {
     currentDate = Date.now();
   } while (currentDate - date < milliseconds);
 }
+var BackgroundAsset = /*#__PURE__*/function () {
+  function BackgroundAsset(_ref) {
+    var x = _ref.x,
+      y = _ref.y,
+      image = _ref.image;
+    _classCallCheck(this, BackgroundAsset);
+    this.position = {
+      x: x,
+      y: y
+    };
+    this.image = image;
+    this.width = image.width;
+    this.height = image.height;
+  }
+  _createClass(BackgroundAsset, [{
+    key: "draw",
+    value: function draw() {
+      canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+    }
+  }]);
+  return BackgroundAsset;
+}();
 var Player = /*#__PURE__*/function () {
   function Player() {
     _classCallCheck(this, Player);
@@ -394,10 +450,10 @@ var Player = /*#__PURE__*/function () {
   return Player;
 }();
 var Platform = /*#__PURE__*/function () {
-  function Platform(_ref) {
-    var x = _ref.x,
-      y = _ref.y,
-      image = _ref.image;
+  function Platform(_ref2) {
+    var x = _ref2.x,
+      y = _ref2.y,
+      image = _ref2.image;
     _classCallCheck(this, Platform);
     this.position = {
       x: x,
@@ -416,10 +472,10 @@ var Platform = /*#__PURE__*/function () {
   return Platform;
 }();
 var Cloud = /*#__PURE__*/function () {
-  function Cloud(_ref2) {
-    var x = _ref2.x,
-      y = _ref2.y,
-      image = _ref2.image;
+  function Cloud(_ref3) {
+    var x = _ref3.x,
+      y = _ref3.y,
+      image = _ref3.image;
     _classCallCheck(this, Cloud);
     this.position = {
       x: x,
@@ -438,10 +494,10 @@ var Cloud = /*#__PURE__*/function () {
   return Cloud;
 }();
 var GenericObject = /*#__PURE__*/function () {
-  function GenericObject(_ref3) {
-    var x = _ref3.x,
-      y = _ref3.y,
-      image = _ref3.image;
+  function GenericObject(_ref4) {
+    var x = _ref4.x,
+      y = _ref4.y,
+      image = _ref4.image;
     _classCallCheck(this, GenericObject);
     this.position = {
       x: x,
@@ -461,8 +517,12 @@ var GenericObject = /*#__PURE__*/function () {
 }();
 var platformImage = createImage(_img_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var platformImageSmallTall = createImage(_img_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_1__["default"]);
+var cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
+var cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var player = new Player();
 var platforms = [];
+var backgroundAssets = [];
 var clouds = [];
 var genericObjects = [];
 var lastKey = "";
@@ -478,8 +538,21 @@ var scrollOffset = 0;
 function init() {
   platformImage = createImage(_img_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]);
   platformImageSmallTall = createImage(_img_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
+  cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
+  cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
   // Load player image
   player = new Player();
+  backgroundAssets = [new GenericObject({
+    x: 0,
+    y: 0,
+    image: cave2Image
+  }), new GenericObject({
+    x: 0,
+    y: 0,
+    image: cave3Image
+  })];
   platforms = [new Platform({
     x: platformImage.width * 4 + 300 - 2 + platformImage.width - platformImageSmallTall.width,
     y: 270,
@@ -512,20 +585,20 @@ function init() {
   genericObjects = [new GenericObject({
     x: -1,
     y: -1,
-    image: createImage(_img_background_png__WEBPACK_IMPORTED_MODULE_3__["default"])
+    image: createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_3__["default"])
   }), new GenericObject({
     x: -1,
     y: -1,
-    image: createImage(_img_hills_png__WEBPACK_IMPORTED_MODULE_2__["default"])
+    image: createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_2__["default"])
   })];
   clouds = [new Cloud({
     x: 200,
     y: 0,
-    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_9__["default"])
+    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_11__["default"])
   }), new Cloud({
     x: 300,
     y: 0,
-    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_9__["default"])
+    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_11__["default"])
   })];
   keys = {
     right: {
@@ -544,6 +617,9 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
   canvasCtx.fillStyle = "white";
   canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+  backgroundAssets.forEach(function (bg) {
+    bg.draw();
+  });
   genericObjects.forEach(function (genericObject) {
     genericObject.draw();
   });
@@ -618,8 +694,8 @@ function gameLoop() {
 // Start the game loop
 init();
 gameLoop();
-addEventListener("keydown", function (_ref4) {
-  var keyCode = _ref4.keyCode;
+addEventListener("keydown", function (_ref5) {
+  var keyCode = _ref5.keyCode;
   console.log(keyCode);
   switch (keyCode) {
     case LEFTARROW:
@@ -653,8 +729,8 @@ addEventListener("keydown", function (_ref4) {
       break;
   }
 });
-addEventListener("keyup", function (_ref5) {
-  var keyCode = _ref5.keyCode;
+addEventListener("keyup", function (_ref6) {
+  var keyCode = _ref6.keyCode;
   switch (keyCode) {
     case LEFTARROW:
       console.log("left");
