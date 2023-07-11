@@ -271,8 +271,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_platform_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../img/platform.png */ "./src/img/platform.png");
 /* harmony import */ var _img_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../img/platformSmallTall.png */ "./src/img/platformSmallTall.png");
 /* harmony import */ var _img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/Mushroom_Cave_L3.png */ "./src/img/Mushroom_Cave_L3.png");
-/* harmony import */ var _img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/Mushroom_Cave_L2.png */ "./src/img/Mushroom_Cave_L2.png");
-/* harmony import */ var _img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/Mushroom_Cave_L1.png */ "./src/img/Mushroom_Cave_L1.png");
+/* harmony import */ var _img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/Mushroom_Cave_L1.png */ "./src/img/Mushroom_Cave_L1.png");
+/* harmony import */ var _img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/Mushroom_Cave_L2.png */ "./src/img/Mushroom_Cave_L2.png");
 /* harmony import */ var _img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/Mushroom_Cave_L4.png */ "./src/img/Mushroom_Cave_L4.png");
 /* harmony import */ var _img_aalw_full_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/aalw_full.png */ "./src/img/aalw_full.png");
 /* harmony import */ var _img_aarw_full_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/aarw_full.png */ "./src/img/aarw_full.png");
@@ -361,7 +361,9 @@ var BackgroundAsset = /*#__PURE__*/function () {
     var x = _ref.x,
       y = _ref.y,
       image = _ref.image,
-      parallaxfactor = _ref.parallaxfactor;
+      parallaxfactor = _ref.parallaxfactor,
+      argWidth = _ref.argWidth,
+      argHeight = _ref.argHeight;
     _classCallCheck(this, BackgroundAsset);
     this.position = {
       x: x,
@@ -369,13 +371,18 @@ var BackgroundAsset = /*#__PURE__*/function () {
     };
     this.image = image;
     this.parallaxfactor = parallaxfactor;
-    this.width = image.width;
-    this.height = image.height;
+    if (argWidth > 0 && argHeight > 0) {
+      this.width = argWidth;
+      this.height = argHeight;
+    } else {
+      this.width = image.width;
+      this.height = image.height;
+    }
   }
   _createClass(BackgroundAsset, [{
     key: "draw",
     value: function draw() {
-      canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+      canvasCtx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
     }
   }]);
   return BackgroundAsset;
@@ -519,8 +526,8 @@ var GenericObject = /*#__PURE__*/function () {
 }();
 var platformImage = createImage(_img_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var platformImageSmallTall = createImage(_img_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_1__["default"]);
-var cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
-var cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
 var cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
 var player = new Player();
@@ -541,8 +548,8 @@ var scrollOffset = 0;
 function init() {
   platformImage = createImage(_img_platform_png__WEBPACK_IMPORTED_MODULE_0__["default"]);
   platformImageSmallTall = createImage(_img_platformSmallTall_png__WEBPACK_IMPORTED_MODULE_1__["default"]);
-  cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
-  cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
+  cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
+  cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
   cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
   cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
 
@@ -552,17 +559,23 @@ function init() {
     x: 0,
     y: 0,
     image: cave2Image,
-    parallaxfactor: 0.2
+    parallaxfactor: 0.2,
+    argWidth: 1024,
+    argHeight: 768
   }), new BackgroundAsset({
     x: 0,
     y: 0,
     image: cave3Image,
-    parallaxfactor: 0.4
+    parallaxfactor: 0.4,
+    argWidth: 1024,
+    argHeight: 768
   }), new BackgroundAsset({
     x: 0,
     y: 0,
     image: cave4Image,
-    parallaxfactor: 0.5
+    parallaxfactor: 0.5,
+    argWidth: 1024,
+    argHeight: 768
   })];
   platforms = [new Platform({
     x: platformImage.width * 4 + 300 - 2 + platformImage.width - platformImageSmallTall.width,
@@ -596,7 +609,7 @@ function init() {
   genericObjects = [new GenericObject({
     x: -1,
     y: -1,
-    image: createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_3__["default"])
+    image: createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_3__["default"])
   }), new GenericObject({
     x: -1,
     y: -1,

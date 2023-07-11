@@ -1,7 +1,7 @@
 import platformImageSrc from "../img/platform.png";
 import platformImageSmallTallSrc from "../img/platformSmallTall.png";
 import hills from "../img/Mushroom_Cave_L3.png";
-import background from "../img/Mushroom_Cave_L2.png";
+import background from "../img/Mushroom_Cave_L1.png";
 import cave1 from "../img/Mushroom_Cave_L1.png";
 import cave2 from "../img/Mushroom_Cave_L2.png";
 import cave3 from "../img/Mushroom_Cave_L3.png";
@@ -79,18 +79,23 @@ function sleep(milliseconds) {
 }
 
 class BackgroundAsset {
-  constructor({ x, y, image, parallaxfactor }) {
+  constructor({ x, y, image, parallaxfactor, argWidth, argHeight }) {
     this.position = {
       x,
       y,
     };
     this.image = image;
     this.parallaxfactor = parallaxfactor;
-    this.width = image.width;
-    this.height = image.height;
+    if(argWidth >0 && argHeight >0){
+      this.width = argWidth;
+      this.height = argHeight;  
+    }else{
+      this.width = image.width;
+      this.height = image.height;  
+    }
   }
   draw() {
-    canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+    canvasCtx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
   }
 }
 
@@ -262,19 +267,25 @@ function init() {
       x: 0,
       y: 0,
       image: cave2Image,
-      parallaxfactor: 0.2
+      parallaxfactor: 0.2,
+      argWidth: 1024,
+      argHeight: 768
     }),
     new BackgroundAsset({
       x: 0,
       y: 0,
       image: cave3Image,
-      parallaxfactor: 0.4
+      parallaxfactor: 0.4,
+      argWidth: 1024,
+      argHeight: 768
     }),
     new BackgroundAsset({
       x: 0,
       y: 0,
       image: cave4Image,
-      parallaxfactor: 0.5
+      parallaxfactor: 0.5,
+      argWidth: 1024,
+      argHeight: 768
     })    
   ];
   platforms = [
