@@ -360,13 +360,15 @@ var BackgroundAsset = /*#__PURE__*/function () {
   function BackgroundAsset(_ref) {
     var x = _ref.x,
       y = _ref.y,
-      image = _ref.image;
+      image = _ref.image,
+      parallaxfactor = _ref.parallaxfactor;
     _classCallCheck(this, BackgroundAsset);
     this.position = {
       x: x,
       y: y
     };
     this.image = image;
+    this.parallaxfactor = parallaxfactor;
     this.width = image.width;
     this.height = image.height;
   }
@@ -520,6 +522,7 @@ var platformImageSmallTall = createImage(_img_platformSmallTall_png__WEBPACK_IMP
 var cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
 var cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
 var cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
+var cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
 var player = new Player();
 var platforms = [];
 var backgroundAssets = [];
@@ -541,17 +544,25 @@ function init() {
   cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
   cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
   cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
+  cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
 
   // Load player image
   player = new Player();
-  backgroundAssets = [new GenericObject({
+  backgroundAssets = [new BackgroundAsset({
     x: 0,
     y: 0,
-    image: cave2Image
-  }), new GenericObject({
+    image: cave2Image,
+    parallaxfactor: 0.2
+  }), new BackgroundAsset({
     x: 0,
     y: 0,
-    image: cave3Image
+    image: cave3Image,
+    parallaxfactor: 0.4
+  }), new BackgroundAsset({
+    x: 0,
+    y: 0,
+    image: cave4Image,
+    parallaxfactor: 0.5
   })];
   platforms = [new Platform({
     x: platformImage.width * 4 + 300 - 2 + platformImage.width - platformImageSmallTall.width,
@@ -640,6 +651,9 @@ function gameLoop() {
     player.velocity.x = 0;
     if (keys.right.pressed) {
       scrollOffset += player.speed;
+      backgroundAssets.forEach(function (bgAsset) {
+        bgAsset.position.x -= player.speed * bgAsset.parallaxfactor;
+      });
       platforms.forEach(function (platform) {
         platform.position.x -= player.speed;
       });
@@ -648,6 +662,9 @@ function gameLoop() {
       });
     } else if (keys.left.pressed && scrollOffset > 0) {
       scrollOffset -= player.speed;
+      backgroundAssets.forEach(function (bgAsset) {
+        bgAsset.position.x += player.speed * bgAsset.parallaxfactor;
+      });
       platforms.forEach(function (platform) {
         platform.position.x += player.speed;
       });

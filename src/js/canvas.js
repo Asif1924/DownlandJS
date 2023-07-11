@@ -79,12 +79,13 @@ function sleep(milliseconds) {
 }
 
 class BackgroundAsset {
-  constructor({ x, y, image }) {
+  constructor({ x, y, image, parallaxfactor }) {
     this.position = {
       x,
       y,
     };
     this.image = image;
+    this.parallaxfactor = parallaxfactor;
     this.width = image.width;
     this.height = image.height;
   }
@@ -92,7 +93,6 @@ class BackgroundAsset {
     canvasCtx.drawImage(this.image, this.position.x, this.position.y);
   }
 }
-
 
 class Player {
   constructor() {
@@ -228,6 +228,7 @@ let platformImageSmallTall = createImage(platformImageSmallTallSrc);
 let cave1Image = createImage(cave1);
 let cave2Image = createImage(cave2);
 let cave3Image = createImage(cave3);
+let cave4Image = createImage(cave4);
 
 let player = new Player();
 let platforms = [];
@@ -252,20 +253,29 @@ function init() {
   cave1Image = createImage(cave1);
   cave2Image = createImage(cave2);
   cave3Image = createImage(cave3);
+  cave4Image = createImage(cave4);
   
   // Load player image
   player = new Player();
   backgroundAssets = [
-    new GenericObject({
+    new BackgroundAsset({
       x: 0,
       y: 0,
-      image: cave2Image,      
+      image: cave2Image,
+      parallaxfactor: 0.2
     }),
-    new GenericObject({
+    new BackgroundAsset({
       x: 0,
       y: 0,
-      image: cave3Image,      
-    })
+      image: cave3Image,
+      parallaxfactor: 0.4
+    }),
+    new BackgroundAsset({
+      x: 0,
+      y: 0,
+      image: cave4Image,
+      parallaxfactor: 0.5
+    })    
   ];
   platforms = [
     new Platform({
@@ -382,6 +392,9 @@ function gameLoop() {
     player.velocity.x = 0;
     if (keys.right.pressed) {
       scrollOffset += player.speed;
+      backgroundAssets.forEach((bgAsset) => {
+        bgAsset.position.x -= player.speed * bgAsset.parallaxfactor;
+      });
       platforms.forEach((platform) => {
         platform.position.x -= player.speed;
       });
@@ -391,6 +404,9 @@ function gameLoop() {
       });
     } else if (keys.left.pressed && scrollOffset > 0) {
       scrollOffset -= player.speed;
+      backgroundAssets.forEach((bgAsset) => {
+        bgAsset.position.x += player.speed * bgAsset.parallaxfactor;
+      });      
       platforms.forEach((platform) => {
         platform.position.x += player.speed;
       });
