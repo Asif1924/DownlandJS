@@ -491,14 +491,16 @@ var Player = /*#__PURE__*/function () {
         cropWidth: STAND_IMAGE_CROP_WIDTH,
         //cropWidth: STAND_IMAGE_WIDTH,
         //width: 66,
-        width: STAND_IMAGE_WIDTH
+        width: STAND_IMAGE_WIDTH,
+        cycleframes: false
       },
       run: {
         right: spriteRunRightImage,
         left: spriteRunLeftImage,
         //cropWidth: RUN_IMAGE_WIDTH,
         cropWidth: RUN_IMAGE_CROP_WIDTH,
-        width: RUN_IMAGE_WIDTH
+        width: RUN_IMAGE_WIDTH,
+        cycleframes: true
         //cropWidth: 341,
         //width: 127.875,
       }
@@ -518,7 +520,17 @@ var Player = /*#__PURE__*/function () {
   }, {
     key: "update",
     value: function update() {
-      this.frames++;
+      //this.frames = 1;
+      if (this.sprites.stand.cycleframes === true) {
+        this.frames++;
+      } else {
+        this.frames = 1;
+      }
+      if (this.sprites.run.cycleframes === true) {
+        this.frames++;
+      } else {
+        this.frames = 1;
+      }
       if (
       //stand frames
       this.frames > STAND_FRAMES && (
