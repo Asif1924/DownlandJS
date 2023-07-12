@@ -6,18 +6,22 @@ import cave1 from "../img/Mushroom_Cave_L1.png";
 import cave2 from "../img/Mushroom_Cave_L2.png";
 import cave3 from "../img/Mushroom_Cave_L3.png";
 import cave4 from "../img/Mushroom_Cave_L4.png";
-// import spriteRunLeft from "../img/spriteRunLeft.png";
-// import spriteRunRight from "../img/spriteRunRight.png";
+import harryrunright from "../img/PitfallHarry_RunRight.png";
+import harryrunleft from "../img/PitfallHarry_RunLeft.png";
+import harrystandright from "../img/PitfallHarry_StandRight.png";
+import harrystandleft from "../img/PitfallHarry_StandLeft.png";
 
-import spriteRunLeft from "../img/aalw_full.png";
-import spriteRunRight from "../img/aarw_full.png";
+import spriteRunLeft from "../img/spriteRunLeft.png";
+import spriteRunRight from "../img/spriteRunRight.png";
 
+// import spriteRunLeft from "../img/aalw_full.png";
+// import spriteRunRight from "../img/aarw_full.png";
 
-// import spriteStandLeft from "../img/spriteStandLeft.png";
-// import spriteStandRight from "../img/spriteStandRight.png";
+import spriteStandLeft from "../img/spriteStandLeft.png";
+import spriteStandRight from "../img/spriteStandRight.png";
 
-import spriteStandLeft from "../img/aa_left_stand_small_sheet.png";
-import spriteStandRight from "../img/aa_right_stand_small_sheet.png";
+// import spriteStandLeft from "../img/aa_left_stand_small_sheet.png";
+// import spriteStandRight from "../img/aa_right_stand_small_sheet.png";
 
 
 import marioBackground from "../img/smb3.gif";
@@ -46,8 +50,15 @@ let JUMPVELOCITY = INITIAL_JUMPVELOCITY;
 let PLAYERSPEED = INITIAL_PLAYERSPEED;
 const BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
 
-const STAND_IMAGE_WIDTH = 77;
-const RUN_IMAGE_WIDTH=161;
+//const STAND_IMAGE_WIDTH = 77;
+const STAND_IMAGE_CROP_WIDTH=177;
+const STAND_IMAGE_WIDTH = 177;
+
+const RUN_IMAGE_CROP_WIDTH=112;
+const RUN_IMAGE_WIDTH=112;
+
+const RUN_FRAMES = 4;
+const STAND_FRAMES = 1;
 
 let hitSpaceCount = 0;
 let gameTimer = 0;
@@ -61,10 +72,15 @@ function createImage(imageSrc) {
 // Player object
 let gravity = 0.5;
 
-let spriteStandRightImage = createImage(spriteStandRight);
-let spriteStandLeftImage = createImage(spriteStandLeft);
-let spriteRunRightImage = createImage(spriteRunRight);
-let spriteRunLeftImage = createImage(spriteRunLeft);
+// let spriteStandRightImage = createImage(spriteStandRight);
+// let spriteStandLeftImage = createImage(spriteStandLeft);
+// let spriteRunRightImage = createImage(spriteRunRight);
+// let spriteRunLeftImage = createImage(spriteRunLeft);
+
+let spriteStandRightImage = createImage(harrystandright);
+let spriteStandLeftImage = createImage(harrystandleft);
+let spriteRunRightImage = createImage(harryrunright);
+let spriteRunLeftImage = createImage(harryrunleft);
 
 let smb3BackgroundImage = createImage(marioBackground);
 
@@ -103,7 +119,7 @@ class Player {
   constructor() {
     this.speed = PLAYERSPEED;
     this.position = {
-      x: 100,
+      x: 200,
       y: 100,
     };
     this.velocity = {
@@ -112,9 +128,8 @@ class Player {
     };
     // this.width = 66;
     // this.height = 150;
-    this.image = spriteStandRightImage;
-
     this.width = STAND_IMAGE_WIDTH;
+    this.image = spriteStandRightImage;
     //this.height = 333;
     this.height = this.image.height; 
 
@@ -124,14 +139,16 @@ class Player {
         right: spriteStandRightImage,
         left: spriteStandLeftImage,
         //cropWidth: 177,
-        cropWidth: STAND_IMAGE_WIDTH,
+        cropWidth: STAND_IMAGE_CROP_WIDTH,
+        //cropWidth: STAND_IMAGE_WIDTH,
         //width: 66,
         width: STAND_IMAGE_WIDTH
       },
       run: {
         right: spriteRunRightImage,
         left: spriteRunLeftImage,
-        cropWidth: RUN_IMAGE_WIDTH,
+        //cropWidth: RUN_IMAGE_WIDTH,
+        cropWidth: RUN_IMAGE_CROP_WIDTH,
         width: RUN_IMAGE_WIDTH
         //cropWidth: 341,
         //width: 127.875,
@@ -159,15 +176,15 @@ class Player {
 
   update() {
     this.frames++;
-    if (
-      //this.frames > 59 &&
-      this.frames > 3 &&
+    if ( //stand frames
+      this.frames > STAND_FRAMES &&
+      //this.frames > 3 &&
       (this.currentSprite === this.sprites.stand.right ||
         this.currentSprite === this.sprites.stand.left)
     ) {
       this.frames = 0;
-    } else if (
-      this.frames > 63 &&
+    } else if ( //run frames
+      this.frames > RUN_FRAMES &&
       (this.currentSprite === this.sprites.run.right ||
         this.currentSprite === this.sprites.run.left)
     ) {

@@ -58,59 +58,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/img/aa_left_stand_small_sheet.png":
-/*!***********************************************!*\
-  !*** ./src/img/aa_left_stand_small_sheet.png ***!
-  \***********************************************/
+/***/ "./src/img/PitfallHarry_RunLeft.png":
+/*!******************************************!*\
+  !*** ./src/img/PitfallHarry_RunLeft.png ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "224e51e80d043a981dcad198255aa309.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "d7c4c8b24e4f63ecbc68bce8e3ed450c.png");
 
 /***/ }),
 
-/***/ "./src/img/aa_right_stand_small_sheet.png":
-/*!************************************************!*\
-  !*** ./src/img/aa_right_stand_small_sheet.png ***!
-  \************************************************/
+/***/ "./src/img/PitfallHarry_RunRight.png":
+/*!*******************************************!*\
+  !*** ./src/img/PitfallHarry_RunRight.png ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "c8f91d1ef154619a62b7a8b3d041869c.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "1677cfa0ac3fc95364ed4e5768c7df84.png");
 
 /***/ }),
 
-/***/ "./src/img/aalw_full.png":
-/*!*******************************!*\
-  !*** ./src/img/aalw_full.png ***!
-  \*******************************/
+/***/ "./src/img/PitfallHarry_StandLeft.png":
+/*!********************************************!*\
+  !*** ./src/img/PitfallHarry_StandLeft.png ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "51aad8d3c64515b615c5e75141c57b2b.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "f0b4eece676d73792548be2253287c66.png");
 
 /***/ }),
 
-/***/ "./src/img/aarw_full.png":
-/*!*******************************!*\
-  !*** ./src/img/aarw_full.png ***!
-  \*******************************/
+/***/ "./src/img/PitfallHarry_StandRight.png":
+/*!*********************************************!*\
+  !*** ./src/img/PitfallHarry_StandRight.png ***!
+  \*********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "2c8079ecab30eac99f1482a8c70e1aea.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "6e3918e32448d3f6476afd20a6089dda.png");
 
 /***/ }),
 
@@ -167,6 +167,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "40ff1c3c2e1fd7c085cfa36d2871266b.gif");
+
+/***/ }),
+
+/***/ "./src/img/spriteRunLeft.png":
+/*!***********************************!*\
+  !*** ./src/img/spriteRunLeft.png ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "c67ea51444aafa9bdcd5bdfd4f4a55bb.png");
+
+/***/ }),
+
+/***/ "./src/img/spriteRunRight.png":
+/*!************************************!*\
+  !*** ./src/img/spriteRunRight.png ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "a2f75989924952a7e49ce0405d487c93.png");
+
+/***/ }),
+
+/***/ "./src/img/spriteStandLeft.png":
+/*!*************************************!*\
+  !*** ./src/img/spriteStandLeft.png ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "11514f48f22f6d8e3cf748e45e3e1ffb.png");
+
+/***/ }),
+
+/***/ "./src/img/spriteStandRight.png":
+/*!**************************************!*\
+  !*** ./src/img/spriteStandRight.png ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "01e8f15e899155c68950c40e0a6b8df0.png");
 
 /***/ })
 
@@ -274,12 +330,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/Mushroom_Cave_L1.png */ "./src/img/Mushroom_Cave_L1.png");
 /* harmony import */ var _img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/Mushroom_Cave_L2.png */ "./src/img/Mushroom_Cave_L2.png");
 /* harmony import */ var _img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/Mushroom_Cave_L4.png */ "./src/img/Mushroom_Cave_L4.png");
-/* harmony import */ var _img_aalw_full_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/aalw_full.png */ "./src/img/aalw_full.png");
-/* harmony import */ var _img_aarw_full_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/aarw_full.png */ "./src/img/aarw_full.png");
-/* harmony import */ var _img_aa_left_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../img/aa_left_stand_small_sheet.png */ "./src/img/aa_left_stand_small_sheet.png");
-/* harmony import */ var _img_aa_right_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../img/aa_right_stand_small_sheet.png */ "./src/img/aa_right_stand_small_sheet.png");
-/* harmony import */ var _img_smb3_gif__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../img/smb3.gif */ "./src/img/smb3.gif");
-/* harmony import */ var _img_cloud_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../img/cloud.png */ "./src/img/cloud.png");
+/* harmony import */ var _img_PitfallHarry_RunRight_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/PitfallHarry_RunRight.png */ "./src/img/PitfallHarry_RunRight.png");
+/* harmony import */ var _img_PitfallHarry_RunLeft_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/PitfallHarry_RunLeft.png */ "./src/img/PitfallHarry_RunLeft.png");
+/* harmony import */ var _img_PitfallHarry_StandRight_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../img/PitfallHarry_StandRight.png */ "./src/img/PitfallHarry_StandRight.png");
+/* harmony import */ var _img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../img/PitfallHarry_StandLeft.png */ "./src/img/PitfallHarry_StandLeft.png");
+/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
+/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
+/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
+/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
+/* harmony import */ var _img_smb3_gif__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../img/smb3.gif */ "./src/img/smb3.gif");
+/* harmony import */ var _img_cloud_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../img/cloud.png */ "./src/img/cloud.png");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -294,16 +354,21 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
 
 
-// import spriteRunLeft from "../img/spriteRunLeft.png";
-// import spriteRunRight from "../img/spriteRunRight.png";
 
 
 
 
-// import spriteStandLeft from "../img/spriteStandLeft.png";
-// import spriteStandRight from "../img/spriteStandRight.png";
 
 
+
+// import spriteRunLeft from "../img/aalw_full.png";
+// import spriteRunRight from "../img/aarw_full.png";
+
+
+
+
+// import spriteStandLeft from "../img/aa_left_stand_small_sheet.png";
+// import spriteStandRight from "../img/aa_right_stand_small_sheet.png";
 
 
 
@@ -328,8 +393,14 @@ var HIGH_SPEED_FACTOR = 3;
 var JUMPVELOCITY = INITIAL_JUMPVELOCITY;
 var PLAYERSPEED = INITIAL_PLAYERSPEED;
 var BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
-var STAND_IMAGE_WIDTH = 77;
-var RUN_IMAGE_WIDTH = 161;
+
+//const STAND_IMAGE_WIDTH = 77;
+var STAND_IMAGE_CROP_WIDTH = 177;
+var STAND_IMAGE_WIDTH = 177;
+var RUN_IMAGE_CROP_WIDTH = 112;
+var RUN_IMAGE_WIDTH = 112;
+var RUN_FRAMES = 4;
+var STAND_FRAMES = 1;
 var hitSpaceCount = 0;
 var gameTimer = 0;
 
@@ -341,11 +412,17 @@ function createImage(imageSrc) {
 }
 // Player object
 var gravity = 0.5;
-var spriteStandRightImage = createImage(_img_aa_right_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_9__["default"]);
-var spriteStandLeftImage = createImage(_img_aa_left_stand_small_sheet_png__WEBPACK_IMPORTED_MODULE_8__["default"]);
-var spriteRunRightImage = createImage(_img_aarw_full_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
-var spriteRunLeftImage = createImage(_img_aalw_full_png__WEBPACK_IMPORTED_MODULE_6__["default"]);
-var smb3BackgroundImage = createImage(_img_smb3_gif__WEBPACK_IMPORTED_MODULE_10__["default"]);
+
+// let spriteStandRightImage = createImage(spriteStandRight);
+// let spriteStandLeftImage = createImage(spriteStandLeft);
+// let spriteRunRightImage = createImage(spriteRunRight);
+// let spriteRunLeftImage = createImage(spriteRunLeft);
+
+var spriteStandRightImage = createImage(_img_PitfallHarry_StandRight_png__WEBPACK_IMPORTED_MODULE_8__["default"]);
+var spriteStandLeftImage = createImage(_img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_9__["default"]);
+var spriteRunRightImage = createImage(_img_PitfallHarry_RunRight_png__WEBPACK_IMPORTED_MODULE_6__["default"]);
+var spriteRunLeftImage = createImage(_img_PitfallHarry_RunLeft_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
+var smb3BackgroundImage = createImage(_img_smb3_gif__WEBPACK_IMPORTED_MODULE_14__["default"]);
 
 //let spriteStandRightImage = createImage(spriteStandRight);
 
@@ -392,7 +469,7 @@ var Player = /*#__PURE__*/function () {
     _classCallCheck(this, Player);
     this.speed = PLAYERSPEED;
     this.position = {
-      x: 100,
+      x: 200,
       y: 100
     };
     this.velocity = {
@@ -401,8 +478,8 @@ var Player = /*#__PURE__*/function () {
     };
     // this.width = 66;
     // this.height = 150;
-    this.image = spriteStandRightImage;
     this.width = STAND_IMAGE_WIDTH;
+    this.image = spriteStandRightImage;
     //this.height = 333;
     this.height = this.image.height;
     this.frames = 0;
@@ -411,14 +488,16 @@ var Player = /*#__PURE__*/function () {
         right: spriteStandRightImage,
         left: spriteStandLeftImage,
         //cropWidth: 177,
-        cropWidth: STAND_IMAGE_WIDTH,
+        cropWidth: STAND_IMAGE_CROP_WIDTH,
+        //cropWidth: STAND_IMAGE_WIDTH,
         //width: 66,
         width: STAND_IMAGE_WIDTH
       },
       run: {
         right: spriteRunRightImage,
         left: spriteRunLeftImage,
-        cropWidth: RUN_IMAGE_WIDTH,
+        //cropWidth: RUN_IMAGE_WIDTH,
+        cropWidth: RUN_IMAGE_CROP_WIDTH,
         width: RUN_IMAGE_WIDTH
         //cropWidth: 341,
         //width: 127.875,
@@ -441,10 +520,14 @@ var Player = /*#__PURE__*/function () {
     value: function update() {
       this.frames++;
       if (
-      //this.frames > 59 &&
-      this.frames > 3 && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
+      //stand frames
+      this.frames > STAND_FRAMES && (
+      //this.frames > 3 &&
+      this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
         this.frames = 0;
-      } else if (this.frames > 63 && (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left)) {
+      } else if (
+      //run frames
+      this.frames > RUN_FRAMES && (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left)) {
         this.frames = 0;
       }
       this.draw();
@@ -618,11 +701,11 @@ function init() {
   clouds = [new Cloud({
     x: 200,
     y: 0,
-    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_11__["default"])
+    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_15__["default"])
   }), new Cloud({
     x: 300,
     y: 0,
-    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_11__["default"])
+    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_15__["default"])
   })];
   keys = {
     right: {
