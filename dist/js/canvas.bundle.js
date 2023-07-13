@@ -476,46 +476,33 @@ var Player = /*#__PURE__*/function () {
       x: 0,
       y: 1
     };
-    // this.width = 66;
-    // this.height = 150;
     this.width = STAND_IMAGE_WIDTH;
     this.image = spriteStandRightImage;
-    //this.height = 333;
     this.height = this.image.height;
     this.frames = 0;
     this.sprites = {
       stand: {
         right: spriteStandRightImage,
         left: spriteStandLeftImage,
-        //cropWidth: 177,
         cropWidth: STAND_IMAGE_CROP_WIDTH,
-        //cropWidth: STAND_IMAGE_WIDTH,
-        //width: 66,
         width: STAND_IMAGE_WIDTH,
         cycleframes: false
       },
       run: {
         right: spriteRunRightImage,
         left: spriteRunLeftImage,
-        //cropWidth: RUN_IMAGE_WIDTH,
         cropWidth: RUN_IMAGE_CROP_WIDTH,
         width: RUN_IMAGE_WIDTH,
         cycleframes: true
-        //cropWidth: 341,
-        //width: 127.875,
       }
     };
-
     this.currentSprite = this.sprites.stand.right;
-    //this.currentCropWidth = 177;
     this.currentCropWidth = STAND_IMAGE_WIDTH;
   }
   _createClass(Player, [{
     key: "draw",
     value: function draw() {
-      canvasCtx.drawImage(this.currentSprite, this.currentCropWidth * this.frames, 0, this.currentCropWidth,
-      //333,
-      this.image.height, this.position.x, this.position.y, this.width, this.height);
+      canvasCtx.drawImage(this.currentSprite, this.currentCropWidth * this.frames, 0, this.currentCropWidth, this.image.height, this.position.x, this.position.y, this.width, this.height);
     }
   }, {
     key: "update",
@@ -533,9 +520,7 @@ var Player = /*#__PURE__*/function () {
       }
       if (
       //stand frames
-      this.frames > STAND_FRAMES && (
-      //this.frames > 3 &&
-      this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
+      this.frames > STAND_FRAMES && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
         this.frames = 0;
       } else if (
       //run frames
@@ -653,23 +638,30 @@ function init() {
   backgroundAssets = [new BackgroundAsset({
     x: 0,
     y: 0,
-    image: cave2Image,
-    parallaxfactor: 0.2,
-    argWidth: 1024,
+    image: cave1Image,
+    parallaxfactor: 0.05,
+    argWidth: 8192,
+    argHeight: 1024
+  }), new BackgroundAsset({
+    x: 0,
+    y: 0,
+    image: cave4Image,
+    parallaxfactor: 0.1,
+    argWidth: 2048,
     argHeight: 768
   }), new BackgroundAsset({
     x: 0,
     y: 0,
     image: cave3Image,
     parallaxfactor: 0.4,
-    argWidth: 1024,
+    argWidth: 2048,
     argHeight: 768
   }), new BackgroundAsset({
     x: 0,
     y: 0,
-    image: cave4Image,
+    image: cave2Image,
     parallaxfactor: 0.5,
-    argWidth: 1024,
+    argWidth: 2048,
     argHeight: 768
   })];
   platforms = [new Platform({
@@ -739,9 +731,11 @@ function gameLoop() {
   backgroundAssets.forEach(function (bg) {
     bg.draw();
   });
-  genericObjects.forEach(function (genericObject) {
-    genericObject.draw();
-  });
+
+  // genericObjects.forEach((genericObject) => {
+  //   genericObject.draw();
+  // });
+
   platforms.forEach(function (platform) {
     platform.draw();
   });
