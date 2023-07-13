@@ -212,6 +212,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/img/WaterDrop.png":
+/*!*******************************!*\
+  !*** ./src/img/WaterDrop.png ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "c09f7dbf5a8a0502a138e2a0e5402d9e.png");
+
+/***/ }),
+
 /***/ "./src/img/cloud.png":
 /*!***************************!*\
   !*** ./src/img/cloud.png ***!
@@ -409,12 +423,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_PitfallHarry_RunLeft_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../img/PitfallHarry_RunLeft.png */ "./src/img/PitfallHarry_RunLeft.png");
 /* harmony import */ var _img_PitfallHarry_StandRight_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../img/PitfallHarry_StandRight.png */ "./src/img/PitfallHarry_StandRight.png");
 /* harmony import */ var _img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../img/PitfallHarry_StandLeft.png */ "./src/img/PitfallHarry_StandLeft.png");
-/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
-/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
-/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
-/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
-/* harmony import */ var _img_smb3_gif__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../img/smb3.gif */ "./src/img/smb3.gif");
-/* harmony import */ var _img_cloud_png__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../img/cloud.png */ "./src/img/cloud.png");
+/* harmony import */ var _img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../img/WaterDrop.png */ "./src/img/WaterDrop.png");
+/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
+/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
+/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
+/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
+/* harmony import */ var _img_smb3_gif__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../img/smb3.gif */ "./src/img/smb3.gif");
+/* harmony import */ var _img_cloud_png__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../img/cloud.png */ "./src/img/cloud.png");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -423,6 +438,7 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 // import platformImageSrc from "../img/platform.png";
 // import platformImageSmallTallSrc from "../img/platformSmallTall.png";
+
 
 
 
@@ -617,11 +633,33 @@ var Player = /*#__PURE__*/function () {
   }]);
   return Player;
 }();
-var Platform = /*#__PURE__*/function () {
-  function Platform(_ref2) {
+var WaterDroplet = /*#__PURE__*/function () {
+  function WaterDroplet(_ref2) {
     var x = _ref2.x,
       y = _ref2.y,
       image = _ref2.image;
+    _classCallCheck(this, WaterDroplet);
+    this.position = {
+      x: x,
+      y: y
+    };
+    this.image = image;
+    this.width = image.width;
+    this.height = image.height;
+  }
+  _createClass(WaterDroplet, [{
+    key: "draw",
+    value: function draw() {
+      canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+    }
+  }]);
+  return WaterDroplet;
+}();
+var Platform = /*#__PURE__*/function () {
+  function Platform(_ref3) {
+    var x = _ref3.x,
+      y = _ref3.y,
+      image = _ref3.image;
     _classCallCheck(this, Platform);
     this.position = {
       x: x,
@@ -640,10 +678,10 @@ var Platform = /*#__PURE__*/function () {
   return Platform;
 }();
 var Cloud = /*#__PURE__*/function () {
-  function Cloud(_ref3) {
-    var x = _ref3.x,
-      y = _ref3.y,
-      image = _ref3.image;
+  function Cloud(_ref4) {
+    var x = _ref4.x,
+      y = _ref4.y,
+      image = _ref4.image;
     _classCallCheck(this, Cloud);
     this.position = {
       x: x,
@@ -662,10 +700,10 @@ var Cloud = /*#__PURE__*/function () {
   return Cloud;
 }();
 var GenericObject = /*#__PURE__*/function () {
-  function GenericObject(_ref4) {
-    var x = _ref4.x,
-      y = _ref4.y,
-      image = _ref4.image;
+  function GenericObject(_ref5) {
+    var x = _ref5.x,
+      y = _ref5.y,
+      image = _ref5.image;
     _classCallCheck(this, GenericObject);
     this.position = {
       x: x,
@@ -689,11 +727,13 @@ var cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_
 var cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_9__["default"]);
 var cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
 var cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_10__["default"]);
+var waterDropletImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
 var player = new Player();
 var platforms = [];
 var backgroundAssets = [];
 var clouds = [];
 var genericObjects = [];
+var waterdroplets = [];
 var lastKey = "";
 var keys = {
   right: {
@@ -711,7 +751,7 @@ function init() {
   cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_9__["default"]);
   cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
   cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_10__["default"]);
-
+  waterDropletImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
   // Load player image
   player = new Player();
   backgroundAssets = [new BackgroundAsset({
@@ -781,14 +821,19 @@ function init() {
     y: -1,
     image: createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"])
   })];
+  waterdroplets = [new WaterDroplet({
+    x: 200,
+    y: 10,
+    image: waterDropletImage
+  })];
   clouds = [new Cloud({
     x: 200,
     y: 0,
-    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_20__["default"])
+    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_21__["default"])
   }), new Cloud({
     x: 300,
     y: 0,
-    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_20__["default"])
+    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_21__["default"])
   })];
   keys = {
     right: {
@@ -818,7 +863,9 @@ function gameLoop() {
   platforms.forEach(function (platform) {
     platform.draw();
   });
-
+  waterdroplets.forEach(function (waterdroplet) {
+    waterdroplet.draw();
+  });
   // clouds.forEach((cloud) => {
   //   cloud.draw();
   // })
@@ -841,6 +888,9 @@ function gameLoop() {
       genericObjects.forEach(function (genericObject) {
         genericObject.position.x -= player.speed * BACKGROUND_HILLS_PARALLAX_FACTOR;
       });
+      waterdroplets.forEach(function (waterdroplet) {
+        waterdroplet.position.x -= player.speed;
+      });
     } else if (keys.left.pressed && scrollOffset > 0) {
       scrollOffset -= player.speed;
       backgroundAssets.forEach(function (bgAsset) {
@@ -851,6 +901,9 @@ function gameLoop() {
       });
       genericObjects.forEach(function (genericObject) {
         genericObject.position.x += player.speed * BACKGROUND_HILLS_PARALLAX_FACTOR;
+      });
+      waterdroplets.forEach(function (waterdroplet) {
+        waterdroplet.position.x += player.speed;
       });
     }
   }
@@ -892,8 +945,8 @@ function gameLoop() {
 // Start the game loop
 init();
 gameLoop();
-addEventListener("keydown", function (_ref5) {
-  var keyCode = _ref5.keyCode;
+addEventListener("keydown", function (_ref6) {
+  var keyCode = _ref6.keyCode;
   console.log(keyCode);
   switch (keyCode) {
     case LEFTARROW:
@@ -927,8 +980,8 @@ addEventListener("keydown", function (_ref5) {
       break;
   }
 });
-addEventListener("keyup", function (_ref6) {
-  var keyCode = _ref6.keyCode;
+addEventListener("keyup", function (_ref7) {
+  var keyCode = _ref7.keyCode;
   switch (keyCode) {
     case LEFTARROW:
       console.log("left");

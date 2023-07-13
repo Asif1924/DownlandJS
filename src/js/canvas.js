@@ -24,6 +24,8 @@ import harryrunleft from "../img/PitfallHarry_RunLeft.png";
 import harrystandright from "../img/PitfallHarry_StandRight.png";
 import harrystandleft from "../img/PitfallHarry_StandLeft.png";
 
+import waterdropletSrc from "../img/WaterDrop.png";
+
 import spriteRunLeft from "../img/spriteRunLeft.png";
 import spriteRunRight from "../img/spriteRunRight.png";
 
@@ -212,6 +214,21 @@ class Player {
   }
 }
 
+class WaterDroplet{
+  constructor({ x, y, image }) {
+    this.position = {
+      x,
+      y,
+    };
+    this.image = image;
+    this.width = image.width;
+    this.height = image.height;
+  }
+  draw() {
+    canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+  }  
+}
+
 class Platform {
   constructor({ x, y, image }) {
     this.position = {
@@ -259,16 +276,20 @@ class GenericObject {
 
 let platformImage = createImage(platformImageSrc);
 let platformImageSmallTall = createImage(platformImageSmallTallSrc);
+
 let cave1Image = createImage(cave1);
 let cave2Image = createImage(cave2);
 let cave3Image = createImage(cave3);
 let cave4Image = createImage(cave4);
+
+let waterDropletImage = createImage(waterdropletSrc);
 
 let player = new Player();
 let platforms = [];
 let backgroundAssets = [];
 let clouds = [];
 let genericObjects = [];
+let waterdroplets = [];
 let lastKey = "";
 let keys = {
   right: {
@@ -288,7 +309,8 @@ function init() {
   cave2Image = createImage(cave2);
   cave3Image = createImage(cave3);
   cave4Image = createImage(cave4);
-  
+
+  waterDropletImage = createImage(waterdropletSrc);
   // Load player image
   player = new Player();
   backgroundAssets = [
@@ -380,6 +402,14 @@ function init() {
     })
   ];
 
+  waterdroplets = [
+    new WaterDroplet({
+      x:200,
+      y:10,
+      image: waterDropletImage
+    })
+  ]
+
   clouds = [
     new Cloud({
       x: 200,
@@ -423,6 +453,9 @@ function gameLoop() {
     platform.draw();
   });
 
+  waterdroplets.forEach((waterdroplet) => {
+    waterdroplet.draw();
+  });
   // clouds.forEach((cloud) => {
   //   cloud.draw();
   // })
@@ -450,6 +483,9 @@ function gameLoop() {
         genericObject.position.x -=
           player.speed * BACKGROUND_HILLS_PARALLAX_FACTOR;
       });
+      waterdroplets.forEach((waterdroplet) => {
+        waterdroplet.position.x -= player.speed;
+      });
     } else if (keys.left.pressed && scrollOffset > 0) {
       scrollOffset -= player.speed;
       backgroundAssets.forEach((bgAsset) => {
@@ -461,6 +497,9 @@ function gameLoop() {
       genericObjects.forEach((genericObject) => {
         genericObject.position.x +=
           player.speed * BACKGROUND_HILLS_PARALLAX_FACTOR;
+      });
+      waterdroplets.forEach((waterdroplet) => {
+        waterdroplet.position.x += player.speed;
       });
     }
   }
