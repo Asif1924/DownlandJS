@@ -521,15 +521,15 @@ var Player = /*#__PURE__*/function () {
     key: "update",
     value: function update() {
       //this.frames = 1;
-      if (this.sprites.stand.cycleframes === true) {
+      if ((this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left) && this.sprites.stand.cycleframes === true) {
         this.frames++;
       } else {
-        this.frames = 1;
+        this.frames = 0;
       }
-      if (this.sprites.run.cycleframes === true) {
+      if ((this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left) && this.sprites.run.cycleframes === true) {
         this.frames++;
       } else {
-        this.frames = 1;
+        this.frames = 0;
       }
       if (
       //stand frames
