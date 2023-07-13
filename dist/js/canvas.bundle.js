@@ -180,7 +180,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "0f091e5c3233c9eae282a6ce3a6b057c.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "5390143835bcbf83aeb5e1ef56730d57.png");
 
 /***/ }),
 
@@ -477,7 +477,7 @@ var JUMPVELOCITY = INITIAL_JUMPVELOCITY;
 var PLAYERSPEED = INITIAL_PLAYERSPEED;
 var BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
 
-//const STAND_IMAGE_WIDTH = 77;
+//Sprite cutoffs
 var STAND_IMAGE_CROP_WIDTH = 177;
 var STAND_IMAGE_WIDTH = 177;
 var RUN_IMAGE_CROP_WIDTH = 112;
@@ -505,10 +505,6 @@ var spriteStandRightImage = createImage(_img_PitfallHarry_StandRight_png__WEBPAC
 var spriteStandLeftImage = createImage(_img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_14__["default"]);
 var spriteRunRightImage = createImage(_img_PitfallHarry_RunRight_png__WEBPACK_IMPORTED_MODULE_11__["default"]);
 var spriteRunLeftImage = createImage(_img_PitfallHarry_RunLeft_png__WEBPACK_IMPORTED_MODULE_12__["default"]);
-var smb3BackgroundImage = createImage(_img_smb3_gif__WEBPACK_IMPORTED_MODULE_19__["default"]);
-
-//let spriteStandRightImage = createImage(spriteStandRight);
-
 function sleep(milliseconds) {
   var date = Date.now();
   var currentDate = null;

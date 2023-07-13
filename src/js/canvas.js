@@ -63,7 +63,7 @@ let JUMPVELOCITY = INITIAL_JUMPVELOCITY;
 let PLAYERSPEED = INITIAL_PLAYERSPEED;
 const BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
 
-//const STAND_IMAGE_WIDTH = 77;
+//Sprite cutoffs
 const STAND_IMAGE_CROP_WIDTH=177;
 const STAND_IMAGE_WIDTH = 177;
 
@@ -95,9 +95,6 @@ let spriteStandLeftImage = createImage(harrystandleft);
 let spriteRunRightImage = createImage(harryrunright);
 let spriteRunLeftImage = createImage(harryrunleft);
 
-let smb3BackgroundImage = createImage(marioBackground);
-
-//let spriteStandRightImage = createImage(spriteStandRight);
 
 function sleep(milliseconds) {
   const date = Date.now();
