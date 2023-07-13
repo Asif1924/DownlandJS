@@ -1,5 +1,18 @@
-import platformImageSrc from "../img/platform.png";
-import platformImageSmallTallSrc from "../img/platformSmallTall.png";
+// import platformImageSrc from "../img/platform.png";
+// import platformImageSmallTallSrc from "../img/platformSmallTall.png";
+
+import platformImageSrc from "../img/GreenPlatform.png";
+import platformImageSmallTallSrc from "../img/SingleIsland.png";
+
+
+import greenPlat1 from "../img/GreenPlatform1.png";
+import greenPlat2 from "../img/GreenPlatform2.png";
+import greenPlat3 from "../img/GreenPlatform3.png";
+
+import singlePlat1 from "../img/SingleIsland1.png"
+import singlePlat2 from "../img/SingleIsland2.png"
+
+
 import hills from "../img/Mushroom_Cave_L3.png";
 import background from "../img/Mushroom_Cave_L1.png";
 import cave1 from "../img/Mushroom_Cave_L1.png";
