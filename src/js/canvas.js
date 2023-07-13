@@ -224,7 +224,7 @@ class WaterDroplet{
     };
     this.velocity = {
       x: 0,
-      y: 1,
+      y: 3,
     };
     this.image = image;
     this.width = image.width;
@@ -235,11 +235,7 @@ class WaterDroplet{
   }
   update(){
     this.draw();
-    //this.position.y++;    
-    this.position.y += this.velocity.y
-    // if (this.position.y + this.height + this.velocity.y <= canvas.height) {
-    //   this.velocity.y += gravity;
-    // }    
+    this.position.y += this.velocity.y * (2+gravity);
     if (this.position.y > canvas.height-DROPLET_HIT_BOTTOM) {
       this.position.y = 0;
     }    
