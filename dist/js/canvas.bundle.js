@@ -500,6 +500,9 @@ var RUN_IMAGE_CROP_WIDTH = 112;
 var RUN_IMAGE_WIDTH = 112;
 var RUN_FRAMES = 4;
 var STAND_FRAMES = 1;
+
+//Water Droplet parameters
+var DROPLET_HIT_BOTTOM = 150;
 var hitSpaceCount = 0;
 var gameTimer = 0;
 
@@ -623,7 +626,6 @@ var Player = /*#__PURE__*/function () {
         this.frames = 0;
       }
       this.draw();
-      //sleep(1000);
       this.position.x += this.velocity.x;
       this.position.y += this.velocity.y;
       if (this.position.y + this.height + this.velocity.y <= canvas.height) {
@@ -643,6 +645,10 @@ var WaterDroplet = /*#__PURE__*/function () {
       x: x,
       y: y
     };
+    this.velocity = {
+      x: 0,
+      y: 1
+    };
     this.image = image;
     this.width = image.width;
     this.height = image.height;
@@ -651,6 +657,19 @@ var WaterDroplet = /*#__PURE__*/function () {
     key: "draw",
     value: function draw() {
       canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+    }
+  }, {
+    key: "update",
+    value: function update() {
+      this.draw();
+      //this.position.y++;    
+      this.position.y += this.velocity.y;
+      // if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+      //   this.velocity.y += gravity;
+      // }    
+      if (this.position.y > canvas.height - DROPLET_HIT_BOTTOM) {
+        this.position.y = 0;
+      }
     }
   }]);
   return WaterDroplet;
@@ -752,6 +771,7 @@ function init() {
   cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
   cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_10__["default"]);
   waterDropletImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
+
   // Load player image
   player = new Player();
   backgroundAssets = [new BackgroundAsset({
@@ -864,13 +884,16 @@ function gameLoop() {
     platform.draw();
   });
   waterdroplets.forEach(function (waterdroplet) {
-    waterdroplet.draw();
+    //waterdroplet.draw();
+    waterdroplet.update();
   });
   // clouds.forEach((cloud) => {
   //   cloud.draw();
   // })
 
   player.update();
+
+  //What to do when the player is facing right or left or moving in that direction
   if (keys.right.pressed && player.position.x < 400) {
     player.velocity.x = player.speed;
   } else if (keys.left.pressed && player.position.x > 100 || keys.left.pressed && scrollOffset === 0 && player.position.x > 0) {
@@ -976,7 +999,7 @@ addEventListener("keydown", function (_ref6) {
       break;
     case ALT:
       console.log("alt");
-      //PLAYERSPEED = PLAYERSPEED - 10;
+      //PLAYERSPEED = PLAYERSPEED - 10; //Attempt at slowing down but not needed really 
       break;
   }
 });

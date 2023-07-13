@@ -75,6 +75,9 @@ const RUN_IMAGE_WIDTH=112;
 const RUN_FRAMES = 4;
 const STAND_FRAMES = 1;
 
+//Water Droplet parameters
+const DROPLET_HIT_BOTTOM = 150;
+
 let hitSpaceCount = 0;
 let gameTimer = 0;
 
@@ -205,7 +208,6 @@ class Player {
       this.frames = 0;
     }
     this.draw();
-    //sleep(1000);
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
     if (this.position.y + this.height + this.velocity.y <= canvas.height) {
@@ -220,12 +222,27 @@ class WaterDroplet{
       x,
       y,
     };
+    this.velocity = {
+      x: 0,
+      y: 1,
+    };
     this.image = image;
     this.width = image.width;
     this.height = image.height;
   }
   draw() {
     canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+  }
+  update(){
+    this.draw();
+    //this.position.y++;    
+    this.position.y += this.velocity.y
+    // if (this.position.y + this.height + this.velocity.y <= canvas.height) {
+    //   this.velocity.y += gravity;
+    // }    
+    if (this.position.y > canvas.height-DROPLET_HIT_BOTTOM) {
+      this.position.y = 0;
+    }    
   }  
 }
 
@@ -311,6 +328,7 @@ function init() {
   cave4Image = createImage(cave4);
 
   waterDropletImage = createImage(waterdropletSrc);
+
   // Load player image
   player = new Player();
   backgroundAssets = [
@@ -454,7 +472,8 @@ function gameLoop() {
   });
 
   waterdroplets.forEach((waterdroplet) => {
-    waterdroplet.draw();
+    //waterdroplet.draw();
+    waterdroplet.update();
   });
   // clouds.forEach((cloud) => {
   //   cloud.draw();
@@ -462,6 +481,7 @@ function gameLoop() {
 
   player.update();
 
+  //What to do when the player is facing right or left or moving in that direction
   if (keys.right.pressed && player.position.x < 400) {
     player.velocity.x = player.speed;
   } else if (
@@ -597,7 +617,7 @@ addEventListener("keydown", ({ keyCode }) => {
       break;
     case ALT:
       console.log("alt");
-      //PLAYERSPEED = PLAYERSPEED - 10;
+      //PLAYERSPEED = PLAYERSPEED - 10; //Attempt at slowing down but not needed really 
       break;
   }
 });
