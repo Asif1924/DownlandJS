@@ -728,7 +728,7 @@ function init() {
   }), new BackgroundAsset({
     x: 0,
     y: 0,
-    image: cave4Image,
+    image: cave2Image,
     parallaxfactor: 0.1,
     argWidth: 2048,
     argHeight: 768
@@ -742,7 +742,7 @@ function init() {
   }), new BackgroundAsset({
     x: 0,
     y: 0,
-    image: cave2Image,
+    image: cave4Image,
     parallaxfactor: 0.5,
     argWidth: 2048,
     argHeight: 768
