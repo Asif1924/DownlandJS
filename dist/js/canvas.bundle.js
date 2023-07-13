@@ -730,22 +730,22 @@ function init() {
     y: 0,
     image: cave2Image,
     parallaxfactor: 0.1,
-    argWidth: 2048,
-    argHeight: 768
+    argWidth: 8192,
+    argHeight: 1024
   }), new BackgroundAsset({
     x: 0,
     y: 0,
     image: cave3Image,
     parallaxfactor: 0.4,
-    argWidth: 2048,
-    argHeight: 768
+    argWidth: 8192,
+    argHeight: 1024
   }), new BackgroundAsset({
     x: 0,
     y: 0,
     image: cave4Image,
     parallaxfactor: 0.5,
-    argWidth: 2048,
-    argHeight: 768
+    argWidth: 8192,
+    argHeight: 1024
   })];
   platforms = [new Platform({
     x: platformImage.width * 4 + 300 - 2 + platformImage.width - platformImageSmallTall.width,
