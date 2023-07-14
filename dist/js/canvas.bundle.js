@@ -226,17 +226,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/img/WaterDrop_SpriteSheet.png":
-/*!*******************************************!*\
-  !*** ./src/img/WaterDrop_SpriteSheet.png ***!
-  \*******************************************/
+/***/ "./src/img/WaterDrop_Splash123456_166x182_60.png":
+/*!*******************************************************!*\
+  !*** ./src/img/WaterDrop_Splash123456_166x182_60.png ***!
+  \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "6f857e465ae6628921f0d5da24ac27d0.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "322ae85ff6b8fa04eef12aa403605861.png");
 
 /***/ }),
 
@@ -424,7 +424,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_PitfallHarry_StandRight_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../img/PitfallHarry_StandRight.png */ "./src/img/PitfallHarry_StandRight.png");
 /* harmony import */ var _img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../img/PitfallHarry_StandLeft.png */ "./src/img/PitfallHarry_StandLeft.png");
 /* harmony import */ var _img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../img/WaterDrop.png */ "./src/img/WaterDrop.png");
-/* harmony import */ var _img_WaterDrop_SpriteSheet_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../img/WaterDrop_SpriteSheet.png */ "./src/img/WaterDrop_SpriteSheet.png");
+/* harmony import */ var _img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../img/WaterDrop_Splash123456_166x182_60.png */ "./src/img/WaterDrop_Splash123456_166x182_60.png");
 /* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
 /* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
 /* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
@@ -495,6 +495,8 @@ var STAND_FRAMES = 1;
 
 //Water Droplet parameters
 var DROPLET_HIT_BOTTOM = 150;
+var DROPLET_SPLASH_WIDTH = 166;
+var DROPLET_SPLASH_HEIGHT = 182;
 var hitSpaceCount = 0;
 var gameTimer = 0;
 
@@ -516,8 +518,9 @@ var spriteStandRightImage = createImage(_img_PitfallHarry_StandRight_png__WEBPAC
 var spriteStandLeftImage = createImage(_img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_14__["default"]);
 var spriteRunRightImage = createImage(_img_PitfallHarry_RunRight_png__WEBPACK_IMPORTED_MODULE_11__["default"]);
 var spriteRunLeftImage = createImage(_img_PitfallHarry_RunLeft_png__WEBPACK_IMPORTED_MODULE_12__["default"]);
-var waterdropSpriteSheetImage = createImage(_img_WaterDrop_SpriteSheet_png__WEBPACK_IMPORTED_MODULE_16__["default"]);
+var waterdropSpriteSheetImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__["default"]);
 var waterdropletHangingFallingImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
+var waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__["default"]);
 function sleep(milliseconds) {
   var date = Date.now();
   var currentDate = null;
@@ -659,7 +662,7 @@ var WaterDroplet = /*#__PURE__*/function () {
         width: RUN_IMAGE_WIDTH
       },
       splatter: {
-        spriteImage: spriteRunRightImage,
+        spriteImage: waterdropletSplashImage,
         cropWidth: RUN_IMAGE_CROP_WIDTH,
         width: RUN_IMAGE_WIDTH
       }

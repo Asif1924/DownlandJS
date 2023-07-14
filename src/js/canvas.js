@@ -24,7 +24,7 @@ import harrystandright from "../img/PitfallHarry_StandRight.png";
 import harrystandleft from "../img/PitfallHarry_StandLeft.png";
 
 import waterdropletSrc from "../img/WaterDrop.png";
-import waterdropSpriteSheetSrc from "../img/WaterDrop_SpriteSheet.png";
+import waterdropSpriteSheetSrc from "../img/WaterDrop_Splash123456_166x182_60.png"
 
 import spriteRunLeft from "../img/spriteRunLeft.png";
 import spriteRunRight from "../img/spriteRunRight.png";
@@ -69,6 +69,9 @@ const STAND_FRAMES = 1;
 
 //Water Droplet parameters
 const DROPLET_HIT_BOTTOM = 150;
+const DROPLET_SPLASH_WIDTH=166
+const DROPLET_SPLASH_HEIGHT = 182;
+
 
 let hitSpaceCount = 0;
 let gameTimer = 0;
@@ -94,6 +97,7 @@ let spriteRunLeftImage = createImage(harryrunleft);
 
 let waterdropSpriteSheetImage = createImage(waterdropSpriteSheetSrc);
 let waterdropletHangingFallingImage = createImage(waterdropletSrc);
+let waterdropletSplashImage = createImage(waterdropSpriteSheetSrc);
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -237,7 +241,7 @@ class WaterDroplet{
         width: RUN_IMAGE_WIDTH,
       },
       splatter: {
-        spriteImage: spriteRunRightImage,
+        spriteImage: waterdropletSplashImage,
         cropWidth: RUN_IMAGE_CROP_WIDTH,
         width: RUN_IMAGE_WIDTH,
       },
