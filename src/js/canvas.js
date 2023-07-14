@@ -273,6 +273,7 @@ class WaterDroplet{
     //}
     this.position.y = 0;
     //this.frames = 0;
+    //sleep(500);
   }
 
   update(){
@@ -475,6 +476,15 @@ function init() {
   waterdroplets = [
     new WaterDroplet({
       x:400,
+      y:10,
+      image: waterdropletHangingFallingImage
+    }),
+    new WaterDroplet({
+      x:600,
+      y:10,
+      image: waterdropletHangingFallingImage
+    }),    new WaterDroplet({
+      x:800,
       y:10,
       image: waterdropletHangingFallingImage
     })

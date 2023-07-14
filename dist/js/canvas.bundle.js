@@ -236,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "322ae85ff6b8fa04eef12aa403605861.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "10166fdf52886f75a3a4ed12acd0f726.png");
 
 /***/ }),
 
@@ -687,6 +687,7 @@ var WaterDroplet = /*#__PURE__*/function () {
       //}
       this.position.y = 0;
       //this.frames = 0;
+      //sleep(500);
     }
   }, {
     key: "update",
@@ -884,6 +885,14 @@ function init() {
   })];
   waterdroplets = [new WaterDroplet({
     x: 400,
+    y: 10,
+    image: waterdropletHangingFallingImage
+  }), new WaterDroplet({
+    x: 600,
+    y: 10,
+    image: waterdropletHangingFallingImage
+  }), new WaterDroplet({
+    x: 800,
     y: 10,
     image: waterdropletHangingFallingImage
   })];
