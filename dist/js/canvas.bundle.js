@@ -679,12 +679,14 @@ var WaterDroplet = /*#__PURE__*/function () {
   }, {
     key: "drawSplash",
     value: function drawSplash() {
-      var i = 0;
-      for (i = 0; i < DROPLET_SPLASH_FRAMES; i++) {
-        console.log("i=" + i);
-        canvasCtx.drawImage(this.currentSprite, 166 * i, 0, 166, this.currentSprite.height, this.position.x, this.position.y, this.width, this.height);
-      }
-      this.frames = 0;
+      this.frames++;
+      //let i = 0;
+      //for( var i=0;i<DROPLET_SPLASH_FRAMES;i++){
+      //console.log("i=" + i);
+      canvasCtx.drawImage(this.currentSprite, 166 * this.frames, 0, 166, this.currentSprite.height, this.position.x - 166 / 2, this.position.y - this.currentSprite.height + 55, 166, this.currentSprite.height);
+      //}
+      this.position.y = 0;
+      //this.frames = 0;
     }
   }, {
     key: "update",
@@ -700,8 +702,9 @@ var WaterDroplet = /*#__PURE__*/function () {
         //Only set y=0 once animation is done
         //if(frames>DROPLET_SPLASH_FRAMES-1)
         //if( i>= DROPLET_SPLASH_FRAMES)
-        this.position.y = 0;
+        //this.position.y = 0;    
       }
+
       if (this.position.y >= 0) {
         console.log(this.frames);
         this.frames = 0;
@@ -808,6 +811,7 @@ function init() {
   cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
   cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_10__["default"]);
   waterdropletHangingFallingImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
+  waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__["default"]);
 
   // Load player image
   player = new Player();

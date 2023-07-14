@@ -255,22 +255,24 @@ class WaterDroplet{
   }
 
   drawSplash(){
-    let i = 0;
-    for( i=0;i<DROPLET_SPLASH_FRAMES;i++){
-      console.log("i=" + i);
+    this.frames++;
+    //let i = 0;
+    //for( var i=0;i<DROPLET_SPLASH_FRAMES;i++){
+      //console.log("i=" + i);
       canvasCtx.drawImage(
         this.currentSprite,
-        166 * i,
+        166 * this.frames,
         0,
         166,
         this.currentSprite.height,
-        this.position.x,
-        this.position.y,
-        this.width,
-        this.height
+        this.position.x-(166/2),
+        this.position.y-this.currentSprite.height+55,
+        166,
+        this.currentSprite.height
       );
-    }
-    this.frames = 0;
+    //}
+    this.position.y = 0;
+    //this.frames = 0;
   }
 
   update(){
@@ -285,7 +287,7 @@ class WaterDroplet{
       //Only set y=0 once animation is done
       //if(frames>DROPLET_SPLASH_FRAMES-1)
       //if( i>= DROPLET_SPLASH_FRAMES)
-        this.position.y = 0;    
+      //this.position.y = 0;    
     }
     
     if(this.position.y>=0){
@@ -377,6 +379,7 @@ function init() {
   cave4Image = createImage(cave4);
 
   waterdropletHangingFallingImage = createImage(waterdropletSrc);
+  waterdropletSplashImage = createImage(waterdropSpriteSheetSrc);
 
   // Load player image
   player = new Player();
