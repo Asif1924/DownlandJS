@@ -4,7 +4,6 @@
 import platformImageSrc from "../img/GreenPlatform.png";
 import platformImageSmallTallSrc from "../img/SingleIsland.png";
 
-
 import greenPlat1 from "../img/GreenPlatform1.png";
 import greenPlat2 from "../img/GreenPlatform2.png";
 import greenPlat3 from "../img/GreenPlatform3.png";
@@ -12,34 +11,27 @@ import greenPlat3 from "../img/GreenPlatform3.png";
 import singlePlat1 from "../img/SingleIsland1.png"
 import singlePlat2 from "../img/SingleIsland2.png"
 
-
 import hills from "../img/Mushroom_Cave_L3.png";
 import background from "../img/Mushroom_Cave_L1.png";
 import cave1 from "../img/Mushroom_Cave_L1.png";
 import cave2 from "../img/Mushroom_Cave_L2.png";
 import cave3 from "../img/Mushroom_Cave_L3.png";
 import cave4 from "../img/Mushroom_Cave_L4.png";
+
 import harryrunright from "../img/PitfallHarry_RunRight.png";
 import harryrunleft from "../img/PitfallHarry_RunLeft.png";
 import harrystandright from "../img/PitfallHarry_StandRight.png";
 import harrystandleft from "../img/PitfallHarry_StandLeft.png";
 
 import waterdropletSrc from "../img/WaterDrop.png";
+import waterdropSpriteSheetSrc from "../img/WaterDrop_SpriteSheet.png";
 
 import spriteRunLeft from "../img/spriteRunLeft.png";
 import spriteRunRight from "../img/spriteRunRight.png";
 
-// import spriteRunLeft from "../img/aalw_full.png";
-// import spriteRunRight from "../img/aarw_full.png";
-
 import spriteStandLeft from "../img/spriteStandLeft.png";
 import spriteStandRight from "../img/spriteStandRight.png";
 
-// import spriteStandLeft from "../img/aa_left_stand_small_sheet.png";
-// import spriteStandRight from "../img/aa_right_stand_small_sheet.png";
-
-
-import marioBackground from "../img/smb3.gif";
 import cloud from "../img/cloud.png";
 
 const canvas = document.querySelector("canvas");
@@ -100,6 +92,8 @@ let spriteStandLeftImage = createImage(harrystandleft);
 let spriteRunRightImage = createImage(harryrunright);
 let spriteRunLeftImage = createImage(harryrunleft);
 
+let waterdropSpriteSheetImage = createImage(waterdropSpriteSheetSrc);
+let waterdropletHangingFallingImage = createImage(waterdropletSrc);
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -229,7 +223,29 @@ class WaterDroplet{
     this.image = image;
     this.width = image.width;
     this.height = image.height;
+
+    this.frames = 0;
+    this.sprites = {
+      hanging: {
+        spriteImage: waterdropletHangingFallingImage,
+        cropWidth: STAND_IMAGE_CROP_WIDTH,
+        width: STAND_IMAGE_WIDTH,
+      },
+      falling: {
+        spriteImage: waterdropletHangingFallingImage,
+        cropWidth: RUN_IMAGE_CROP_WIDTH,
+        width: RUN_IMAGE_WIDTH,
+      },
+      splatter: {
+        spriteImage: spriteRunRightImage,
+        cropWidth: RUN_IMAGE_CROP_WIDTH,
+        width: RUN_IMAGE_WIDTH,
+      },
+    };
+    this.currentSprite = this.sprites.hanging.spriteImage;
+    this.currentCropWidth=STAND_IMAGE_WIDTH;    
   }
+  
   draw() {
     canvasCtx.drawImage(this.image, this.position.x, this.position.y);
   }
@@ -295,8 +311,6 @@ let cave2Image = createImage(cave2);
 let cave3Image = createImage(cave3);
 let cave4Image = createImage(cave4);
 
-let waterDropletImage = createImage(waterdropletSrc);
-
 let player = new Player();
 let platforms = [];
 let backgroundAssets = [];
@@ -323,7 +337,7 @@ function init() {
   cave3Image = createImage(cave3);
   cave4Image = createImage(cave4);
 
-  waterDropletImage = createImage(waterdropletSrc);
+  waterdropletHangingFallingImage = createImage(waterdropletSrc);
 
   // Load player image
   player = new Player();
@@ -418,9 +432,9 @@ function init() {
 
   waterdroplets = [
     new WaterDroplet({
-      x:200,
+      x:400,
       y:10,
-      image: waterDropletImage
+      image: waterdropletHangingFallingImage
     })
   ]
 
@@ -468,12 +482,8 @@ function gameLoop() {
   });
 
   waterdroplets.forEach((waterdroplet) => {
-    //waterdroplet.draw();
     waterdroplet.update();
   });
-  // clouds.forEach((cloud) => {
-  //   cloud.draw();
-  // })
 
   player.update();
 

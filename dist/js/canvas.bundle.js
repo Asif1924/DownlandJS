@@ -226,6 +226,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/img/WaterDrop_SpriteSheet.png":
+/*!*******************************************!*\
+  !*** ./src/img/WaterDrop_SpriteSheet.png ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "6f857e465ae6628921f0d5da24ac27d0.png");
+
+/***/ }),
+
 /***/ "./src/img/cloud.png":
 /*!***************************!*\
   !*** ./src/img/cloud.png ***!
@@ -237,20 +251,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "ebd01fd0df3c49ae1e1db924b79e726d.png");
-
-/***/ }),
-
-/***/ "./src/img/smb3.gif":
-/*!**************************!*\
-  !*** ./src/img/smb3.gif ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "40ff1c3c2e1fd7c085cfa36d2871266b.gif");
 
 /***/ }),
 
@@ -424,11 +424,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_PitfallHarry_StandRight_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../img/PitfallHarry_StandRight.png */ "./src/img/PitfallHarry_StandRight.png");
 /* harmony import */ var _img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../img/PitfallHarry_StandLeft.png */ "./src/img/PitfallHarry_StandLeft.png");
 /* harmony import */ var _img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../img/WaterDrop.png */ "./src/img/WaterDrop.png");
-/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
-/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
-/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
-/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
-/* harmony import */ var _img_smb3_gif__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../img/smb3.gif */ "./src/img/smb3.gif");
+/* harmony import */ var _img_WaterDrop_SpriteSheet_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../img/WaterDrop_SpriteSheet.png */ "./src/img/WaterDrop_SpriteSheet.png");
+/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
+/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
+/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
+/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
 /* harmony import */ var _img_cloud_png__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../img/cloud.png */ "./src/img/cloud.png");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -460,14 +460,6 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
 
 
-// import spriteRunLeft from "../img/aalw_full.png";
-// import spriteRunRight from "../img/aarw_full.png";
-
-
-
-
-// import spriteStandLeft from "../img/aa_left_stand_small_sheet.png";
-// import spriteStandRight from "../img/aa_right_stand_small_sheet.png";
 
 
 
@@ -524,6 +516,8 @@ var spriteStandRightImage = createImage(_img_PitfallHarry_StandRight_png__WEBPAC
 var spriteStandLeftImage = createImage(_img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_14__["default"]);
 var spriteRunRightImage = createImage(_img_PitfallHarry_RunRight_png__WEBPACK_IMPORTED_MODULE_11__["default"]);
 var spriteRunLeftImage = createImage(_img_PitfallHarry_RunLeft_png__WEBPACK_IMPORTED_MODULE_12__["default"]);
+var waterdropSpriteSheetImage = createImage(_img_WaterDrop_SpriteSheet_png__WEBPACK_IMPORTED_MODULE_16__["default"]);
+var waterdropletHangingFallingImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
 function sleep(milliseconds) {
   var date = Date.now();
   var currentDate = null;
@@ -652,6 +646,26 @@ var WaterDroplet = /*#__PURE__*/function () {
     this.image = image;
     this.width = image.width;
     this.height = image.height;
+    this.frames = 0;
+    this.sprites = {
+      hanging: {
+        spriteImage: waterdropletHangingFallingImage,
+        cropWidth: STAND_IMAGE_CROP_WIDTH,
+        width: STAND_IMAGE_WIDTH
+      },
+      falling: {
+        spriteImage: waterdropletHangingFallingImage,
+        cropWidth: RUN_IMAGE_CROP_WIDTH,
+        width: RUN_IMAGE_WIDTH
+      },
+      splatter: {
+        spriteImage: spriteRunRightImage,
+        cropWidth: RUN_IMAGE_CROP_WIDTH,
+        width: RUN_IMAGE_WIDTH
+      }
+    };
+    this.currentSprite = this.sprites.hanging.spriteImage;
+    this.currentCropWidth = STAND_IMAGE_WIDTH;
   }
   _createClass(WaterDroplet, [{
     key: "draw",
@@ -742,7 +756,6 @@ var cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_
 var cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_9__["default"]);
 var cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
 var cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_10__["default"]);
-var waterDropletImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
 var player = new Player();
 var platforms = [];
 var backgroundAssets = [];
@@ -766,7 +779,7 @@ function init() {
   cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_9__["default"]);
   cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
   cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_10__["default"]);
-  waterDropletImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
+  waterdropletHangingFallingImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
 
   // Load player image
   player = new Player();
@@ -838,9 +851,9 @@ function init() {
     image: createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"])
   })];
   waterdroplets = [new WaterDroplet({
-    x: 200,
+    x: 400,
     y: 10,
-    image: waterDropletImage
+    image: waterdropletHangingFallingImage
   })];
   clouds = [new Cloud({
     x: 200,
@@ -880,13 +893,8 @@ function gameLoop() {
     platform.draw();
   });
   waterdroplets.forEach(function (waterdroplet) {
-    //waterdroplet.draw();
     waterdroplet.update();
   });
-  // clouds.forEach((cloud) => {
-  //   cloud.draw();
-  // })
-
   player.update();
 
   //What to do when the player is facing right or left or moving in that direction
