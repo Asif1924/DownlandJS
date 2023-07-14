@@ -497,6 +497,7 @@ var STAND_FRAMES = 1;
 var DROPLET_HIT_BOTTOM = 150;
 var DROPLET_SPLASH_WIDTH = 166;
 var DROPLET_SPLASH_HEIGHT = 182;
+var DROPLET_SPLASH_FRAMES = 60;
 var hitSpaceCount = 0;
 var gameTimer = 0;
 
@@ -673,15 +674,39 @@ var WaterDroplet = /*#__PURE__*/function () {
   _createClass(WaterDroplet, [{
     key: "draw",
     value: function draw() {
-      canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+      canvasCtx.drawImage(this.currentSprite, this.position.x, this.position.y);
+    }
+  }, {
+    key: "drawSplash",
+    value: function drawSplash() {
+      var i = 0;
+      for (i = 0; i < DROPLET_SPLASH_FRAMES; i++) {
+        console.log("i=" + i);
+        canvasCtx.drawImage(this.currentSprite, 166 * i, 0, 166, this.currentSprite.height, this.position.x, this.position.y, this.width, this.height);
+      }
+      this.frames = 0;
     }
   }, {
     key: "update",
     value: function update() {
-      this.draw();
+      //this.draw();
       this.position.y += this.velocity.y * (2 + gravity);
+      var i = 0;
       if (this.position.y > canvas.height - DROPLET_HIT_BOTTOM) {
+        console.log(this.frames);
+        this.frames++;
+        this.currentSprite = this.sprites.splatter.spriteImage;
+        this.drawSplash();
+        //Only set y=0 once animation is done
+        //if(frames>DROPLET_SPLASH_FRAMES-1)
+        //if( i>= DROPLET_SPLASH_FRAMES)
         this.position.y = 0;
+      }
+      if (this.position.y >= 0) {
+        console.log(this.frames);
+        this.frames = 0;
+        this.currentSprite = this.sprites.falling.spriteImage;
+        this.draw();
       }
     }
   }]);
