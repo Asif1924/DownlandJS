@@ -65,11 +65,12 @@ const RUN_IMAGE_CROP_WIDTH=112;
 const RUN_IMAGE_WIDTH=112;
 
 const RUN_FRAMES = 4;
-const STAND_FRAMES = 1;
+const STAND_FRAMES = 2;
 
 //Water Droplet parameters
 const DROPLET_HIT_BOTTOM = 150;
 const DROPLET_SPLASH_WIDTH=166
+const DROPLET_SPLASH_CROPWIDTH=166;
 const DROPLET_SPLASH_HEIGHT = 182;
 const DROPLET_SPLASH_FRAMES = 60;
 
@@ -105,6 +106,10 @@ function sleep(milliseconds) {
   do {
     currentDate = Date.now();
   } while (currentDate - date < milliseconds);
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
 }
 
 class BackgroundAsset {
@@ -251,40 +256,51 @@ class WaterDroplet{
   }
   
   draw() {
+    console.log("===================================droplet draw");
     canvasCtx.drawImage(this.currentSprite, this.position.x, this.position.y);
   }
 
   drawSplash(){
-    this.frames++;
+    console.log("===================================drawSplash");
+    //this.frames++;
     //let i = 0;
     //for( var i=0;i<DROPLET_SPLASH_FRAMES;i++){
-      //console.log("i=" + i);
-      canvasCtx.drawImage(
-        this.currentSprite,
-        166 * this.frames,
-        0,
-        166,
-        this.currentSprite.height,
-        this.position.x-(166/2),
-        this.position.y-this.currentSprite.height+55,
-        166,
-        this.currentSprite.height
-      );
+    console.log("splash frames=" + this.frames);
+    canvasCtx.drawImage(
+      this.currentSprite,
+      //166 * this.frames,
+      166 * this.frames,
+      //getRandomInt
+      0,
+      166,
+      this.currentSprite.height,
+      this.position.x-(166/2),
+      this.position.y-this.currentSprite.height+55,
+      166,
+      this.currentSprite.height
+    );
     //}
-    this.position.y = 0;
+    if(this.frames>DROPLET_SPLASH_FRAMES){
+      this.position.y = 0;
+      this.frames = 0;
+    }
     //this.frames = 0;
     //sleep(500);
   }
 
   update(){
     //this.draw();
+    //console.log("gameTimer=" + gameTimer);
     this.position.y += this.velocity.y * (2+gravity);
-    let i = 0;
+    //let i = 0;
     if (this.position.y > canvas.height-DROPLET_HIT_BOTTOM ) {
-      console.log(this.frames);
       this.frames++;
       this.currentSprite = this.sprites.splatter.spriteImage;
-      this.drawSplash();
+      //for( var i=0;i<=160;i++){
+        this.position.y=canvas.height-DROPLET_HIT_BOTTOM;
+        this.drawSplash();
+        //this.frames++;
+      //}
       //Only set y=0 once animation is done
       //if(frames>DROPLET_SPLASH_FRAMES-1)
       //if( i>= DROPLET_SPLASH_FRAMES)
@@ -292,8 +308,8 @@ class WaterDroplet{
     }
     
     if(this.position.y>=0){
-      console.log(this.frames);
-      this.frames = 0;
+      //console.log(this.frames);
+      //this.frames = 0;
       this.currentSprite = this.sprites.falling.spriteImage;      
       this.draw();
     }    
@@ -479,15 +495,16 @@ function init() {
       y:10,
       image: waterdropletHangingFallingImage
     }),
-    new WaterDroplet({
-      x:600,
-      y:10,
-      image: waterdropletHangingFallingImage
-    }),    new WaterDroplet({
-      x:800,
-      y:10,
-      image: waterdropletHangingFallingImage
-    })
+    // new WaterDroplet({
+    //   x:600,
+    //   y:10,
+    //   image: waterdropletHangingFallingImage
+    // }),    
+    // new WaterDroplet({
+    //   x:800,
+    //   y:10,
+    //   image: waterdropletHangingFallingImage
+    // })
   ]
 
   clouds = [
