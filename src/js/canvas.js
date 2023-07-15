@@ -269,14 +269,14 @@ class WaterDroplet{
     canvasCtx.drawImage(
       this.currentSprite,
       //166 * this.frames,
-      166 * this.frames,
+      DROPLET_SPLASH_WIDTH * this.frames,
       //getRandomInt
       0,
-      166,
+      DROPLET_SPLASH_WIDTH,
       this.currentSprite.height,
-      this.position.x-(166/2),
+      this.position.x-(DROPLET_SPLASH_WIDTH/2),
       this.position.y-this.currentSprite.height+55,
-      166,
+      DROPLET_SPLASH_WIDTH,
       this.currentSprite.height
     );
     //}

@@ -691,9 +691,9 @@ var WaterDroplet = /*#__PURE__*/function () {
       console.log("splash frames=" + this.frames);
       canvasCtx.drawImage(this.currentSprite,
       //166 * this.frames,
-      166 * this.frames,
+      DROPLET_SPLASH_WIDTH * this.frames,
       //getRandomInt
-      0, 166, this.currentSprite.height, this.position.x - 166 / 2, this.position.y - this.currentSprite.height + 55, 166, this.currentSprite.height);
+      0, DROPLET_SPLASH_WIDTH, this.currentSprite.height, this.position.x - DROPLET_SPLASH_WIDTH / 2, this.position.y - this.currentSprite.height + 55, DROPLET_SPLASH_WIDTH, this.currentSprite.height);
       //}
       if (this.frames > DROPLET_SPLASH_FRAMES) {
         this.position.y = 0;
