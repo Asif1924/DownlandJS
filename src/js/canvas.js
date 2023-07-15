@@ -23,7 +23,7 @@ import harryrunleft from "../img/PitfallHarry_RunLeft.png";
 import harrystandright from "../img/PitfallHarry_StandRight.png";
 import harrystandleft from "../img/PitfallHarry_StandLeft.png";
 
-import waterdropletSrc from "../img/WaterDrop.png";
+import waterdropletSrc from "../img/WaterDrop_2.png";
 import waterdropSpriteSheetSrc from "../img/WaterDrop_Splash123456_166x182_60.png"
 
 import spriteRunLeft from "../img/spriteRunLeft.png";
@@ -68,6 +68,7 @@ const RUN_FRAMES = 4;
 const STAND_FRAMES = 2;
 
 //Water Droplet parameters
+const SINGLE_DROPLET_HEIGHT = 55;
 const DROPLET_HIT_BOTTOM = 150;
 const DROPLET_SPLASH_WIDTH=166
 const DROPLET_SPLASH_CROPWIDTH=166;
@@ -255,63 +256,51 @@ class WaterDroplet{
     this.currentCropWidth=STAND_IMAGE_WIDTH;    
   }
   
-  draw() {
-    console.log("===================================droplet draw");
+  drawHanging(){
+    console.log("===================================droplet hang");
+    
+  }
+
+  drawFalling() {
+    console.log("===================================droplet fall");
     canvasCtx.drawImage(this.currentSprite, this.position.x, this.position.y);
   }
 
   drawSplash(){
     console.log("===================================drawSplash");
-    //this.frames++;
-    //let i = 0;
-    //for( var i=0;i<DROPLET_SPLASH_FRAMES;i++){
     console.log("splash frames=" + this.frames);
     canvasCtx.drawImage(
       this.currentSprite,
-      //166 * this.frames,
       DROPLET_SPLASH_WIDTH * this.frames,
-      //getRandomInt
       0,
       DROPLET_SPLASH_WIDTH,
       this.currentSprite.height,
       this.position.x-(DROPLET_SPLASH_WIDTH/2),
-      this.position.y-this.currentSprite.height+55,
+      this.position.y-this.currentSprite.height+SINGLE_DROPLET_HEIGHT, //55 is hte height of the single drop which we just happen to know
       DROPLET_SPLASH_WIDTH,
       this.currentSprite.height
     );
-    //}
     if(this.frames>DROPLET_SPLASH_FRAMES){
       this.position.y = 0;
       this.frames = 0;
     }
-    //this.frames = 0;
-    //sleep(500);
   }
 
   update(){
-    //this.draw();
-    //console.log("gameTimer=" + gameTimer);
     this.position.y += this.velocity.y * (2+gravity);
-    //let i = 0;
-    if (this.position.y > canvas.height-DROPLET_HIT_BOTTOM ) {
-      this.frames++;
-      this.currentSprite = this.sprites.splatter.spriteImage;
-      //for( var i=0;i<=160;i++){
-        this.position.y=canvas.height-DROPLET_HIT_BOTTOM;
-        this.drawSplash();
-        //this.frames++;
-      //}
-      //Only set y=0 once animation is done
-      //if(frames>DROPLET_SPLASH_FRAMES-1)
-      //if( i>= DROPLET_SPLASH_FRAMES)
-      //this.position.y = 0;    
+    if( this.position.y===0 ){
+      this.drawHanging();
     }
-    
-    if(this.position.y>=0){
-      //console.log(this.frames);
-      //this.frames = 0;
-      this.currentSprite = this.sprites.falling.spriteImage;      
-      this.draw();
+    if (this.position.y > canvas.height-DROPLET_HIT_BOTTOM ) {
+      this.currentSprite = this.sprites.splatter.spriteImage;
+      this.frames++;
+
+      this.position.y=canvas.height-DROPLET_HIT_BOTTOM;
+      this.drawSplash();
+    }    
+    if(this.position.y>0){      
+      this.currentSprite = this.sprites.falling.spriteImage;           
+      this.drawFalling();
     }    
   }  
 }

@@ -212,17 +212,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/img/WaterDrop.png":
-/*!*******************************!*\
-  !*** ./src/img/WaterDrop.png ***!
-  \*******************************/
+/***/ "./src/img/WaterDrop_2.png":
+/*!*********************************!*\
+  !*** ./src/img/WaterDrop_2.png ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "c09f7dbf5a8a0502a138e2a0e5402d9e.png");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "8dad500540cff6bf1cbddb08660f7a70.png");
 
 /***/ }),
 
@@ -423,7 +423,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_PitfallHarry_RunLeft_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../img/PitfallHarry_RunLeft.png */ "./src/img/PitfallHarry_RunLeft.png");
 /* harmony import */ var _img_PitfallHarry_StandRight_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../img/PitfallHarry_StandRight.png */ "./src/img/PitfallHarry_StandRight.png");
 /* harmony import */ var _img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../img/PitfallHarry_StandLeft.png */ "./src/img/PitfallHarry_StandLeft.png");
-/* harmony import */ var _img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../img/WaterDrop.png */ "./src/img/WaterDrop.png");
+/* harmony import */ var _img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../img/WaterDrop_2.png */ "./src/img/WaterDrop_2.png");
 /* harmony import */ var _img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../img/WaterDrop_Splash123456_166x182_60.png */ "./src/img/WaterDrop_Splash123456_166x182_60.png");
 /* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
 /* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
@@ -494,6 +494,7 @@ var RUN_FRAMES = 4;
 var STAND_FRAMES = 2;
 
 //Water Droplet parameters
+var SINGLE_DROPLET_HEIGHT = 55;
 var DROPLET_HIT_BOTTOM = 150;
 var DROPLET_SPLASH_WIDTH = 166;
 var DROPLET_SPLASH_CROPWIDTH = 166;
@@ -521,7 +522,7 @@ var spriteStandLeftImage = createImage(_img_PitfallHarry_StandLeft_png__WEBPACK_
 var spriteRunRightImage = createImage(_img_PitfallHarry_RunRight_png__WEBPACK_IMPORTED_MODULE_11__["default"]);
 var spriteRunLeftImage = createImage(_img_PitfallHarry_RunLeft_png__WEBPACK_IMPORTED_MODULE_12__["default"]);
 var waterdropSpriteSheetImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__["default"]);
-var waterdropletHangingFallingImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
+var waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
 var waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__["default"]);
 function sleep(milliseconds) {
   var date = Date.now();
@@ -676,58 +677,45 @@ var WaterDroplet = /*#__PURE__*/function () {
     this.currentCropWidth = STAND_IMAGE_WIDTH;
   }
   _createClass(WaterDroplet, [{
-    key: "draw",
-    value: function draw() {
-      console.log("===================================droplet draw");
+    key: "drawHanging",
+    value: function drawHanging() {
+      console.log("===================================droplet hang");
+    }
+  }, {
+    key: "drawFalling",
+    value: function drawFalling() {
+      console.log("===================================droplet fall");
       canvasCtx.drawImage(this.currentSprite, this.position.x, this.position.y);
     }
   }, {
     key: "drawSplash",
     value: function drawSplash() {
       console.log("===================================drawSplash");
-      //this.frames++;
-      //let i = 0;
-      //for( var i=0;i<DROPLET_SPLASH_FRAMES;i++){
       console.log("splash frames=" + this.frames);
-      canvasCtx.drawImage(this.currentSprite,
-      //166 * this.frames,
-      DROPLET_SPLASH_WIDTH * this.frames,
-      //getRandomInt
-      0, DROPLET_SPLASH_WIDTH, this.currentSprite.height, this.position.x - DROPLET_SPLASH_WIDTH / 2, this.position.y - this.currentSprite.height + 55, DROPLET_SPLASH_WIDTH, this.currentSprite.height);
-      //}
+      canvasCtx.drawImage(this.currentSprite, DROPLET_SPLASH_WIDTH * this.frames, 0, DROPLET_SPLASH_WIDTH, this.currentSprite.height, this.position.x - DROPLET_SPLASH_WIDTH / 2, this.position.y - this.currentSprite.height + SINGLE_DROPLET_HEIGHT,
+      //55 is hte height of the single drop which we just happen to know
+      DROPLET_SPLASH_WIDTH, this.currentSprite.height);
       if (this.frames > DROPLET_SPLASH_FRAMES) {
         this.position.y = 0;
         this.frames = 0;
       }
-      //this.frames = 0;
-      //sleep(500);
     }
   }, {
     key: "update",
     value: function update() {
-      //this.draw();
-      //console.log("gameTimer=" + gameTimer);
       this.position.y += this.velocity.y * (2 + gravity);
-      //let i = 0;
+      if (this.position.y === 0) {
+        this.drawHanging();
+      }
       if (this.position.y > canvas.height - DROPLET_HIT_BOTTOM) {
-        this.frames++;
         this.currentSprite = this.sprites.splatter.spriteImage;
-        //for( var i=0;i<=160;i++){
+        this.frames++;
         this.position.y = canvas.height - DROPLET_HIT_BOTTOM;
         this.drawSplash();
-        //this.frames++;
-        //}
-        //Only set y=0 once animation is done
-        //if(frames>DROPLET_SPLASH_FRAMES-1)
-        //if( i>= DROPLET_SPLASH_FRAMES)
-        //this.position.y = 0;    
       }
-
-      if (this.position.y >= 0) {
-        //console.log(this.frames);
-        //this.frames = 0;
+      if (this.position.y > 0) {
         this.currentSprite = this.sprites.falling.spriteImage;
-        this.draw();
+        this.drawFalling();
       }
     }
   }]);
@@ -828,7 +816,7 @@ function init() {
   cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_9__["default"]);
   cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"]);
   cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_10__["default"]);
-  waterdropletHangingFallingImage = createImage(_img_WaterDrop_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
+  waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
   waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__["default"]);
 
   // Load player image
