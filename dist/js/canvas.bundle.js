@@ -706,14 +706,12 @@ var WaterDroplet = /*#__PURE__*/function () {
       this.position.y += this.velocity.y * (2 + gravity);
       if (this.position.y === 0) {
         this.drawHanging();
-      }
-      if (this.position.y > canvas.height - DROPLET_HIT_BOTTOM) {
+      } else if (this.position.y > canvas.height - DROPLET_HIT_BOTTOM) {
         this.currentSprite = this.sprites.splatter.spriteImage;
         this.frames++;
         this.position.y = canvas.height - DROPLET_HIT_BOTTOM;
         this.drawSplash();
-      }
-      if (this.position.y > 0) {
+      } else if (this.position.y > 0) {
         this.currentSprite = this.sprites.falling.spriteImage;
         this.drawFalling();
       }
