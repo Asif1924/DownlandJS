@@ -23,6 +23,10 @@ import harryrunleft from "../img/PitfallHarry_RunLeft.png";
 import harrystandright from "../img/PitfallHarry_StandRight.png";
 import harrystandleft from "../img/PitfallHarry_StandLeft.png";
 
+//576x144, 96x144
+import boystandrightSrc from "../img/BoyStandRight_Sheet.png";
+import boystandleftSrc from "../img/BoyStandLeft_Sheet.png";
+
 import waterdropletSrc from "../img/WaterDrop_2.png";
 import waterdropSpriteSheetSrc from "../img/WaterDrop_Splash123456_166x182_60.png";
 import splashMP3 from "../sounds/splash.mp3";
@@ -61,8 +65,13 @@ let PLAYERSPEED = INITIAL_PLAYERSPEED;
 const BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
 
 //Sprite cutoffs
-const STAND_IMAGE_CROP_WIDTH=177;
-const STAND_IMAGE_WIDTH = 177;
+//Harry
+// const STAND_IMAGE_CROP_WIDTH=177;
+// const STAND_IMAGE_WIDTH = 177;
+
+//Boy
+const STAND_IMAGE_CROP_WIDTH=96;
+const STAND_IMAGE_WIDTH = 96;
 
 const RUN_IMAGE_CROP_WIDTH=112;
 const RUN_IMAGE_WIDTH=112;
@@ -95,8 +104,11 @@ let gravity = 0.5;
 // let spriteRunRightImage = createImage(spriteRunRight);
 // let spriteRunLeftImage = createImage(spriteRunLeft);
 
-let spriteStandRightImage = createImage(harrystandright);
-let spriteStandLeftImage = createImage(harrystandleft);
+// let spriteStandRightImage = createImage(harrystandright);
+// let spriteStandLeftImage = createImage(harrystandleft);
+let spriteStandRightImage = createImage(boystandrightSrc);
+let spriteStandLeftImage = createImage(boystandleftSrc);
+
 let spriteRunRightImage = createImage(harryrunright);
 let spriteRunLeftImage = createImage(harryrunleft);
 
