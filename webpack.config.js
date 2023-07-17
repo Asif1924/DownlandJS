@@ -27,7 +27,19 @@ module.exports = {
             loader: 'file-loader'
           }
         ]
-      }
+      },
+      {
+        test: /\.mp3$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/audio/', // Output path for bundled MP3 files
+            },
+          },
+        ],
+      },      
     ]
   },
   plugins: [

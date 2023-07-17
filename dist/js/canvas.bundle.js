@@ -308,6 +308,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "01e8f15e899155c68950c40e0a6b8df0.png");
 
+/***/ }),
+
+/***/ "./src/sounds/splash.mp3":
+/*!*******************************!*\
+  !*** ./src/sounds/splash.mp3 ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "assets/audio/splash.mp3");
+
 /***/ })
 
 /******/ 	});
@@ -425,11 +439,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../img/PitfallHarry_StandLeft.png */ "./src/img/PitfallHarry_StandLeft.png");
 /* harmony import */ var _img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../img/WaterDrop_2.png */ "./src/img/WaterDrop_2.png");
 /* harmony import */ var _img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../img/WaterDrop_Splash123456_166x182_60.png */ "./src/img/WaterDrop_Splash123456_166x182_60.png");
-/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
-/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
-/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
-/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
-/* harmony import */ var _img_cloud_png__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../img/cloud.png */ "./src/img/cloud.png");
+/* harmony import */ var _sounds_splash_mp3__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../sounds/splash.mp3 */ "./src/sounds/splash.mp3");
+/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
+/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
+/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
+/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
+/* harmony import */ var _img_cloud_png__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../img/cloud.png */ "./src/img/cloud.png");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -438,6 +453,7 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 // import platformImageSrc from "../img/platform.png";
 // import platformImageSmallTallSrc from "../img/platformSmallTall.png";
+
 
 
 
@@ -524,6 +540,9 @@ var spriteRunLeftImage = createImage(_img_PitfallHarry_RunLeft_png__WEBPACK_IMPO
 var waterdropSpriteSheetImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__["default"]);
 var waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_15__["default"]);
 var waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_16__["default"]);
+var splashSound = new Audio(_sounds_splash_mp3__WEBPACK_IMPORTED_MODULE_17__["default"]);
+//splashSound.src = "../sounds/splash.mp3";
+
 function sleep(milliseconds) {
   var date = Date.now();
   var currentDate = null;
@@ -699,6 +718,8 @@ var WaterDroplet = /*#__PURE__*/function () {
       canvasCtx.drawImage(this.currentSprite, DROPLET_SPLASH_WIDTH * this.frames, 0, DROPLET_SPLASH_WIDTH, this.currentSprite.height, this.position.x - DROPLET_SPLASH_WIDTH / 2 + 15, this.position.y - this.currentSprite.height + SINGLE_DROPLET_HEIGHT,
       //55 is hte height of the single drop which we just happen to know
       DROPLET_SPLASH_WIDTH, this.currentSprite.height);
+      // var audio = new Audio('audio_file.mp3');
+      // audio.play();
       if (this.frames > DROPLET_SPLASH_FRAMES) {
         this.position.y = this.startY;
         this.frames = 0;
@@ -725,6 +746,7 @@ var WaterDroplet = /*#__PURE__*/function () {
         this.frames += 3;
         this.position.y = canvas.height - DROPLET_HIT_BOTTOM;
         this.drawSplash();
+        splashSound.play();
       } else if (this.position.y > this.startY && this.position.y < canvas.height - DROPLET_HIT_BOTTOM) {
         //falling       
         this.currentSprite = this.sprites.falling.spriteImage;
@@ -950,11 +972,11 @@ function init() {
   clouds = [new Cloud({
     x: 200,
     y: 0,
-    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_21__["default"])
+    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_22__["default"])
   }), new Cloud({
     x: 300,
     y: 0,
-    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_21__["default"])
+    image: createImage(_img_cloud_png__WEBPACK_IMPORTED_MODULE_22__["default"])
   })];
   keys = {
     right: {

@@ -24,13 +24,16 @@ import harrystandright from "../img/PitfallHarry_StandRight.png";
 import harrystandleft from "../img/PitfallHarry_StandLeft.png";
 
 import waterdropletSrc from "../img/WaterDrop_2.png";
-import waterdropSpriteSheetSrc from "../img/WaterDrop_Splash123456_166x182_60.png"
+import waterdropSpriteSheetSrc from "../img/WaterDrop_Splash123456_166x182_60.png";
+import splashMP3 from "../sounds/splash.mp3";
 
 import spriteRunLeft from "../img/spriteRunLeft.png";
 import spriteRunRight from "../img/spriteRunRight.png";
 
 import spriteStandLeft from "../img/spriteStandLeft.png";
 import spriteStandRight from "../img/spriteStandRight.png";
+
+
 
 import cloud from "../img/cloud.png";
 
@@ -100,6 +103,9 @@ let spriteRunLeftImage = createImage(harryrunleft);
 let waterdropSpriteSheetImage = createImage(waterdropSpriteSheetSrc);
 let waterdropletHangingFallingImage = createImage(waterdropletSrc);
 let waterdropletSplashImage = createImage(waterdropSpriteSheetSrc);
+
+const splashSound = new Audio(splashMP3);
+//splashSound.src = "../sounds/splash.mp3";
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -283,6 +289,8 @@ class WaterDroplet{
       DROPLET_SPLASH_WIDTH,
       this.currentSprite.height
     );
+    // var audio = new Audio('audio_file.mp3');
+    // audio.play();
     if(this.frames>DROPLET_SPLASH_FRAMES){
       this.position.y = this.startY;
       this.frames = 0;
@@ -306,6 +314,7 @@ class WaterDroplet{
       this.frames+=3;
       this.position.y=canvas.height-DROPLET_HIT_BOTTOM;
       this.drawSplash();
+      splashSound.play();
     }else if(this.position.y>this.startY && this.position.y < canvas.height-DROPLET_HIT_BOTTOM ){     //falling       
       this.currentSprite = this.sprites.falling.spriteImage;
       this.position.y += this.velocity.y * (2+gravity);
