@@ -487,7 +487,7 @@ function init() {
 
   waterdroplets = [
     new WaterDroplet({
-      x:120,
+      x:320,
       y:10,
       image: waterdropletHangingFallingImage
     }),

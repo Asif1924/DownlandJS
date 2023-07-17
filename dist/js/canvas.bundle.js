@@ -901,7 +901,7 @@ function init() {
     image: createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"])
   })];
   waterdroplets = [new WaterDroplet({
-    x: 120,
+    x: 320,
     y: 10,
     image: waterdropletHangingFallingImage
   })
