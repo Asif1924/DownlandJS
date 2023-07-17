@@ -228,7 +228,7 @@ class WaterDroplet{
     };
     this.velocity = {
       x: 0,
-      y: 3,
+      y: 7,
     };
     this.startY = this.position.y;
     this.image = image;
@@ -292,7 +292,7 @@ class WaterDroplet{
 
   update(){
     if( this.position.y===this.startY ){      //hanging/growing/jiggling    
-       this.currentSprite = this.sprites.hanging.spriteImage; 
+      this.currentSprite = this.sprites.hanging.spriteImage; 
       this.frames = 0;
       let sizeFactor = getRandomInt(9);      
       this.size+=(sizeFactor/1000);

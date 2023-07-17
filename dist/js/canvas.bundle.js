@@ -650,7 +650,7 @@ var WaterDroplet = /*#__PURE__*/function () {
     };
     this.velocity = {
       x: 0,
-      y: 3
+      y: 7
     };
     this.startY = this.position.y;
     this.image = image;
