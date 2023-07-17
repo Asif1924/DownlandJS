@@ -746,7 +746,7 @@ var WaterDroplet = /*#__PURE__*/function () {
         this.frames += 3;
         this.position.y = canvas.height - DROPLET_HIT_BOTTOM;
         this.drawSplash();
-        splashSound.play();
+        if (this.frames >= 10) splashSound.play();
       } else if (this.position.y > this.startY && this.position.y < canvas.height - DROPLET_HIT_BOTTOM) {
         //falling       
         this.currentSprite = this.sprites.falling.spriteImage;
