@@ -230,6 +230,7 @@ class WaterDroplet{
       x: 0,
       y: 3,
     };
+    this.startY = this.position.y;
     this.image = image;
     this.width = image.width;
     this.height = image.height;
@@ -283,14 +284,14 @@ class WaterDroplet{
       this.currentSprite.height
     );
     if(this.frames>DROPLET_SPLASH_FRAMES){
-      this.position.y = 0;
+      this.position.y = this.startY;
       this.frames = 0;
       this.size=0.01;
     }
   }
 
   update(){
-    if( this.position.y===0 ){      //hanging/growing/jiggling    
+    if( this.position.y===this.startY ){      //hanging/growing/jiggling    
        this.currentSprite = this.sprites.hanging.spriteImage; 
       this.frames = 0;
       let sizeFactor = getRandomInt(9);      
@@ -305,7 +306,7 @@ class WaterDroplet{
       this.frames+=3;
       this.position.y=canvas.height-DROPLET_HIT_BOTTOM;
       this.drawSplash();
-    }else if(this.position.y>0 && this.position.y < canvas.height-DROPLET_HIT_BOTTOM ){     //falling       
+    }else if(this.position.y>this.startY && this.position.y < canvas.height-DROPLET_HIT_BOTTOM ){     //falling       
       this.currentSprite = this.sprites.falling.spriteImage;
       this.position.y += this.velocity.y * (2+gravity);
       this.drawFalling();
@@ -492,16 +493,16 @@ function init() {
       y:10,
       image: waterdropletHangingFallingImage
     }),
-    // new WaterDroplet({
-    //   x:20,
-    //   y:100,
-    //   image: waterdropletHangingFallingImage
-    // }),    
-    // new WaterDroplet({
-    //   x:100,
-    //   y:30,
-    //   image: waterdropletHangingFallingImage
-    // }),
+    new WaterDroplet({
+      x:320,
+      y:300,
+      image: waterdropletHangingFallingImage
+    }),    
+    new WaterDroplet({
+      x:100,
+      y:30,
+      image: waterdropletHangingFallingImage
+    }),
     // new WaterDroplet({
     //   x:1100,
     //   y:10,

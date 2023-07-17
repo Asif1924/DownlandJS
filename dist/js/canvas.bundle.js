@@ -652,6 +652,7 @@ var WaterDroplet = /*#__PURE__*/function () {
       x: 0,
       y: 3
     };
+    this.startY = this.position.y;
     this.image = image;
     this.width = image.width;
     this.height = image.height;
@@ -699,7 +700,7 @@ var WaterDroplet = /*#__PURE__*/function () {
       //55 is hte height of the single drop which we just happen to know
       DROPLET_SPLASH_WIDTH, this.currentSprite.height);
       if (this.frames > DROPLET_SPLASH_FRAMES) {
-        this.position.y = 0;
+        this.position.y = this.startY;
         this.frames = 0;
         this.size = 0.01;
       }
@@ -707,7 +708,7 @@ var WaterDroplet = /*#__PURE__*/function () {
   }, {
     key: "update",
     value: function update() {
-      if (this.position.y === 0) {
+      if (this.position.y === this.startY) {
         //hanging/growing/jiggling    
         this.currentSprite = this.sprites.hanging.spriteImage;
         this.frames = 0;
@@ -724,7 +725,7 @@ var WaterDroplet = /*#__PURE__*/function () {
         this.frames += 3;
         this.position.y = canvas.height - DROPLET_HIT_BOTTOM;
         this.drawSplash();
-      } else if (this.position.y > 0 && this.position.y < canvas.height - DROPLET_HIT_BOTTOM) {
+      } else if (this.position.y > this.startY && this.position.y < canvas.height - DROPLET_HIT_BOTTOM) {
         //falling       
         this.currentSprite = this.sprites.falling.spriteImage;
         this.position.y += this.velocity.y * (2 + gravity);
@@ -905,17 +906,15 @@ function init() {
     x: 320,
     y: 10,
     image: waterdropletHangingFallingImage
+  }), new WaterDroplet({
+    x: 320,
+    y: 300,
+    image: waterdropletHangingFallingImage
+  }), new WaterDroplet({
+    x: 100,
+    y: 30,
+    image: waterdropletHangingFallingImage
   })
-  // new WaterDroplet({
-  //   x:20,
-  //   y:100,
-  //   image: waterdropletHangingFallingImage
-  // }),    
-  // new WaterDroplet({
-  //   x:100,
-  //   y:30,
-  //   image: waterdropletHangingFallingImage
-  // }),
   // new WaterDroplet({
   //   x:1100,
   //   y:10,
