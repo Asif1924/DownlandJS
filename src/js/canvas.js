@@ -289,8 +289,6 @@ class WaterDroplet{
       DROPLET_SPLASH_WIDTH,
       this.currentSprite.height
     );
-    // var audio = new Audio('audio_file.mp3');
-    // audio.play();
     if(this.frames>DROPLET_SPLASH_FRAMES){
       this.position.y = this.startY;
       this.frames = 0;
@@ -303,7 +301,8 @@ class WaterDroplet{
       this.currentSprite = this.sprites.hanging.spriteImage; 
       this.frames = 0;
       let sizeFactor = getRandomInt(9);      
-      this.size+=(sizeFactor/1000);
+      this.size+=(sizeFactor/500);
+      //this.size+=(sizeFactor/((getRandomInt(10))*100)); // Randomize droplet growth
       this.drawHanging();      
       this.jigglefactor = (gameTimer%2===0) ? + (getRandomInt(7)*this.size) : (-1*(getRandomInt(7))*this.size);
       if(this.size>=1){
@@ -314,7 +313,7 @@ class WaterDroplet{
       this.frames+=3;
       this.position.y=canvas.height-DROPLET_HIT_BOTTOM;
       this.drawSplash();
-      if(this.frames>=10) splashSound.play();
+      //if(this.frames>=10) splashSound.play();
     }else if(this.position.y>this.startY && this.position.y < canvas.height-DROPLET_HIT_BOTTOM ){     //falling       
       this.currentSprite = this.sprites.falling.spriteImage;
       this.position.y += this.velocity.y * (2+gravity);
@@ -512,36 +511,36 @@ function init() {
       y:30,
       image: waterdropletHangingFallingImage
     }),
-    // new WaterDroplet({
-    //   x:1100,
-    //   y:10,
-    //   image: waterdropletHangingFallingImage
-    // }),
-    // new WaterDroplet({
-    //   x:300,
-    //   y:50,
-    //   image: waterdropletHangingFallingImage
-    // }),    
-    // new WaterDroplet({
-    //   x:400,
-    //   y:300,
-    //   image: waterdropletHangingFallingImage
-    // }),
-    // new WaterDroplet({
-    //   x:500,
-    //   y:10,
-    //   image: waterdropletHangingFallingImage
-    // }),
-    // new WaterDroplet({
-    //   x:600,
-    //   y:100,
-    //   image: waterdropletHangingFallingImage
-    // }),    
-    // new WaterDroplet({
-    //   x:700,
-    //   y:30,
-    //   image: waterdropletHangingFallingImage
-    // })    
+    new WaterDroplet({
+      x:1100,
+      y:10,
+      image: waterdropletHangingFallingImage
+    }),
+    new WaterDroplet({
+      x:300,
+      y:50,
+      image: waterdropletHangingFallingImage
+    }),    
+    new WaterDroplet({
+      x:400,
+      y:300,
+      image: waterdropletHangingFallingImage
+    }),
+    new WaterDroplet({
+      x:500,
+      y:10,
+      image: waterdropletHangingFallingImage
+    }),
+    new WaterDroplet({
+      x:600,
+      y:100,
+      image: waterdropletHangingFallingImage
+    }),    
+    new WaterDroplet({
+      x:700,
+      y:30,
+      image: waterdropletHangingFallingImage
+    })    
   ]
 
   clouds = [
