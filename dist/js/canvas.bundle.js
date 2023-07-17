@@ -655,7 +655,9 @@ var WaterDroplet = /*#__PURE__*/function () {
     this.image = image;
     this.width = image.width;
     this.height = image.height;
+    this.size = 0.01;
     this.frames = 0;
+    this.jigglefactor = 0;
     this.sprites = {
       hanging: {
         spriteImage: waterdropletHangingFallingImage,
@@ -679,40 +681,52 @@ var WaterDroplet = /*#__PURE__*/function () {
   _createClass(WaterDroplet, [{
     key: "drawHanging",
     value: function drawHanging() {
-      console.log("===================================droplet hang");
+      console.log("===================================draw hang");
+      canvasCtx.drawImage(this.currentSprite, this.position.x, this.position.y + this.jigglefactor, this.image.width * this.size, this.image.height * this.size);
     }
   }, {
     key: "drawFalling",
     value: function drawFalling() {
-      console.log("===================================droplet fall");
+      console.log("===================================draw fall");
       canvasCtx.drawImage(this.currentSprite, this.position.x, this.position.y);
     }
   }, {
     key: "drawSplash",
     value: function drawSplash() {
-      console.log("===================================drawSplash");
+      console.log("===================================draw splash");
       console.log("splash frames=" + this.frames);
-      canvasCtx.drawImage(this.currentSprite, DROPLET_SPLASH_WIDTH * this.frames, 0, DROPLET_SPLASH_WIDTH, this.currentSprite.height, this.position.x - DROPLET_SPLASH_WIDTH / 2, this.position.y - this.currentSprite.height + SINGLE_DROPLET_HEIGHT,
+      canvasCtx.drawImage(this.currentSprite, DROPLET_SPLASH_WIDTH * this.frames, 0, DROPLET_SPLASH_WIDTH, this.currentSprite.height, this.position.x - DROPLET_SPLASH_WIDTH / 2 + 15, this.position.y - this.currentSprite.height + SINGLE_DROPLET_HEIGHT,
       //55 is hte height of the single drop which we just happen to know
       DROPLET_SPLASH_WIDTH, this.currentSprite.height);
       if (this.frames > DROPLET_SPLASH_FRAMES) {
         this.position.y = 0;
         this.frames = 0;
+        this.size = 0.01;
       }
     }
   }, {
     key: "update",
     value: function update() {
-      this.position.y += this.velocity.y * (2 + gravity);
       if (this.position.y === 0) {
+        //hanging/growing/jiggling      
+        this.currentSprite = this.sprites.hanging.spriteImage;
+        this.frames = 0;
+        this.size += 0.05;
         this.drawHanging();
-      } else if (this.position.y > canvas.height - DROPLET_HIT_BOTTOM) {
+        this.jigglefactor = gameTimer % 2 === 0 ? +(4 * this.size) : -4 * this.size;
+        if (this.size >= 1) {
+          this.position.y += this.velocity.y * (2 + gravity);
+        }
+      } else if (this.position.y >= canvas.height - DROPLET_HIT_BOTTOM && this.frames >= 0) {
+        //splash
         this.currentSprite = this.sprites.splatter.spriteImage;
-        this.frames++;
+        this.frames += 3;
         this.position.y = canvas.height - DROPLET_HIT_BOTTOM;
         this.drawSplash();
-      } else if (this.position.y > 0) {
+      } else if (this.position.y > 0 && this.position.y < canvas.height - DROPLET_HIT_BOTTOM) {
+        //falling       
         this.currentSprite = this.sprites.falling.spriteImage;
+        this.position.y += this.velocity.y * (2 + gravity);
         this.drawFalling();
       }
     }
@@ -887,20 +901,50 @@ function init() {
     image: createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_7__["default"])
   })];
   waterdroplets = [new WaterDroplet({
-    x: 400,
+    x: 120,
     y: 10,
     image: waterdropletHangingFallingImage
   })
   // new WaterDroplet({
-  //   x:600,
-  //   y:10,
+  //   x:20,
+  //   y:100,
   //   image: waterdropletHangingFallingImage
   // }),    
   // new WaterDroplet({
-  //   x:800,
+  //   x:100,
+  //   y:30,
+  //   image: waterdropletHangingFallingImage
+  // }),
+  // new WaterDroplet({
+  //   x:1100,
   //   y:10,
   //   image: waterdropletHangingFallingImage
-  // })
+  // }),
+  // new WaterDroplet({
+  //   x:300,
+  //   y:50,
+  //   image: waterdropletHangingFallingImage
+  // }),    
+  // new WaterDroplet({
+  //   x:400,
+  //   y:300,
+  //   image: waterdropletHangingFallingImage
+  // }),
+  // new WaterDroplet({
+  //   x:500,
+  //   y:10,
+  //   image: waterdropletHangingFallingImage
+  // }),
+  // new WaterDroplet({
+  //   x:600,
+  //   y:100,
+  //   image: waterdropletHangingFallingImage
+  // }),    
+  // new WaterDroplet({
+  //   x:700,
+  //   y:30,
+  //   image: waterdropletHangingFallingImage
+  // })    
   ];
 
   clouds = [new Cloud({
