@@ -911,7 +911,7 @@ function init() {
     y: 300,
     image: waterdropletHangingFallingImage
   }), new WaterDroplet({
-    x: 100,
+    x: 400,
     y: 30,
     image: waterdropletHangingFallingImage
   })
