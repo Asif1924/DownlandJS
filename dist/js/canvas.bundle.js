@@ -712,9 +712,9 @@ var WaterDroplet = /*#__PURE__*/function () {
         this.currentSprite = this.sprites.hanging.spriteImage;
         this.frames = 0;
         var sizeFactor = getRandomInt(9);
-        this.size += sizeFactor / 100;
+        this.size += sizeFactor / 1000;
         this.drawHanging();
-        this.jigglefactor = gameTimer % 2 === 0 ? +(5 * this.size) : -5 * this.size;
+        this.jigglefactor = gameTimer % 2 === 0 ? +(getRandomInt(7) * this.size) : -1 * getRandomInt(7) * this.size;
         if (this.size >= 1) {
           this.position.y += this.velocity.y * (2 + gravity);
         }
