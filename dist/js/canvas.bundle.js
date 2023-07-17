@@ -655,7 +655,7 @@ var WaterDroplet = /*#__PURE__*/function () {
     this.image = image;
     this.width = image.width;
     this.height = image.height;
-    this.size = 0.01;
+    this.size = 0.03;
     this.frames = 0;
     this.jigglefactor = 0;
     this.sprites = {
@@ -708,12 +708,13 @@ var WaterDroplet = /*#__PURE__*/function () {
     key: "update",
     value: function update() {
       if (this.position.y === 0) {
-        //hanging/growing/jiggling      
+        //hanging/growing/jiggling    
         this.currentSprite = this.sprites.hanging.spriteImage;
         this.frames = 0;
-        this.size += 0.05;
+        var sizeFactor = getRandomInt(9);
+        this.size += sizeFactor / 100;
         this.drawHanging();
-        this.jigglefactor = gameTimer % 2 === 0 ? +(4 * this.size) : -4 * this.size;
+        this.jigglefactor = gameTimer % 2 === 0 ? +(5 * this.size) : -5 * this.size;
         if (this.size >= 1) {
           this.position.y += this.velocity.y * (2 + gravity);
         }
