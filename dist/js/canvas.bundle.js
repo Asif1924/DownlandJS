@@ -825,7 +825,8 @@ var Platform = /*#__PURE__*/function () {
   function Platform(_ref3) {
     var x = _ref3.x,
       y = _ref3.y,
-      image = _ref3.image;
+      image = _ref3.image,
+      argFoothold = _ref3.argFoothold;
     _classCallCheck(this, Platform);
     this.position = {
       x: x,
@@ -834,7 +835,7 @@ var Platform = /*#__PURE__*/function () {
     this.image = image;
     this.width = image.width;
     this.height = image.height;
-    this.foothold = 15;
+    this.foothold = argFoothold != undefined ? argFoothold : 15;
   }
   _createClass(Platform, [{
     key: "draw",
@@ -931,7 +932,8 @@ function init() {
   platforms = [new Platform({
     x: platformImage.width * 4 + 300 - 2 + platformImage.width - platformImageSmallTall.width,
     y: 270,
-    image: platformImageSmallTall
+    image: platformImageSmallTall,
+    argFoothold: 25
   }), new Platform({
     x: -1,
     y: 470,
