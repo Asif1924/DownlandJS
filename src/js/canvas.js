@@ -345,6 +345,7 @@ class Platform {
     this.image = image;
     this.width = image.width;
     this.height = image.height;
+    this.foothold = 15;
   }
   draw() {
     canvasCtx.drawImage(this.image, this.position.x, this.position.y);
@@ -377,7 +378,7 @@ let cave4Image = createImage(cave4);
 let player = new Player();
 let platforms = [];
 let backgroundAssets = [];
-let clouds = [];
+
 let genericObjects = [];
 let waterdroplets = [];
 let lastKey = "";
@@ -564,10 +565,6 @@ function gameLoop() {
     bg.draw();
   });
 
-  // genericObjects.forEach((genericObject) => {
-  //   genericObject.draw();
-  // });
-
   platforms.forEach((platform) => {
     platform.draw();
   });
@@ -623,9 +620,9 @@ function gameLoop() {
 
   platforms.forEach((platform) => {
     if (
-      player.position.y + player.height <= platform.position.y &&
+      player.position.y + player.height <= platform.position.y+platform.foothold &&
       player.position.y + player.height + player.velocity.y >=
-        platform.position.y &&
+        platform.position.y+platform.foothold &&
       player.position.x + player.width >= platform.position.x &&
       player.position.x <= platform.position.x + platform.width
     ) {

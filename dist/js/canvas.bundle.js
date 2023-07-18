@@ -834,6 +834,7 @@ var Platform = /*#__PURE__*/function () {
     this.image = image;
     this.width = image.width;
     this.height = image.height;
+    this.foothold = 15;
   }
   _createClass(Platform, [{
     key: "draw",
@@ -874,7 +875,6 @@ var cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_
 var player = new Player();
 var platforms = [];
 var backgroundAssets = [];
-var clouds = [];
 var genericObjects = [];
 var waterdroplets = [];
 var lastKey = "";
@@ -1023,11 +1023,6 @@ function gameLoop() {
   backgroundAssets.forEach(function (bg) {
     bg.draw();
   });
-
-  // genericObjects.forEach((genericObject) => {
-  //   genericObject.draw();
-  // });
-
   platforms.forEach(function (platform) {
     platform.draw();
   });
@@ -1074,7 +1069,7 @@ function gameLoop() {
     }
   }
   platforms.forEach(function (platform) {
-    if (player.position.y + player.height <= platform.position.y && player.position.y + player.height + player.velocity.y >= platform.position.y && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
+    if (player.position.y + player.height <= platform.position.y + platform.foothold && player.position.y + player.height + player.velocity.y >= platform.position.y + platform.foothold && player.position.x + player.width >= platform.position.x && player.position.x <= platform.position.x + platform.width) {
       player.velocity.y = 0;
       hitSpaceCount = 0;
     }
