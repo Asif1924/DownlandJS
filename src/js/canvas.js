@@ -28,6 +28,9 @@ import boystandrightSrc from "../img/BoyStandRight_Sheet.png";
 import boystandleftSrc from "../img/BoyStandLeft_Sheet.png";
 import boywalkrightSrc from "../img/BoyWalkRight_Sheet.png";
 import boywalkleftSrc from "../img/BoyWalkLeft_Sheet.png";
+import boyjumprightSrc from "../img/BoyJumpRight_Sheet2.png";
+import boyjumpleftSrc from "../img/BoyJumpLeft_Sheet2.png";
+
 
 import waterdropletSrc from "../img/WaterDrop_2.png";
 import waterdropSpriteSheetSrc from "../img/WaterDrop_Splash123456_166x182_60.png";
@@ -54,7 +57,7 @@ const RIGHTARROW = 39;
 const SPACEBAR = 32;
 
 //Environmental
-const INITIAL_JUMPVELOCITY = 15;
+const INITIAL_JUMPVELOCITY = 12;
 const INITIAL_PLAYERSPEED = 5;
 const HIGH_SPEED_FACTOR = 3;
 
@@ -113,6 +116,9 @@ let spriteStandLeftImage = createImage(boystandleftSrc);
 // let spriteRunLeftImage = createImage(harryrunleft);
 let spriteRunRightImage = createImage(boywalkrightSrc);
 let spriteRunLeftImage = createImage(boywalkleftSrc);
+
+let spriteJumpRightImage = createImage(boyjumprightSrc);
+let spriteJumpLeftImage = createImage(boyjumpleftSrc);
 
 let waterdropSpriteSheetImage = createImage(waterdropSpriteSheetSrc);
 let waterdropletHangingFallingImage = createImage(waterdropletSrc);
@@ -185,9 +191,17 @@ class Player {
         width: RUN_IMAGE_WIDTH,
         cycleframes: true
       },
+      jump:{
+        frames: 6,
+        right: spriteJumpRightImage,
+        left: spriteJumpLeftImage,
+        cropWidth: 92,
+        width: 92,
+        cycleframes: true
+      }
     };
     this.currentSprite = this.sprites.stand.right;
-    this.currentCropWidth=STAND_IMAGE_WIDTH;
+    this.currentCropWidth=STAND_IMAGE_WIDTH;    
   }
 
   draw() {
@@ -206,9 +220,12 @@ class Player {
 
   update() {
     this.frames++;
-    if( (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left) && this.sprites.stand.cycleframes===false ){
+    if( (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left || this.currentSprite===this.sprites.jump.right || this.currentSprite===this.sprites.jump.left) && this.sprites.stand.cycleframes===false ){
        this.frames=0;
     }
+    // if( this.lastKey==="jump" ){
+    //   this.currentSprite = this.sprites.jump
+    // }
     //else{
     //   this.frames = 0;
     // }      
@@ -218,17 +235,11 @@ class Player {
     //   this.frames =0 ;
     // }
 
-    if ( //stand frames
-      this.frames > STAND_FRAMES &&
-      (this.currentSprite === this.sprites.stand.right ||
-        this.currentSprite === this.sprites.stand.left)
-    ) {
+    if ( this.frames > STAND_FRAMES && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
       this.frames = 0;
-    } else if ( //run frames
-      this.frames > RUN_FRAMES &&
-      (this.currentSprite === this.sprites.run.right ||
-        this.currentSprite === this.sprites.run.left)
-    ) {
+    } else if ( this.frames > RUN_FRAMES && (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left)) {
+      this.frames = 0;
+    } else if ( this.frames > this.sprites.jump.frames && ( this.currentSprite===this.sprites.jump.right || this.currentSprite===this.sprites.jump.left)){
       this.frames = 0;
     }
     this.draw();
@@ -389,6 +400,9 @@ let keys = {
   left: {
     pressed: false,
   },
+  jump: {
+    pressed: false,
+  }
 };
 
 let scrollOffset = 0;
@@ -403,6 +417,9 @@ function init() {
 
   waterdropletHangingFallingImage = createImage(waterdropletSrc);
   waterdropletSplashImage = createImage(waterdropSpriteSheetSrc);
+
+  spriteJumpRightImage = createImage(boyjumprightSrc);
+  spriteJumpLeftImage = createImage(boyjumpleftSrc);
 
   // Load player image
   player = new Player();
@@ -551,6 +568,9 @@ function init() {
     left: {
       pressed: false,
     },
+    jump: {
+      pressed: false,
+    },
   };
 }
 
@@ -633,40 +653,42 @@ function gameLoop() {
   });
 
   //Sprite switching conditional
-  if (
-    keys.right.pressed &&
-    lastKey === "right" &&
-    player.currentSprite !== player.sprites.run.right
-  ) {
-    player.frames = 1;
+  if ( keys.right.pressed && lastKey === "right" && player.currentSprite !== player.sprites.run.right) {
     player.currentSprite = player.sprites.run.right;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
-  } else if (
-    keys.left.pressed &&
-    lastKey === "left" &&
-    player.currentSprite !== player.sprites.run.left
-  ) {
+    // if( keys.jump.pressed ){
+    //   player.currentSprite = player.sprites.jump.right;
+    //   player.currentCropWidth = player.sprites.jump.cropWidth;
+    //   player.width = player.sprites.jump.width;  
+    // }
+  } else if ( keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.run.left) {
     player.currentSprite = player.sprites.run.left;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
-  } else if (
-    !keys.left.pressed &&
-    lastKey === "left" &&
-    player.currentSprite !== player.sprites.stand.left
-  ) {
+    // if( keys.jump.pressed ){
+    //   player.currentSprite = player.sprites.jump.left;
+    //   player.currentCropWidth = player.sprites.jump.cropWidth;
+    //   player.width = player.sprites.jump.width;  
+    // }
+  } else if ( !keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.stand.left) {
     player.currentSprite = player.sprites.stand.left;
     player.currentCropWidth = player.sprites.stand.cropWidth;
     player.width = player.sprites.stand.width;
-  } else if (
-    !keys.right.pressed &&
-    lastKey === "right" &&
-    player.currentSprite !== player.sprites.stand.right
-  ) {
+  } else if ( !keys.right.pressed && lastKey === "right" && player.currentSprite !== player.sprites.stand.right) {
     player.currentSprite = player.sprites.stand.right;
     player.currentCropWidth = player.sprites.stand.cropWidth;
     player.width = player.sprites.stand.width;
   }
+  // } else if( keys.jump.pressed && lastKey==="right" ){
+  //   player.currentSprite = player.sprites.jump.right;
+  //   player.currentCropWidth = player.sprites.jump.cropWidth;
+  //   player.width = player.sprites.jump.width;
+  // } else if( keys.jump.pressed && lastKey==="left" ){
+  //   player.currentSprite = player.sprites.jump.left;
+  //   player.currentCropWidth = player.sprites.jump.cropWidth;
+  //   player.width = player.sprites.jump.width;
+  // }
 
   if (scrollOffset > platformImage.width * 5 + 300 - 2) {
     console.log("Winner");
@@ -698,7 +720,15 @@ addEventListener("keydown", ({ keyCode }) => {
     case SPACEBAR:
       console.log("jump");
       hitSpaceCount++;
-      if (hitSpaceCount === 1) player.velocity.y -= JUMPVELOCITY;
+      if (hitSpaceCount === 1) {
+        keys.jump.pressed = true;
+        lastKey = "jump";
+        player.velocity.y -= JUMPVELOCITY;
+        // if(lastKey==="right")
+        //   player.currentSprite=player.sprites.jump.right.spriteImage;
+        // else if(lastKey==="left")
+        //   player.currentSprite=player.sprites.jump.left.spriteImage;          
+      }
       //player.velocity.y -= JUMPVELOCITY; //This makes him jump mid air multiple times
       break;
     case SHIFT:
@@ -729,6 +759,7 @@ addEventListener("keyup", ({ keyCode }) => {
       break;
     case SPACEBAR:
       console.log("jump");
+      keys.jump.pressed = false;
       break;
     case SHIFT:
       console.log("shift");
