@@ -26,6 +26,8 @@ import harrystandleft from "../img/PitfallHarry_StandLeft.png";
 //576x144, 96x144
 import boystandrightSrc from "../img/BoyStandRight_Sheet.png";
 import boystandleftSrc from "../img/BoyStandLeft_Sheet.png";
+import boywalkrightSrc from "../img/BoyWalkRight_Sheet.png";
+import boywalkleftSrc from "../img/BoyWalkLeft_Sheet.png";
 
 import waterdropletSrc from "../img/WaterDrop_2.png";
 import waterdropSpriteSheetSrc from "../img/WaterDrop_Splash123456_166x182_60.png";
@@ -36,10 +38,6 @@ import spriteRunRight from "../img/spriteRunRight.png";
 
 import spriteStandLeft from "../img/spriteStandLeft.png";
 import spriteStandRight from "../img/spriteStandRight.png";
-
-
-
-import cloud from "../img/cloud.png";
 
 const canvas = document.querySelector("canvas");
 const canvasCtx = canvas.getContext("2d");
@@ -73,10 +71,12 @@ const BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
 const STAND_IMAGE_CROP_WIDTH=96;
 const STAND_IMAGE_WIDTH = 96;
 
-const RUN_IMAGE_CROP_WIDTH=112;
-const RUN_IMAGE_WIDTH=112;
-
-const RUN_FRAMES = 4;
+// const RUN_IMAGE_CROP_WIDTH=112;
+// const RUN_IMAGE_WIDTH=112;
+const RUN_IMAGE_CROP_WIDTH=100;
+const RUN_IMAGE_WIDTH=100;
+ 
+const RUN_FRAMES = 6;
 const STAND_FRAMES = 2;
 
 //Water Droplet parameters
@@ -109,8 +109,10 @@ let gravity = 0.5;
 let spriteStandRightImage = createImage(boystandrightSrc);
 let spriteStandLeftImage = createImage(boystandleftSrc);
 
-let spriteRunRightImage = createImage(harryrunright);
-let spriteRunLeftImage = createImage(harryrunleft);
+// let spriteRunRightImage = createImage(harryrunright);
+// let spriteRunLeftImage = createImage(harryrunleft);
+let spriteRunRightImage = createImage(boywalkrightSrc);
+let spriteRunLeftImage = createImage(boywalkleftSrc);
 
 let waterdropSpriteSheetImage = createImage(waterdropSpriteSheetSrc);
 let waterdropletHangingFallingImage = createImage(waterdropletSrc);
@@ -349,21 +351,6 @@ class Platform {
   }
 }
 
-class Cloud {
-  constructor({ x, y, image }) {
-    this.position = {
-      x,
-      y,
-    };
-    this.image = image;
-    this.width = image.width;
-    this.height = image.height;
-  }
-  draw() {
-    canvasCtx.drawImage(this.image, this.position.x, this.position.y);
-  }
-}
-
 class GenericObject {
   constructor({ x, y, image }) {
     this.position = {
@@ -554,19 +541,6 @@ function init() {
       image: waterdropletHangingFallingImage
     })    
   ]
-
-  clouds = [
-    new Cloud({
-      x: 200,
-      y: 0,
-      image: createImage(cloud),
-    }),
-    new Cloud({
-      x: 300,
-      y: 0,
-      image: createImage(cloud),
-    })
-  ];
 
   keys = {
     right: {
