@@ -679,16 +679,15 @@ function gameLoop() {
     player.currentSprite = player.sprites.stand.right;
     player.currentCropWidth = player.sprites.stand.cropWidth;
     player.width = player.sprites.stand.width;
+  } else if( keys.jump.pressed && lastKey==="jump" && player.currentSprite !== player.sprites.jump.right){
+    player.currentSprite = player.sprites.jump.right;
+    player.currentCropWidth = player.sprites.jump.cropWidth;
+    player.width = player.sprites.jump.width;
+  } else if( keys.jump.pressed && lastKey==="jump" && player.currentSprite !== player.sprites.jump.left){
+    player.currentSprite = player.sprites.jump.left;
+    player.currentCropWidth = player.sprites.jump.cropWidth;
+    player.width = player.sprites.jump.width;
   }
-  // } else if( keys.jump.pressed && lastKey==="right" ){
-  //   player.currentSprite = player.sprites.jump.right;
-  //   player.currentCropWidth = player.sprites.jump.cropWidth;
-  //   player.width = player.sprites.jump.width;
-  // } else if( keys.jump.pressed && lastKey==="left" ){
-  //   player.currentSprite = player.sprites.jump.left;
-  //   player.currentCropWidth = player.sprites.jump.cropWidth;
-  //   player.width = player.sprites.jump.width;
-  // }
 
   if (scrollOffset > platformImage.width * 5 + 300 - 2) {
     console.log("Winner");
@@ -724,10 +723,6 @@ addEventListener("keydown", ({ keyCode }) => {
         keys.jump.pressed = true;
         lastKey = "jump";
         player.velocity.y -= JUMPVELOCITY;
-        // if(lastKey==="right")
-        //   player.currentSprite=player.sprites.jump.right.spriteImage;
-        // else if(lastKey==="left")
-        //   player.currentSprite=player.sprites.jump.left.spriteImage;          
       }
       //player.velocity.y -= JUMPVELOCITY; //This makes him jump mid air multiple times
       break;
@@ -762,7 +757,7 @@ addEventListener("keyup", ({ keyCode }) => {
       keys.jump.pressed = false;
       break;
     case SHIFT:
-      console.log("shift");
+      console.log("shift");      
       JUMPVELOCITY = INITIAL_JUMPVELOCITY;
       PLAYERSPEED = INITIAL_PLAYERSPEED;
       player.speed = PLAYERSPEED
