@@ -196,7 +196,7 @@ class Player {
       this.currentCropWidth * this.frames,
       0,
       this.currentCropWidth,
-      this.image.height,
+      this.currentSprite.height,
       this.position.x,
       this.position.y,
       this.width,
@@ -205,19 +205,18 @@ class Player {
   }
 
   update() {
-    //this.frames = 1;
-    if( (this.currentSprite === this.sprites.stand.right ||
-      this.currentSprite === this.sprites.stand.left) && this.sprites.stand.cycleframes===true ){
-      this.frames++;
-    }else{
-      this.frames = 0;
-    }      
-    if( (this.currentSprite === this.sprites.run.right ||
-      this.currentSprite === this.sprites.run.left) && this.sprites.run.cycleframes===true){
-      this.frames++;
-    }else{
-      this.frames =0 ;
-    }
+    this.frames++;
+    // if( (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left) && this.sprites.stand.cycleframes===true ){
+    //   this.frames++;
+    // }else{
+    //   this.frames = 0;
+    // }      
+    // if( (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left) ){ //&& this.sprites.run.cycleframes===true){
+    //   this.frames++;
+    // }else{
+    //   this.frames =0 ;
+    // }
+
     if ( //stand frames
       this.frames > STAND_FRAMES &&
       (this.currentSprite === this.sprites.stand.right ||
