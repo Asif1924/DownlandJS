@@ -691,9 +691,10 @@ var Player = /*#__PURE__*/function () {
     key: "update",
     value: function update() {
       this.frames++;
-      // if( (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left) && this.sprites.stand.cycleframes===true ){
-      //   this.frames++;
-      // }else{
+      if ((this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left) && this.sprites.stand.cycleframes === false) {
+        this.frames = 0;
+      }
+      //else{
       //   this.frames = 0;
       // }      
       // if( (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left) ){ //&& this.sprites.run.cycleframes===true){
