@@ -734,15 +734,15 @@ var Player = /*#__PURE__*/function () {
     _classCallCheck(this, Player);
     this.speed = PLAYERSPEED;
     this.position = {
-      x: 200,
-      y: 100
+      x: 600,
+      y: 400
     };
     this.velocity = {
       x: 0,
       y: 1
     };
     this.width = STAND_IMAGE_WIDTH;
-    this.image = spriteStandRightImage;
+    this.image = spriteStandLeftImage;
     this.height = this.image.height;
     this.frames = 0;
     this.sprites = {
@@ -769,7 +769,7 @@ var Player = /*#__PURE__*/function () {
         cycleframes: true
       }
     };
-    this.currentSprite = this.sprites.stand.right;
+    this.currentSprite = this.sprites.stand.left;
     this.currentCropWidth = STAND_IMAGE_WIDTH;
   }
   _createClass(Player, [{
@@ -784,18 +784,6 @@ var Player = /*#__PURE__*/function () {
       if ((this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left || this.currentSprite === this.sprites.jump.right || this.currentSprite === this.sprites.jump.left) && this.sprites.stand.cycleframes === false) {
         this.frames = 0;
       }
-      // if( this.lastKey==="jump" ){
-      //   this.currentSprite = this.sprites.jump
-      // }
-      //else{
-      //   this.frames = 0;
-      // }      
-      // if( (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left) ){ //&& this.sprites.run.cycleframes===true){
-      //   this.frames++;
-      // }else{
-      //   this.frames =0 ;
-      // }
-
       if (this.frames > STAND_FRAMES && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
         this.frames = 0;
       } else if (this.frames > RUN_FRAMES && (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left)) {
@@ -1045,7 +1033,63 @@ function init() {
   })];
   platforms = [new Platform({
     x: 0,
+    y: 0,
+    image: stumpPlatformImage,
+    argWidth: 100,
+    argHeight: 100,
+    argFoothold: 15
+  }), new Platform({
+    x: 0,
+    y: 70,
+    image: stumpPlatformImage,
+    argWidth: 100,
+    argHeight: 100,
+    argFoothold: 15
+  }), new Platform({
+    x: 300,
+    y: 70,
+    image: bottomPlatformImage,
+    argWidth: 900,
+    argHeight: 30,
+    argFoothold: 15
+  }), new Platform({
+    x: 0,
+    y: 270,
+    image: bottomPlatformImage,
+    argWidth: 300,
+    argHeight: 45,
+    argFoothold: 15
+  }), new Platform({
+    x: 400,
+    y: 270,
+    image: bottomPlatformImage,
+    argWidth: 600,
+    argHeight: 45,
+    argFoothold: 15
+  }), new Platform({
+    x: 0,
+    y: 170,
+    image: stumpPlatformImage,
+    argWidth: 100,
+    argHeight: 100,
+    argFoothold: 15
+  }), new Platform({
+    x: 0,
+    y: 270,
+    image: stumpPlatformImage,
+    argWidth: 100,
+    argHeight: 100,
+    argFoothold: 15
+  }), new Platform({
+    x: 0,
     y: 370,
+    image: stumpPlatformImage,
+    argWidth: 100,
+    argHeight: 100,
+    argFoothold: 15
+  }), new Platform({
+    x: 0,
+    y: 470,
     image: stumpPlatformImage,
     argWidth: 100,
     argHeight: 100,
