@@ -282,6 +282,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/img/Rope.png":
+/*!**************************!*\
+  !*** ./src/img/Rope.png ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "9bdeb908f915106df1ecea57ab96c757.png");
+
+/***/ }),
+
 /***/ "./src/img/SingleIsland.png":
 /*!**********************************!*\
   !*** ./src/img/SingleIsland.png ***!
@@ -536,35 +550,36 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_GreenPlatform_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../img/GreenPlatform.png */ "./src/img/GreenPlatform.png");
 /* harmony import */ var _img_SingleIsland_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../img/SingleIsland.png */ "./src/img/SingleIsland.png");
-/* harmony import */ var _img_BottomPlatform_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/BottomPlatform.png */ "./src/img/BottomPlatform.png");
-/* harmony import */ var _img_StumpPlatform_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/StumpPlatform.png */ "./src/img/StumpPlatform.png");
-/* harmony import */ var _img_InclinePlatform_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/InclinePlatform.png */ "./src/img/InclinePlatform.png");
-/* harmony import */ var _img_GreenPlatform1_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/GreenPlatform1.png */ "./src/img/GreenPlatform1.png");
-/* harmony import */ var _img_GreenPlatform2_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/GreenPlatform2.png */ "./src/img/GreenPlatform2.png");
-/* harmony import */ var _img_GreenPlatform3_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/GreenPlatform3.png */ "./src/img/GreenPlatform3.png");
-/* harmony import */ var _img_SingleIsland1_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../img/SingleIsland1.png */ "./src/img/SingleIsland1.png");
-/* harmony import */ var _img_SingleIsland2_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../img/SingleIsland2.png */ "./src/img/SingleIsland2.png");
-/* harmony import */ var _img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../img/Mushroom_Cave_L3.png */ "./src/img/Mushroom_Cave_L3.png");
-/* harmony import */ var _img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../img/Mushroom_Cave_L1.png */ "./src/img/Mushroom_Cave_L1.png");
-/* harmony import */ var _img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../img/Mushroom_Cave_L2.png */ "./src/img/Mushroom_Cave_L2.png");
-/* harmony import */ var _img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../img/Mushroom_Cave_L4.png */ "./src/img/Mushroom_Cave_L4.png");
-/* harmony import */ var _img_PitfallHarry_RunRight_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../img/PitfallHarry_RunRight.png */ "./src/img/PitfallHarry_RunRight.png");
-/* harmony import */ var _img_PitfallHarry_RunLeft_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../img/PitfallHarry_RunLeft.png */ "./src/img/PitfallHarry_RunLeft.png");
-/* harmony import */ var _img_PitfallHarry_StandRight_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../img/PitfallHarry_StandRight.png */ "./src/img/PitfallHarry_StandRight.png");
-/* harmony import */ var _img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../img/PitfallHarry_StandLeft.png */ "./src/img/PitfallHarry_StandLeft.png");
-/* harmony import */ var _img_BoyStandRight_Sheet_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../img/BoyStandRight_Sheet.png */ "./src/img/BoyStandRight_Sheet.png");
-/* harmony import */ var _img_BoyStandLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../img/BoyStandLeft_Sheet.png */ "./src/img/BoyStandLeft_Sheet.png");
-/* harmony import */ var _img_BoyWalkRight_Sheet_png__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../img/BoyWalkRight_Sheet.png */ "./src/img/BoyWalkRight_Sheet.png");
-/* harmony import */ var _img_BoyWalkLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../img/BoyWalkLeft_Sheet.png */ "./src/img/BoyWalkLeft_Sheet.png");
-/* harmony import */ var _img_BoyJumpRight_Sheet2_png__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../img/BoyJumpRight_Sheet2.png */ "./src/img/BoyJumpRight_Sheet2.png");
-/* harmony import */ var _img_BoyJumpLeft_Sheet2_png__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../img/BoyJumpLeft_Sheet2.png */ "./src/img/BoyJumpLeft_Sheet2.png");
-/* harmony import */ var _img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../img/WaterDrop_2.png */ "./src/img/WaterDrop_2.png");
-/* harmony import */ var _img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../img/WaterDrop_Splash123456_166x182_60.png */ "./src/img/WaterDrop_Splash123456_166x182_60.png");
-/* harmony import */ var _sounds_splash_mp3__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../sounds/splash.mp3 */ "./src/sounds/splash.mp3");
-/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
-/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
-/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
-/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
+/* harmony import */ var _img_Rope_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../img/Rope.png */ "./src/img/Rope.png");
+/* harmony import */ var _img_BottomPlatform_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../img/BottomPlatform.png */ "./src/img/BottomPlatform.png");
+/* harmony import */ var _img_StumpPlatform_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../img/StumpPlatform.png */ "./src/img/StumpPlatform.png");
+/* harmony import */ var _img_InclinePlatform_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../img/InclinePlatform.png */ "./src/img/InclinePlatform.png");
+/* harmony import */ var _img_GreenPlatform1_png__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../img/GreenPlatform1.png */ "./src/img/GreenPlatform1.png");
+/* harmony import */ var _img_GreenPlatform2_png__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../img/GreenPlatform2.png */ "./src/img/GreenPlatform2.png");
+/* harmony import */ var _img_GreenPlatform3_png__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../img/GreenPlatform3.png */ "./src/img/GreenPlatform3.png");
+/* harmony import */ var _img_SingleIsland1_png__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../img/SingleIsland1.png */ "./src/img/SingleIsland1.png");
+/* harmony import */ var _img_SingleIsland2_png__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../img/SingleIsland2.png */ "./src/img/SingleIsland2.png");
+/* harmony import */ var _img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../img/Mushroom_Cave_L3.png */ "./src/img/Mushroom_Cave_L3.png");
+/* harmony import */ var _img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../img/Mushroom_Cave_L1.png */ "./src/img/Mushroom_Cave_L1.png");
+/* harmony import */ var _img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../img/Mushroom_Cave_L2.png */ "./src/img/Mushroom_Cave_L2.png");
+/* harmony import */ var _img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../img/Mushroom_Cave_L4.png */ "./src/img/Mushroom_Cave_L4.png");
+/* harmony import */ var _img_PitfallHarry_RunRight_png__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../img/PitfallHarry_RunRight.png */ "./src/img/PitfallHarry_RunRight.png");
+/* harmony import */ var _img_PitfallHarry_RunLeft_png__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../img/PitfallHarry_RunLeft.png */ "./src/img/PitfallHarry_RunLeft.png");
+/* harmony import */ var _img_PitfallHarry_StandRight_png__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../img/PitfallHarry_StandRight.png */ "./src/img/PitfallHarry_StandRight.png");
+/* harmony import */ var _img_PitfallHarry_StandLeft_png__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../img/PitfallHarry_StandLeft.png */ "./src/img/PitfallHarry_StandLeft.png");
+/* harmony import */ var _img_BoyStandRight_Sheet_png__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../img/BoyStandRight_Sheet.png */ "./src/img/BoyStandRight_Sheet.png");
+/* harmony import */ var _img_BoyStandLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../img/BoyStandLeft_Sheet.png */ "./src/img/BoyStandLeft_Sheet.png");
+/* harmony import */ var _img_BoyWalkRight_Sheet_png__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../img/BoyWalkRight_Sheet.png */ "./src/img/BoyWalkRight_Sheet.png");
+/* harmony import */ var _img_BoyWalkLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../img/BoyWalkLeft_Sheet.png */ "./src/img/BoyWalkLeft_Sheet.png");
+/* harmony import */ var _img_BoyJumpRight_Sheet2_png__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../img/BoyJumpRight_Sheet2.png */ "./src/img/BoyJumpRight_Sheet2.png");
+/* harmony import */ var _img_BoyJumpLeft_Sheet2_png__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../img/BoyJumpLeft_Sheet2.png */ "./src/img/BoyJumpLeft_Sheet2.png");
+/* harmony import */ var _img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../img/WaterDrop_2.png */ "./src/img/WaterDrop_2.png");
+/* harmony import */ var _img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../img/WaterDrop_Splash123456_166x182_60.png */ "./src/img/WaterDrop_Splash123456_166x182_60.png");
+/* harmony import */ var _sounds_splash_mp3__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../sounds/splash.mp3 */ "./src/sounds/splash.mp3");
+/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
+/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
+/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
+/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -573,6 +588,7 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 // import platformImageSrc from "../img/platform.png";
 // import platformImageSmallTallSrc from "../img/platformSmallTall.png";
+
 
 
 
@@ -673,19 +689,19 @@ var gravity = 0.5;
 
 // let spriteStandRightImage = createImage(harrystandright);
 // let spriteStandLeftImage = createImage(harrystandleft);
-var spriteStandRightImage = createImage(_img_BoyStandRight_Sheet_png__WEBPACK_IMPORTED_MODULE_18__["default"]);
-var spriteStandLeftImage = createImage(_img_BoyStandLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_19__["default"]);
+var spriteStandRightImage = createImage(_img_BoyStandRight_Sheet_png__WEBPACK_IMPORTED_MODULE_19__["default"]);
+var spriteStandLeftImage = createImage(_img_BoyStandLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_20__["default"]);
 
 // let spriteRunRightImage = createImage(harryrunright);
 // let spriteRunLeftImage = createImage(harryrunleft);
-var spriteRunRightImage = createImage(_img_BoyWalkRight_Sheet_png__WEBPACK_IMPORTED_MODULE_20__["default"]);
-var spriteRunLeftImage = createImage(_img_BoyWalkLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_21__["default"]);
-var spriteJumpRightImage = createImage(_img_BoyJumpRight_Sheet2_png__WEBPACK_IMPORTED_MODULE_22__["default"]);
-var spriteJumpLeftImage = createImage(_img_BoyJumpLeft_Sheet2_png__WEBPACK_IMPORTED_MODULE_23__["default"]);
-var waterdropSpriteSheetImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_25__["default"]);
-var waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_24__["default"]);
-var waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_25__["default"]);
-var splashSound = new Audio(_sounds_splash_mp3__WEBPACK_IMPORTED_MODULE_26__["default"]);
+var spriteRunRightImage = createImage(_img_BoyWalkRight_Sheet_png__WEBPACK_IMPORTED_MODULE_21__["default"]);
+var spriteRunLeftImage = createImage(_img_BoyWalkLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_22__["default"]);
+var spriteJumpRightImage = createImage(_img_BoyJumpRight_Sheet2_png__WEBPACK_IMPORTED_MODULE_23__["default"]);
+var spriteJumpLeftImage = createImage(_img_BoyJumpLeft_Sheet2_png__WEBPACK_IMPORTED_MODULE_24__["default"]);
+var waterdropSpriteSheetImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_26__["default"]);
+var waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_25__["default"]);
+var waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_26__["default"]);
+var splashSound = new Audio(_sounds_splash_mp3__WEBPACK_IMPORTED_MODULE_27__["default"]);
 //splashSound.src = "../sounds/splash.mp3";
 
 function sleep(milliseconds) {
@@ -936,11 +952,42 @@ var Platform = /*#__PURE__*/function () {
   }]);
   return Platform;
 }();
-var GenericObject = /*#__PURE__*/function () {
-  function GenericObject(_ref4) {
+var Rope = /*#__PURE__*/function () {
+  function Rope(_ref4) {
     var x = _ref4.x,
       y = _ref4.y,
-      image = _ref4.image;
+      image = _ref4.image,
+      argFoothold = _ref4.argFoothold,
+      argWidth = _ref4.argWidth,
+      argHeight = _ref4.argHeight;
+    _classCallCheck(this, Rope);
+    this.position = {
+      x: x,
+      y: y || PLATFORM_GROUND
+    };
+    this.image = image;
+    if (argWidth > 0 && argHeight > 0) {
+      this.width = argWidth;
+      this.height = argHeight;
+    } else {
+      this.width = image.width;
+      this.height = image.height;
+    }
+    this.foothold = argFoothold != undefined ? argFoothold : 15;
+  }
+  _createClass(Rope, [{
+    key: "draw",
+    value: function draw() {
+      canvasCtx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
+    }
+  }]);
+  return Rope;
+}();
+var GenericObject = /*#__PURE__*/function () {
+  function GenericObject(_ref5) {
+    var x = _ref5.x,
+      y = _ref5.y,
+      image = _ref5.image;
     _classCallCheck(this, GenericObject);
     this.position = {
       x: x,
@@ -958,17 +1005,19 @@ var GenericObject = /*#__PURE__*/function () {
   }]);
   return GenericObject;
 }();
-var bottomPlatformImage = createImage(_img_BottomPlatform_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
-var stumpPlatformImage = createImage(_img_StumpPlatform_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
-var inclinePlatformImage = createImage(_img_InclinePlatform_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
+var bottomPlatformImage = createImage(_img_BottomPlatform_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
+var stumpPlatformImage = createImage(_img_StumpPlatform_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
+var inclinePlatformImage = createImage(_img_InclinePlatform_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
+var ropeImage = createImage(_img_Rope_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
 var platformImage = createImage(_img_GreenPlatform_png__WEBPACK_IMPORTED_MODULE_0__["default"]);
 var platformImageSmallTall = createImage(_img_SingleIsland_png__WEBPACK_IMPORTED_MODULE_1__["default"]);
-var cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_11__["default"]);
-var cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_12__["default"]);
-var cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_10__["default"]);
-var cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_13__["default"]);
+var cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_12__["default"]);
+var cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_13__["default"]);
+var cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_11__["default"]);
+var cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_14__["default"]);
 var player = new Player();
 var platforms = [];
+var ropes = [];
 var backgroundAssets = [];
 var genericObjects = [];
 var waterdroplets = [];
@@ -986,19 +1035,20 @@ var keys = {
 };
 var scrollOffset = 0;
 function init() {
-  bottomPlatformImage = createImage(_img_BottomPlatform_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
-  stumpPlatformImage = createImage(_img_StumpPlatform_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
-  inclinePlatformImage = createImage(_img_InclinePlatform_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
+  bottomPlatformImage = createImage(_img_BottomPlatform_png__WEBPACK_IMPORTED_MODULE_3__["default"]);
+  stumpPlatformImage = createImage(_img_StumpPlatform_png__WEBPACK_IMPORTED_MODULE_4__["default"]);
+  inclinePlatformImage = createImage(_img_InclinePlatform_png__WEBPACK_IMPORTED_MODULE_5__["default"]);
+  ropeImage = createImage(_img_Rope_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
   platformImage = createImage(_img_GreenPlatform_png__WEBPACK_IMPORTED_MODULE_0__["default"]);
   platformImageSmallTall = createImage(_img_SingleIsland_png__WEBPACK_IMPORTED_MODULE_1__["default"]);
-  cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_11__["default"]);
-  cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_12__["default"]);
-  cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_10__["default"]);
-  cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_13__["default"]);
-  waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_24__["default"]);
-  waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_25__["default"]);
-  spriteJumpRightImage = createImage(_img_BoyJumpRight_Sheet2_png__WEBPACK_IMPORTED_MODULE_22__["default"]);
-  spriteJumpLeftImage = createImage(_img_BoyJumpLeft_Sheet2_png__WEBPACK_IMPORTED_MODULE_23__["default"]);
+  cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_12__["default"]);
+  cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_13__["default"]);
+  cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_11__["default"]);
+  cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_14__["default"]);
+  waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_25__["default"]);
+  waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_26__["default"]);
+  spriteJumpRightImage = createImage(_img_BoyJumpRight_Sheet2_png__WEBPACK_IMPORTED_MODULE_23__["default"]);
+  spriteJumpLeftImage = createImage(_img_BoyJumpLeft_Sheet2_png__WEBPACK_IMPORTED_MODULE_24__["default"]);
 
   // Load player image
   player = new Player();
@@ -1104,14 +1154,21 @@ function init() {
     x: 1700,
     image: platformImage
   })];
+  ropes = [new Rope({
+    x: 100,
+    y: 300,
+    argHeight: 125,
+    image: ropeImage,
+    argFoothold: 25
+  })];
   genericObjects = [new GenericObject({
     x: -1,
     y: -1,
-    image: createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_11__["default"])
+    image: createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_12__["default"])
   }), new GenericObject({
     x: -1,
     y: -1,
-    image: createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_10__["default"])
+    image: createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_11__["default"])
   })];
   waterdroplets = [new WaterDroplet({
     x: 320,
@@ -1175,6 +1232,9 @@ function gameLoop() {
   });
   platforms.forEach(function (platform) {
     platform.draw();
+  });
+  ropes.forEach(function (rope) {
+    rope.draw();
   });
   waterdroplets.forEach(function (waterdroplet) {
     waterdroplet.update();
@@ -1263,8 +1323,8 @@ function gameLoop() {
 // Start the game loop
 init();
 gameLoop();
-addEventListener("keydown", function (_ref5) {
-  var keyCode = _ref5.keyCode;
+addEventListener("keydown", function (_ref6) {
+  var keyCode = _ref6.keyCode;
   console.log(keyCode);
   switch (keyCode) {
     case LEFTARROW:
@@ -1302,8 +1362,8 @@ addEventListener("keydown", function (_ref5) {
       break;
   }
 });
-addEventListener("keyup", function (_ref6) {
-  var keyCode = _ref6.keyCode;
+addEventListener("keyup", function (_ref7) {
+  var keyCode = _ref7.keyCode;
   switch (keyCode) {
     case LEFTARROW:
       console.log("left");

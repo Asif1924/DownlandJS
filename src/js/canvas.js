@@ -4,6 +4,8 @@
 import platformImageSrc from "../img/GreenPlatform.png";
 import platformImageSmallTallSrc from "../img/SingleIsland.png";
 
+import ropeImageSrc from "../img/Rope.png";
+
 import bottomPlatformImageSrc from "../img/BottomPlatform.png";
 import stumpPlatformImageSrc from "../img/StumpPlatform.png";
 import inclinePlatformImageSrc from "../img/InclinePlatform.png";
@@ -366,6 +368,27 @@ class Platform {
   }
 }
 
+class Rope {
+  constructor({ x, y, image, argFoothold, argWidth, argHeight }) {
+    this.position = {
+      x,
+      y : y || PLATFORM_GROUND,
+    };
+    this.image = image;
+    if(argWidth >0 && argHeight >0){
+      this.width = argWidth;
+      this.height = argHeight;  
+    }else{
+      this.width = image.width;
+      this.height = image.height;  
+    }
+    this.foothold = (argFoothold!=undefined) ? argFoothold: 15;
+  }
+  draw() {
+    canvasCtx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
+  }
+}
+
 class GenericObject {
   constructor({ x, y, image }) {
     this.position = {
@@ -385,6 +408,8 @@ let bottomPlatformImage = createImage(bottomPlatformImageSrc);
 let stumpPlatformImage = createImage(stumpPlatformImageSrc);
 let inclinePlatformImage = createImage(inclinePlatformImageSrc);
 
+let ropeImage = createImage(ropeImageSrc);
+
 let platformImage = createImage(platformImageSrc);
 let platformImageSmallTall = createImage(platformImageSmallTallSrc);
 
@@ -395,6 +420,7 @@ let cave4Image = createImage(cave4);
 
 let player = new Player();
 let platforms = [];
+let ropes = [];
 let backgroundAssets = [];
 
 let genericObjects = [];
@@ -417,7 +443,8 @@ let scrollOffset = 0;
 function init() {
   bottomPlatformImage = createImage(bottomPlatformImageSrc);
   stumpPlatformImage = createImage(stumpPlatformImageSrc);
-  inclinePlatformImage = createImage(inclinePlatformImageSrc); 
+  inclinePlatformImage = createImage(inclinePlatformImageSrc);
+  ropeImage = createImage(ropeImageSrc); 
 
   platformImage = createImage(platformImageSrc);
   platformImageSmallTall = createImage(platformImageSmallTallSrc);
@@ -553,6 +580,17 @@ function init() {
       image: platformImage,
     }),
   ];
+
+  ropes = [
+    new Rope({
+      x: 100,
+      y: 300,
+      argHeight: 125,
+      image: ropeImage,
+      argFoothold: 25
+    })
+  ];
+
   genericObjects = [
     new GenericObject({
       x: -1,
@@ -642,6 +680,11 @@ function gameLoop() {
   platforms.forEach((platform) => {
     platform.draw();
   });
+
+  ropes.forEach((rope) => {
+    rope.draw();
+  });
+
 
   waterdroplets.forEach((waterdroplet) => {
     waterdroplet.update();
