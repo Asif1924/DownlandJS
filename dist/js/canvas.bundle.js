@@ -582,7 +582,7 @@ var HIGH_SPEED_FACTOR = 3;
 var JUMPVELOCITY = INITIAL_JUMPVELOCITY;
 var PLAYERSPEED = INITIAL_PLAYERSPEED;
 var BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
-
+var PLATFORM_GROUND = 540;
 //Sprite cutoffs
 //Harry
 // const STAND_IMAGE_CROP_WIDTH=177;
@@ -601,7 +601,7 @@ var STAND_FRAMES = 2;
 
 //Water Droplet parameters
 var SINGLE_DROPLET_HEIGHT = 55;
-var DROPLET_HIT_BOTTOM = 150;
+var DROPLET_HIT_BOTTOM = PLATFORM_GROUND - 42;
 var DROPLET_SPLASH_WIDTH = 166;
 var DROPLET_SPLASH_CROPWIDTH = 166;
 var DROPLET_SPLASH_HEIGHT = 182;
@@ -769,7 +769,8 @@ var WaterDroplet = /*#__PURE__*/function () {
   function WaterDroplet(_ref2) {
     var x = _ref2.x,
       y = _ref2.y,
-      image = _ref2.image;
+      image = _ref2.image,
+      argSplashBottom = _ref2.argSplashBottom;
     _classCallCheck(this, WaterDroplet);
     this.position = {
       x: x,
@@ -779,6 +780,7 @@ var WaterDroplet = /*#__PURE__*/function () {
       x: 0,
       y: 7
     };
+    this.splashBottom = argSplashBottom || DROPLET_HIT_BOTTOM;
     this.startY = this.position.y;
     this.image = image;
     this.width = image.width;
@@ -847,15 +849,18 @@ var WaterDroplet = /*#__PURE__*/function () {
         if (this.size >= 1) {
           this.position.y += this.velocity.y * (2 + gravity);
         }
-      } else if (this.position.y >= canvas.height - DROPLET_HIT_BOTTOM && this.frames >= 0) {
+        //}else if (this.position.y >= canvas.height-this.splashBottom && this.frames>=0) {  //splash
+      } else if (this.position.y >= this.splashBottom && this.frames >= 0) {
         //splash
         this.currentSprite = this.sprites.splatter.spriteImage;
         this.frames += 3;
-        this.position.y = canvas.height - DROPLET_HIT_BOTTOM;
+        //this.position.y=canvas.height-this.splashBottom;
+        this.position.y = this.splashBottom;
         this.drawSplash();
         //if(this.frames>=10) splashSound.play();
-      } else if (this.position.y > this.startY && this.position.y < canvas.height - DROPLET_HIT_BOTTOM) {
-        //falling       
+        //}else if(this.position.y>this.startY && this.position.y < canvas.height-this.splashBottom ){     //falling      
+      } else if (this.position.y > this.startY && this.position.y < this.splashBottom) {
+        //falling        
         this.currentSprite = this.sprites.falling.spriteImage;
         this.position.y += this.velocity.y * (2 + gravity);
         this.drawFalling();
@@ -873,7 +878,7 @@ var Platform = /*#__PURE__*/function () {
     _classCallCheck(this, Platform);
     this.position = {
       x: x,
-      y: y
+      y: y || PLATFORM_GROUND
     };
     this.image = image;
     this.width = image.width;
@@ -984,27 +989,21 @@ function init() {
     argFoothold: 25
   }), new Platform({
     x: -1,
-    y: 470,
     image: platformImage
   }), new Platform({
     x: platformImage.width - 3,
-    y: 470,
     image: platformImage
   }), new Platform({
     x: platformImage.width * 2 + 100,
-    y: 470,
     image: platformImage
   }), new Platform({
     x: platformImage.width * 3 + 300,
-    y: 470,
     image: platformImage
   }), new Platform({
     x: platformImage.width * 4 + 300 - 2,
-    y: 470,
     image: platformImage
   }), new Platform({
     x: platformImage.width * 5 + 700 - 2,
-    y: 470,
     image: platformImage
   })];
   genericObjects = [new GenericObject({
@@ -1133,20 +1132,10 @@ function gameLoop() {
     player.currentSprite = player.sprites.run.right;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
-    // if( keys.jump.pressed ){
-    //   player.currentSprite = player.sprites.jump.right;
-    //   player.currentCropWidth = player.sprites.jump.cropWidth;
-    //   player.width = player.sprites.jump.width;  
-    // }
   } else if (keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.run.left) {
     player.currentSprite = player.sprites.run.left;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
-    // if( keys.jump.pressed ){
-    //   player.currentSprite = player.sprites.jump.left;
-    //   player.currentCropWidth = player.sprites.jump.cropWidth;
-    //   player.width = player.sprites.jump.width;  
-    // }
   } else if (!keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.stand.left) {
     player.currentSprite = player.sprites.stand.left;
     player.currentCropWidth = player.sprites.stand.cropWidth;

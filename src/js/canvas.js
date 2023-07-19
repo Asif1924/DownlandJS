@@ -65,6 +65,7 @@ let JUMPVELOCITY = INITIAL_JUMPVELOCITY;
 let PLAYERSPEED = INITIAL_PLAYERSPEED;
 const BACKGROUND_HILLS_PARALLAX_FACTOR = 0.66;
 
+const PLATFORM_GROUND = 540;
 //Sprite cutoffs
 //Harry
 // const STAND_IMAGE_CROP_WIDTH=177;
@@ -84,7 +85,7 @@ const STAND_FRAMES = 2;
 
 //Water Droplet parameters
 const SINGLE_DROPLET_HEIGHT = 55;
-const DROPLET_HIT_BOTTOM = 150;
+const DROPLET_HIT_BOTTOM = PLATFORM_GROUND-42;
 const DROPLET_SPLASH_WIDTH=166
 const DROPLET_SPLASH_CROPWIDTH=166;
 const DROPLET_SPLASH_HEIGHT = 182;
@@ -252,7 +253,7 @@ class Player {
 }
 
 class WaterDroplet{
-  constructor({ x, y, image }) {
+  constructor({ x, y, image, argSplashBottom }) {
     this.position = {
       x,
       y,
@@ -261,6 +262,7 @@ class WaterDroplet{
       x: 0,
       y: 7,
     };
+    this.splashBottom = argSplashBottom || DROPLET_HIT_BOTTOM;
     this.startY = this.position.y;
     this.image = image;
     this.width = image.width;
@@ -333,13 +335,16 @@ class WaterDroplet{
       if(this.size>=1){
         this.position.y += this.velocity.y * (2+gravity);
       }
-    }else if (this.position.y >= canvas.height-DROPLET_HIT_BOTTOM && this.frames>=0) {  //splash
+    //}else if (this.position.y >= canvas.height-this.splashBottom && this.frames>=0) {  //splash
+  }else if (this.position.y >= this.splashBottom && this.frames>=0) {  //splash
       this.currentSprite = this.sprites.splatter.spriteImage;
       this.frames+=3;
-      this.position.y=canvas.height-DROPLET_HIT_BOTTOM;
+      //this.position.y=canvas.height-this.splashBottom;
+      this.position.y=this.splashBottom;
       this.drawSplash();
       //if(this.frames>=10) splashSound.play();
-    }else if(this.position.y>this.startY && this.position.y < canvas.height-DROPLET_HIT_BOTTOM ){     //falling       
+    //}else if(this.position.y>this.startY && this.position.y < canvas.height-this.splashBottom ){     //falling      
+  }else if(this.position.y>this.startY && this.position.y < this.splashBottom ){     //falling        
       this.currentSprite = this.sprites.falling.spriteImage;
       this.position.y += this.velocity.y * (2+gravity);
       this.drawFalling();
@@ -351,7 +356,7 @@ class Platform {
   constructor({ x, y, image, argFoothold }) {
     this.position = {
       x,
-      y,
+      y : y || PLATFORM_GROUND,
     };
     this.image = image;
     this.width = image.width;
@@ -471,32 +476,26 @@ function init() {
     }),
     new Platform({
       x: -1,
-      y: 470,
       image: platformImage,
     }),
     new Platform({
       x: platformImage.width - 3,
-      y: 470,
       image: platformImage,
     }),
     new Platform({
       x: platformImage.width * 2 + 100,
-      y: 470,
       image: platformImage,
     }),
     new Platform({
       x: platformImage.width * 3 + 300,
-      y: 470,
       image: platformImage,
     }),
     new Platform({
       x: platformImage.width * 4 + 300 - 2,
-      y: 470,
       image: platformImage,
     }),
     new Platform({
       x: platformImage.width * 5 + 700 - 2,
-      y: 470,
       image: platformImage,
     }),
   ];
@@ -657,23 +656,13 @@ function gameLoop() {
     player.currentSprite = player.sprites.run.right;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
-    // if( keys.jump.pressed ){
-    //   player.currentSprite = player.sprites.jump.right;
-    //   player.currentCropWidth = player.sprites.jump.cropWidth;
-    //   player.width = player.sprites.jump.width;  
-    // }
   } else if ( keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.run.left) {
     player.currentSprite = player.sprites.run.left;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
-    // if( keys.jump.pressed ){
-    //   player.currentSprite = player.sprites.jump.left;
-    //   player.currentCropWidth = player.sprites.jump.cropWidth;
-    //   player.width = player.sprites.jump.width;  
-    // }
   } else if ( !keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.stand.left) {
     player.currentSprite = player.sprites.stand.left;
-    player.currentCropWidth = player.sprites.stand.cropWidth;
+    player.currentCropWidth = player.sprites.stand.cropWidth; 
     player.width = player.sprites.stand.width;
   } else if ( !keys.right.pressed && lastKey === "right" && player.currentSprite !== player.sprites.stand.right) {
     player.currentSprite = player.sprites.stand.right;
