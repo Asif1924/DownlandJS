@@ -357,18 +357,23 @@ class WaterDroplet{
 }
 
 class Platform {
-  constructor({ x, y, image, argFoothold }) {
+  constructor({ x, y, image, argFoothold, argWidth, argHeight }) {
     this.position = {
       x,
       y : y || PLATFORM_GROUND,
     };
     this.image = image;
-    this.width = image.width;
-    this.height = image.height;
+    if(argWidth >0 && argHeight >0){
+      this.width = argWidth;
+      this.height = argHeight;  
+    }else{
+      this.width = image.width;
+      this.height = image.height;  
+    }
     this.foothold = (argFoothold!=undefined) ? argFoothold: 15;
   }
   draw() {
-    canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+    canvasCtx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
   }
 }
 
@@ -476,21 +481,22 @@ function init() {
   ];
   platforms = [
     new Platform({
-      x: -30,        
+      x: 0,        
       y: 370,
       image: stumpPlatformImage,
-      width : 100,
-      height: 1000,
+      argWidth : 100,
+      argHeight: 100,
+      argFoothold: 15
+    }),
+    new Platform({
+      x: 0,
+      image: bottomPlatformImage,
+      argWidth: 1500,
+      argHeight: 125,
       argFoothold: 25
     }),
     new Platform({
-      x: -1,
-      image: bottomPlatformImage,
-      width: 1580,
-      height: 125
-    }),
-    new Platform({
-      x: platformImage.width * 5 + 700 - 2,
+      x: 1700,
       image: platformImage,
     }),
   ];

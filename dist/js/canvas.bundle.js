@@ -922,21 +922,28 @@ var Platform = /*#__PURE__*/function () {
     var x = _ref3.x,
       y = _ref3.y,
       image = _ref3.image,
-      argFoothold = _ref3.argFoothold;
+      argFoothold = _ref3.argFoothold,
+      argWidth = _ref3.argWidth,
+      argHeight = _ref3.argHeight;
     _classCallCheck(this, Platform);
     this.position = {
       x: x,
       y: y || PLATFORM_GROUND
     };
     this.image = image;
-    this.width = image.width;
-    this.height = image.height;
+    if (argWidth > 0 && argHeight > 0) {
+      this.width = argWidth;
+      this.height = argHeight;
+    } else {
+      this.width = image.width;
+      this.height = image.height;
+    }
     this.foothold = argFoothold != undefined ? argFoothold : 15;
   }
   _createClass(Platform, [{
     key: "draw",
     value: function draw() {
-      canvasCtx.drawImage(this.image, this.position.x, this.position.y);
+      canvasCtx.drawImage(this.image, this.position.x, this.position.y, this.width, this.height);
     }
   }]);
   return Platform;
@@ -1037,19 +1044,20 @@ function init() {
     argHeight: 1024
   })];
   platforms = [new Platform({
-    x: -30,
+    x: 0,
     y: 370,
     image: stumpPlatformImage,
-    width: 100,
-    height: 1000,
+    argWidth: 100,
+    argHeight: 100,
+    argFoothold: 15
+  }), new Platform({
+    x: 0,
+    image: bottomPlatformImage,
+    argWidth: 1500,
+    argHeight: 125,
     argFoothold: 25
   }), new Platform({
-    x: -1,
-    image: bottomPlatformImage,
-    width: 1580,
-    height: 125
-  }), new Platform({
-    x: platformImage.width * 5 + 700 - 2,
+    x: 1700,
     image: platformImage
   })];
   genericObjects = [new GenericObject({
