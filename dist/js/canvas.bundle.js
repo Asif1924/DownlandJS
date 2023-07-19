@@ -1155,9 +1155,9 @@ function init() {
     image: platformImage
   })];
   ropes = [new Rope({
-    x: 100,
+    x: 120,
     y: 300,
-    argHeight: 125,
+    argHeight: 25,
     image: ropeImage,
     argFoothold: 25
   })];
@@ -1256,6 +1256,9 @@ function gameLoop() {
       platforms.forEach(function (platform) {
         platform.position.x -= player.speed;
       });
+      ropes.forEach(function (rope) {
+        rope.position.x -= player.speed;
+      });
       genericObjects.forEach(function (genericObject) {
         genericObject.position.x -= player.speed * BACKGROUND_HILLS_PARALLAX_FACTOR;
       });
@@ -1269,6 +1272,9 @@ function gameLoop() {
       });
       platforms.forEach(function (platform) {
         platform.position.x += player.speed;
+      });
+      ropes.forEach(function (rope) {
+        rope.position.x += player.speed;
       });
       genericObjects.forEach(function (genericObject) {
         genericObject.position.x += player.speed * BACKGROUND_HILLS_PARALLAX_FACTOR;
