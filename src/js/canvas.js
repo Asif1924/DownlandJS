@@ -4,6 +4,10 @@
 import platformImageSrc from "../img/GreenPlatform.png";
 import platformImageSmallTallSrc from "../img/SingleIsland.png";
 
+import bottomPlatformImageSrc from "../img/BottomPlatform.png";
+import stumpPlatformImageSrc from "../img/StumpPlatform.png";
+import inclinePlatformImageSrc from "../img/InclinePlatform.png";
+
 import greenPlat1 from "../img/GreenPlatform1.png";
 import greenPlat2 from "../img/GreenPlatform2.png";
 import greenPlat3 from "../img/GreenPlatform3.png";
@@ -383,6 +387,10 @@ class GenericObject {
   }
 }
 
+let bottomPlatformImage = createImage(bottomPlatformImageSrc);
+let stumpPlatformImage = createImage(stumpPlatformImageSrc);
+let inclinePlatformImage = createImage(inclinePlatformImageSrc);
+
 let platformImage = createImage(platformImageSrc);
 let platformImageSmallTall = createImage(platformImageSmallTallSrc);
 
@@ -413,6 +421,10 @@ let keys = {
 let scrollOffset = 0;
 
 function init() {
+  bottomPlatformImage = createImage(bottomPlatformImageSrc);
+  stumpPlatformImage = createImage(stumpPlatformImageSrc);
+  inclinePlatformImage = createImage(inclinePlatformImageSrc); 
+
   platformImage = createImage(platformImageSrc);
   platformImageSmallTall = createImage(platformImageSmallTallSrc);
   cave1Image = createImage(cave1);
@@ -464,35 +476,18 @@ function init() {
   ];
   platforms = [
     new Platform({
-      x:
-        platformImage.width * 4 +
-        300 -
-        2 +
-        platformImage.width -
-        platformImageSmallTall.width,
-      y: 270,
-      image: platformImageSmallTall,
+      x: -30,        
+      y: 370,
+      image: stumpPlatformImage,
+      width : 100,
+      height: 1000,
       argFoothold: 25
     }),
     new Platform({
       x: -1,
-      image: platformImage,
-    }),
-    new Platform({
-      x: platformImage.width - 3,
-      image: platformImage,
-    }),
-    new Platform({
-      x: platformImage.width * 2 + 100,
-      image: platformImage,
-    }),
-    new Platform({
-      x: platformImage.width * 3 + 300,
-      image: platformImage,
-    }),
-    new Platform({
-      x: platformImage.width * 4 + 300 - 2,
-      image: platformImage,
+      image: bottomPlatformImage,
+      width: 1580,
+      height: 125
     }),
     new Platform({
       x: platformImage.width * 5 + 700 - 2,
