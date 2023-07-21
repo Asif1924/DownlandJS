@@ -693,11 +693,7 @@ var gravity = 0.5;
 //    yourImg.style.width = '200px';
 
 var spriteStandRightImage = createImage(_img_BoyStandRight_Sheet_png__WEBPACK_IMPORTED_MODULE_19__["default"]);
-spriteStandRightImage.style.width = '50px';
-spriteStandRightImage.style.height = '72px';
 var spriteStandLeftImage = createImage(_img_BoyStandLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_20__["default"]);
-spriteStandLeftImage.style.width = '50px';
-spriteStandLeftImage.style.height = '72px';
 
 // let spriteRunRightImage = createImage(harryrunright);
 // let spriteRunLeftImage = createImage(harryrunleft);
@@ -768,7 +764,7 @@ var Player = /*#__PURE__*/function () {
     this.image = spriteStandLeftImage;
     this.height = this.image.height;
     this.collisiondetection = {
-      footadjustment: 10
+      footadjustment: 11
     };
     this.frames = 0;
     this.sprites = {
@@ -807,8 +803,8 @@ var Player = /*#__PURE__*/function () {
     key: "update",
     value: function update() {
       this.frames++;
-      // this.height *= 0.5;
-      // this.width *= 0.5;
+      this.width = 50;
+      this.height = 70;
       // this.currentCropWidth *=0.5;
       // this.width *= 0.5;
       if ((this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left || this.currentSprite === this.sprites.jump.right || this.currentSprite === this.sprites.jump.left) && this.sprites.stand.cycleframes === false) {

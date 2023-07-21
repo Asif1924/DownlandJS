@@ -120,12 +120,8 @@ let gravity = 0.5;
 //    yourImg.style.width = '200px';
 
 let spriteStandRightImage = createImage(boystandrightSrc);
-spriteStandRightImage.style.width = '50px';
-spriteStandRightImage.style.height = '72px';
 
 let spriteStandLeftImage = createImage(boystandleftSrc);
-spriteStandLeftImage.style.width = '50px';
-spriteStandLeftImage.style.height = '72px';
 
 // let spriteRunRightImage = createImage(harryrunright);
 // let spriteRunLeftImage = createImage(harryrunleft);
@@ -190,7 +186,7 @@ class Player {
     this.image = spriteStandLeftImage;
     this.height = this.image.height; 
     this.collisiondetection = {
-      footadjustment: 10
+      footadjustment: 11
     }
 
     this.frames = 0;
@@ -238,8 +234,8 @@ class Player {
 
   update() {
     this.frames++;
-    // this.height *= 0.5;
-    // this.width *= 0.5;
+    this.width = 50;
+    this.height = 70;
     // this.currentCropWidth *=0.5;
     // this.width *= 0.5;
     if( (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left || this.currentSprite===this.sprites.jump.right || this.currentSprite===this.sprites.jump.left) && this.sprites.stand.cycleframes===false ){
