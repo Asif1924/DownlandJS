@@ -116,8 +116,16 @@ let gravity = 0.5;
 
 // let spriteStandRightImage = createImage(harrystandright);
 // let spriteStandLeftImage = createImage(harrystandleft);
+//    yourImg.style.height = '100px';
+//    yourImg.style.width = '200px';
+
 let spriteStandRightImage = createImage(boystandrightSrc);
+spriteStandRightImage.style.width = '50px';
+spriteStandRightImage.style.height = '72px';
+
 let spriteStandLeftImage = createImage(boystandleftSrc);
+spriteStandLeftImage.style.width = '50px';
+spriteStandLeftImage.style.height = '72px';
 
 // let spriteRunRightImage = createImage(harryrunright);
 // let spriteRunLeftImage = createImage(harryrunleft);
@@ -181,6 +189,9 @@ class Player {
     this.width = STAND_IMAGE_WIDTH;
     this.image = spriteStandLeftImage;
     this.height = this.image.height; 
+    this.collisiondetection = {
+      footadjustment: 10
+    }
 
     this.frames = 0;
     this.sprites = {
@@ -227,6 +238,10 @@ class Player {
 
   update() {
     this.frames++;
+    // this.height *= 0.5;
+    // this.width *= 0.5;
+    // this.currentCropWidth *=0.5;
+    // this.width *= 0.5;
     if( (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left || this.currentSprite===this.sprites.jump.right || this.currentSprite===this.sprites.jump.left) && this.sprites.stand.cycleframes===false ){
        this.frames=0;
     }
@@ -265,6 +280,9 @@ class WaterDroplet{
     this.size = 0.03;    
     this.frames = 0;
     this.jigglefactor = 0;
+    this.hangingStartSize = 0.01;
+    this.hangingEndSizeFactor = 0.5;
+    this.splashSkipFrames = 3;
 
     this.sprites = {
       hanging: {
@@ -314,12 +332,12 @@ class WaterDroplet{
     if(this.frames>DROPLET_SPLASH_FRAMES){
       this.position.y = this.startY;
       this.frames = 0;
-      this.size=0.01;
+      this.size=this.hangingStartSize;
     }
   }
 
   update(){
-    if( this.position.y===this.startY ){      //hanging/growing/jiggling    
+    if( this.position.y===this.startY ){      //hanging/jiggling/growing    
       this.currentSprite = this.sprites.hanging.spriteImage; 
       this.frames = 0;
       let sizeFactor = getRandomInt(9);      
@@ -327,13 +345,13 @@ class WaterDroplet{
       //this.size+=(sizeFactor/((getRandomInt(10))*100)); // Randomize droplet growth
       this.drawHanging();      
       this.jigglefactor = (gameTimer%2===0) ? + (getRandomInt(7)*this.size) : (-1*(getRandomInt(7))*this.size);
-      if(this.size>=1){
+      if(this.size>=this.hangingEndSizeFactor){
         this.position.y += this.velocity.y * (2+gravity);
       }
     //}else if (this.position.y >= canvas.height-this.splashBottom && this.frames>=0) {  //splash
   }else if (this.position.y >= this.splashBottom && this.frames>=0) {  //splash
       this.currentSprite = this.sprites.splatter.spriteImage;
-      this.frames+=3;
+      this.frames+=this.splashSkipFrames;
       //this.position.y=canvas.height-this.splashBottom;
       this.position.y=this.splashBottom;
       this.drawSplash();
@@ -375,12 +393,15 @@ class Rope {
       y : y || PLATFORM_GROUND,
     };
     this.image = image;
-    if(argWidth >0 && argHeight >0){
+    if( argWidth >0 ){
       this.width = argWidth;
-      this.height = argHeight;  
     }else{
       this.width = image.width;
-      this.height = image.height;  
+    }
+    if( argHeight >0){
+      this.height = argHeight;  
+    }else{
+      this.height = image.height;   
     }
     this.foothold = (argFoothold!=undefined) ? argFoothold: 15;
   }
@@ -441,6 +462,8 @@ let keys = {
 let scrollOffset = 0;
 
 function init() {
+  
+
   bottomPlatformImage = createImage(bottomPlatformImageSrc);
   stumpPlatformImage = createImage(stumpPlatformImageSrc);
   inclinePlatformImage = createImage(inclinePlatformImageSrc);
@@ -496,6 +519,14 @@ function init() {
     })    
   ];
   platforms = [
+    new Platform({
+      x: 0,        
+      y: 5,
+      image: stumpPlatformImage,
+      argWidth : 100,
+      argHeight: 100,
+      argFoothold: 15
+    }),
     new Platform({
       x: 0,        
       y: 0,
@@ -583,11 +614,11 @@ function init() {
 
   ropes = [
     new Rope({
-      x: 120,
+      x: 220,
       y: 300,
-      argHeight: 25,
+      argHeight: 125,
       image: ropeImage,
-      argFoothold: 25
+      argFoothold: 125
     })
   ];
 
@@ -606,12 +637,19 @@ function init() {
 
   waterdroplets = [
     new WaterDroplet({
-      x:320,
+      x:140,
       y:10,
-      image: waterdropletHangingFallingImage
+      image: waterdropletHangingFallingImage,
+      argSplashBottom: 225
     }),
     new WaterDroplet({
-      x:320,
+      x:340,
+      y:10,
+      image: waterdropletHangingFallingImage,
+      argSplashBottom: 225
+    }),    
+    new WaterDroplet({
+      x:140,
       y:300,
       image: waterdropletHangingFallingImage
     }),    
@@ -741,13 +779,14 @@ function gameLoop() {
     }
   }
 
+  //Collision detection with platforms and player
   platforms.forEach((platform) => {
     if (
       player.position.y + player.height <= platform.position.y+platform.foothold &&
       player.position.y + player.height + player.velocity.y >=
         platform.position.y+platform.foothold &&
-      player.position.x + player.width >= platform.position.x &&
-      player.position.x <= platform.position.x + platform.width
+      player.position.x + player.width-player.collisiondetection.footadjustment >= platform.position.x &&
+      player.position.x <= platform.position.x + platform.width-player.collisiondetection.footadjustment
     ) {
       player.velocity.y = 0;
       hitSpaceCount = 0;
