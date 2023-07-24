@@ -60,6 +60,8 @@ const ALT = 18;
 const WINDOWS_OPTION = 91;
 const LEFTARROW = 37;
 const RIGHTARROW = 39;
+const UPARROW = 38;
+const DOWNARROW = 40;
 const SPACEBAR = 32;
 
 //Environmental
@@ -302,18 +304,18 @@ class WaterDroplet{
   }
   
   drawHanging(){
-    console.log("===================================draw hang");
+    //console.log("===================================draw hang");
     canvasCtx.drawImage(this.currentSprite, this.position.x, this.position.y+this.jigglefactor,this.image.width*this.size,this.image.height*this.size);
   }
 
   drawFalling() {
-    console.log("===================================draw fall");
+    //console.log("===================================draw fall");
     canvasCtx.drawImage(this.currentSprite, this.position.x, this.position.y);
   }
 
   drawSplash(){
-    console.log("===================================draw splash");
-    console.log("splash frames=" + this.frames);
+    //console.log("===================================draw splash");
+    //console.log("splash frames=" + this.frames);
     canvasCtx.drawImage(
       this.currentSprite,
       DROPLET_SPLASH_WIDTH * this.frames,
@@ -342,7 +344,7 @@ class WaterDroplet{
       this.drawHanging();      
       this.jigglefactor = (gameTimer%2===0) ? + (getRandomInt(7)*this.size) : (-1*(getRandomInt(7))*this.size);
       if(this.size>=this.hangingEndSizeFactor){
-        this.position.y += this.velocity.y * (2+gravity);
+        this.position.y += this.velocity.y * (gravity*2);
       }
     //}else if (this.position.y >= canvas.height-this.splashBottom && this.frames>=0) {  //splash
   }else if (this.position.y >= this.splashBottom && this.frames>=0) {  //splash
@@ -350,12 +352,14 @@ class WaterDroplet{
       this.frames+=this.splashSkipFrames;
       //this.position.y=canvas.height-this.splashBottom;
       this.position.y=this.splashBottom;
+      //this.currentSprite.width=100;
+      //this.currentCropWidth.height = 50;
       this.drawSplash();
       //if(this.frames>=10) splashSound.play();
     //}else if(this.position.y>this.startY && this.position.y < canvas.height-this.splashBottom ){     //falling      
   }else if(this.position.y>this.startY && this.position.y < this.splashBottom ){     //falling        
       this.currentSprite = this.sprites.falling.spriteImage;
-      this.position.y += this.velocity.y * (2+gravity);
+      this.position.y += this.velocity.y * (gravity*2);
       this.drawFalling();
     }    
   }  
@@ -467,6 +471,9 @@ function init() {
 
   platformImage = createImage(platformImageSrc);
   platformImageSmallTall = createImage(platformImageSmallTallSrc);
+
+  ropeImage = createImage(ropeImageSrc);
+
   cave1Image = createImage(cave1);
   cave2Image = createImage(cave2);
   cave3Image = createImage(cave3);
@@ -615,7 +622,21 @@ function init() {
       argHeight: 125,
       image: ropeImage,
       argFoothold: 125
-    })
+    }),
+    new Rope({
+      x: 260,
+      y: 300,
+      argHeight: 125,
+      image: ropeImage,
+      argFoothold: 125
+    }),
+    new Rope({
+      x: 420,
+      y: 300,
+      argHeight: 125,
+      image: ropeImage,
+      argFoothold: 125
+    }),
   ];
 
   genericObjects = [
@@ -687,6 +708,12 @@ function init() {
   ]
 
   keys = {
+    up: {
+      pressed: false,
+    },
+    down: {
+      pressed: false,
+    },
     right: {
       pressed: false,
     },
@@ -718,7 +745,6 @@ function gameLoop() {
   ropes.forEach((rope) => {
     rope.draw();
   });
-
 
   waterdroplets.forEach((waterdroplet) => {
     waterdroplet.update();
@@ -777,6 +803,9 @@ function gameLoop() {
 
   //Collision detection with platforms and player
   platforms.forEach((platform) => {
+    // console.log("player.height=" + player.height);
+    // console.log("player.width=" + player.width);
+
     if (
       player.position.y + player.height <= platform.position.y+platform.foothold &&
       player.position.y + player.height + player.velocity.y >=
@@ -786,6 +815,26 @@ function gameLoop() {
     ) {
       player.velocity.y = 0;
       hitSpaceCount = 0;
+    }
+  });
+
+  ropes.forEach( (rope) => {
+    // console.log("player.height=" + player.height);
+    // console.log("player.width=" + player.width);
+    //if(player.position.x >= rope.position.x)
+    if(keys.jump.pressed){
+      if(player.currentSprite===player.sprites.run.right || player.currentSprite===player.sprites.stand.right){
+        if( player.position.x >= rope.position.x-35 && player.position.x+55 <= rope.position.x+35 &&
+            player.position.y<=rope.position.y+100
+        ){
+          console.log("========================CLIMB ROPE");
+          player.position.y=rope.position.y+10;
+          player.velocity.y=0;
+        }
+      }
+      // else if(player.currentSprite===player.sprites.run.left || player.currentSprite===player.sprites.stand.left){
+
+      // }
     }
   });
 
@@ -806,11 +855,11 @@ function gameLoop() {
     player.currentSprite = player.sprites.stand.right;
     player.currentCropWidth = player.sprites.stand.cropWidth;
     player.width = player.sprites.stand.width;
-  } else if( keys.jump.pressed && lastKey==="jump" && player.currentSprite !== player.sprites.jump.right){
+  } else if( keys.jump.pressed && player.currentSprite !== player.sprites.jump.right){
     player.currentSprite = player.sprites.jump.right;
     player.currentCropWidth = player.sprites.jump.cropWidth;
     player.width = player.sprites.jump.width;
-  } else if( keys.jump.pressed && lastKey==="jump" && player.currentSprite !== player.sprites.jump.left){
+  } else if( keys.jump.pressed && player.currentSprite !== player.sprites.jump.left){
     player.currentSprite = player.sprites.jump.left;
     player.currentCropWidth = player.sprites.jump.cropWidth;
     player.width = player.sprites.jump.width;
@@ -833,6 +882,21 @@ gameLoop();
 addEventListener("keydown", ({ keyCode }) => {
   console.log(keyCode);
   switch (keyCode) {
+    case UPARROW:
+      console.log("up");
+      keys.up.pressed = true;
+      lastKey = "up";
+      break;
+    case DOWNARROW:
+      console.log("down");
+      keys.down.pressed = true;
+      lastKey = "down";
+      break;
+    case UPARROW:
+      console.log("up");
+      keys.up.pressed = true;
+      lastKey = "up";
+      break;
     case LEFTARROW:
       console.log("left");
       keys.left.pressed = true;
@@ -871,6 +935,14 @@ addEventListener("keydown", ({ keyCode }) => {
 
 addEventListener("keyup", ({ keyCode }) => {
   switch (keyCode) {
+    case UPARROW:
+      console.log("up");
+      keys.up.pressed = false;
+      break;
+    case DOWNARROW:
+      console.log("down");
+      keys.down.pressed = false;
+      break;
     case LEFTARROW:
       console.log("left");
       keys.left.pressed = false;

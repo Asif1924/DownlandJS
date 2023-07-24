@@ -637,6 +637,8 @@ var ALT = 18;
 var WINDOWS_OPTION = 91;
 var LEFTARROW = 37;
 var RIGHTARROW = 39;
+var UPARROW = 38;
+var DOWNARROW = 40;
 var SPACEBAR = 32;
 
 //Environmental
@@ -876,20 +878,20 @@ var WaterDroplet = /*#__PURE__*/function () {
   _createClass(WaterDroplet, [{
     key: "drawHanging",
     value: function drawHanging() {
-      console.log("===================================draw hang");
+      //console.log("===================================draw hang");
       canvasCtx.drawImage(this.currentSprite, this.position.x, this.position.y + this.jigglefactor, this.image.width * this.size, this.image.height * this.size);
     }
   }, {
     key: "drawFalling",
     value: function drawFalling() {
-      console.log("===================================draw fall");
+      //console.log("===================================draw fall");
       canvasCtx.drawImage(this.currentSprite, this.position.x, this.position.y);
     }
   }, {
     key: "drawSplash",
     value: function drawSplash() {
-      console.log("===================================draw splash");
-      console.log("splash frames=" + this.frames);
+      //console.log("===================================draw splash");
+      //console.log("splash frames=" + this.frames);
       canvasCtx.drawImage(this.currentSprite, DROPLET_SPLASH_WIDTH * this.frames, 0, DROPLET_SPLASH_WIDTH, this.currentSprite.height, this.position.x - DROPLET_SPLASH_WIDTH / 2 + 15, this.position.y - this.currentSprite.height + SINGLE_DROPLET_HEIGHT,
       //55 is hte height of the single drop which we just happen to know
       DROPLET_SPLASH_WIDTH, this.currentSprite.height);
@@ -912,7 +914,7 @@ var WaterDroplet = /*#__PURE__*/function () {
         this.drawHanging();
         this.jigglefactor = gameTimer % 2 === 0 ? +(getRandomInt(7) * this.size) : -1 * getRandomInt(7) * this.size;
         if (this.size >= this.hangingEndSizeFactor) {
-          this.position.y += this.velocity.y * (2 + gravity);
+          this.position.y += this.velocity.y * (gravity * 2);
         }
         //}else if (this.position.y >= canvas.height-this.splashBottom && this.frames>=0) {  //splash
       } else if (this.position.y >= this.splashBottom && this.frames >= 0) {
@@ -921,13 +923,15 @@ var WaterDroplet = /*#__PURE__*/function () {
         this.frames += this.splashSkipFrames;
         //this.position.y=canvas.height-this.splashBottom;
         this.position.y = this.splashBottom;
+        //this.currentSprite.width=100;
+        //this.currentCropWidth.height = 50;
         this.drawSplash();
         //if(this.frames>=10) splashSound.play();
         //}else if(this.position.y>this.startY && this.position.y < canvas.height-this.splashBottom ){     //falling      
       } else if (this.position.y > this.startY && this.position.y < this.splashBottom) {
         //falling        
         this.currentSprite = this.sprites.falling.spriteImage;
-        this.position.y += this.velocity.y * (2 + gravity);
+        this.position.y += this.velocity.y * (gravity * 2);
         this.drawFalling();
       }
     }
@@ -1057,6 +1061,7 @@ function init() {
   ropeImage = createImage(_img_Rope_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
   platformImage = createImage(_img_GreenPlatform_png__WEBPACK_IMPORTED_MODULE_0__["default"]);
   platformImageSmallTall = createImage(_img_SingleIsland_png__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  ropeImage = createImage(_img_Rope_png__WEBPACK_IMPORTED_MODULE_2__["default"]);
   cave1Image = createImage(_img_Mushroom_Cave_L1_png__WEBPACK_IMPORTED_MODULE_12__["default"]);
   cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_13__["default"]);
   cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_11__["default"]);
@@ -1183,6 +1188,18 @@ function init() {
     argHeight: 125,
     image: ropeImage,
     argFoothold: 125
+  }), new Rope({
+    x: 260,
+    y: 300,
+    argHeight: 125,
+    image: ropeImage,
+    argFoothold: 125
+  }), new Rope({
+    x: 420,
+    y: 300,
+    argHeight: 125,
+    image: ropeImage,
+    argFoothold: 125
   })];
   genericObjects = [new GenericObject({
     x: -1,
@@ -1237,6 +1254,12 @@ function init() {
     image: waterdropletHangingFallingImage
   })];
   keys = {
+    up: {
+      pressed: false
+    },
+    down: {
+      pressed: false
+    },
     right: {
       pressed: false
     },
@@ -1316,9 +1339,29 @@ function gameLoop() {
 
   //Collision detection with platforms and player
   platforms.forEach(function (platform) {
+    // console.log("player.height=" + player.height);
+    // console.log("player.width=" + player.width);
+
     if (player.position.y + player.height <= platform.position.y + platform.foothold && player.position.y + player.height + player.velocity.y >= platform.position.y + platform.foothold && player.position.x + player.width - player.collisiondetection.footadjustment >= platform.position.x && player.position.x <= platform.position.x + platform.width - player.collisiondetection.footadjustment) {
       player.velocity.y = 0;
       hitSpaceCount = 0;
+    }
+  });
+  ropes.forEach(function (rope) {
+    // console.log("player.height=" + player.height);
+    // console.log("player.width=" + player.width);
+    //if(player.position.x >= rope.position.x)
+    if (keys.jump.pressed) {
+      if (player.currentSprite === player.sprites.run.right || player.currentSprite === player.sprites.stand.right) {
+        if (player.position.x >= rope.position.x - 35 && player.position.x + 55 <= rope.position.x + 35 && player.position.y <= rope.position.y + 100) {
+          console.log("========================CLIMB ROPE");
+          player.position.y = rope.position.y + 10;
+          player.velocity.y = 0;
+        }
+      }
+      // else if(player.currentSprite===player.sprites.run.left || player.currentSprite===player.sprites.stand.left){
+
+      // }
     }
   });
 
@@ -1339,11 +1382,11 @@ function gameLoop() {
     player.currentSprite = player.sprites.stand.right;
     player.currentCropWidth = player.sprites.stand.cropWidth;
     player.width = player.sprites.stand.width;
-  } else if (keys.jump.pressed && lastKey === "jump" && player.currentSprite !== player.sprites.jump.right) {
+  } else if (keys.jump.pressed && player.currentSprite !== player.sprites.jump.right) {
     player.currentSprite = player.sprites.jump.right;
     player.currentCropWidth = player.sprites.jump.cropWidth;
     player.width = player.sprites.jump.width;
-  } else if (keys.jump.pressed && lastKey === "jump" && player.currentSprite !== player.sprites.jump.left) {
+  } else if (keys.jump.pressed && player.currentSprite !== player.sprites.jump.left) {
     player.currentSprite = player.sprites.jump.left;
     player.currentCropWidth = player.sprites.jump.cropWidth;
     player.width = player.sprites.jump.width;
@@ -1364,6 +1407,21 @@ addEventListener("keydown", function (_ref6) {
   var keyCode = _ref6.keyCode;
   console.log(keyCode);
   switch (keyCode) {
+    case UPARROW:
+      console.log("up");
+      keys.up.pressed = true;
+      lastKey = "up";
+      break;
+    case DOWNARROW:
+      console.log("down");
+      keys.down.pressed = true;
+      lastKey = "down";
+      break;
+    case UPARROW:
+      console.log("up");
+      keys.up.pressed = true;
+      lastKey = "up";
+      break;
     case LEFTARROW:
       console.log("left");
       keys.left.pressed = true;
@@ -1402,6 +1460,14 @@ addEventListener("keydown", function (_ref6) {
 addEventListener("keyup", function (_ref7) {
   var keyCode = _ref7.keyCode;
   switch (keyCode) {
+    case UPARROW:
+      console.log("up");
+      keys.up.pressed = false;
+      break;
+    case DOWNARROW:
+      console.log("down");
+      keys.down.pressed = false;
+      break;
     case LEFTARROW:
       console.log("left");
       keys.left.pressed = false;
