@@ -1353,7 +1353,7 @@ function gameLoop() {
     //if(player.position.x >= rope.position.x)
     if (keys.jump.pressed) {
       //if(player.currentSprite===player.sprites.run.right || player.currentSprite===player.sprites.stand.right){
-      if (player.position.x >= rope.position.x - 55 && player.position.x + 55 <= rope.position.x + 45 && player.position.y <= rope.position.y + 120) {
+      if (player.position.x >= rope.position.x - 65 && player.position.x + 55 <= rope.position.x + 65 && player.position.y <= rope.position.y + 120) {
         console.log("========================CLIMB ROPE");
         player.position.y = rope.position.y + 10;
         //player.position.y--;
