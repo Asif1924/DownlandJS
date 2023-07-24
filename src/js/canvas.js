@@ -823,15 +823,16 @@ function gameLoop() {
     // console.log("player.width=" + player.width);
     //if(player.position.x >= rope.position.x)
     if(keys.jump.pressed){
-      if(player.currentSprite===player.sprites.run.right || player.currentSprite===player.sprites.stand.right){
-        if( player.position.x >= rope.position.x-35 && player.position.x+55 <= rope.position.x+35 &&
-            player.position.y<=rope.position.y+100
+      //if(player.currentSprite===player.sprites.run.right || player.currentSprite===player.sprites.stand.right){
+        if( player.position.x >= rope.position.x-55 && player.position.x+55 <= rope.position.x+45 &&
+            player.position.y<=rope.position.y+120
         ){
           console.log("========================CLIMB ROPE");
           player.position.y=rope.position.y+10;
+          //player.position.y--;
           player.velocity.y=0;
         }
-      }
+      //}
       // else if(player.currentSprite===player.sprites.run.left || player.currentSprite===player.sprites.stand.left){
 
       // }
