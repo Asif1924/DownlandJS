@@ -16,6 +16,20 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/img/BoyClimb_Sheet2.png":
+/*!*************************************!*\
+  !*** ./src/img/BoyClimb_Sheet2.png ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "91be39caa7a6ed7c241e4af3a5cc3338.png");
+
+/***/ }),
+
 /***/ "./src/img/BoyJumpLeft_Sheet2.png":
 /*!****************************************!*\
   !*** ./src/img/BoyJumpLeft_Sheet2.png ***!
@@ -573,13 +587,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _img_BoyWalkLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../img/BoyWalkLeft_Sheet.png */ "./src/img/BoyWalkLeft_Sheet.png");
 /* harmony import */ var _img_BoyJumpRight_Sheet2_png__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../img/BoyJumpRight_Sheet2.png */ "./src/img/BoyJumpRight_Sheet2.png");
 /* harmony import */ var _img_BoyJumpLeft_Sheet2_png__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../img/BoyJumpLeft_Sheet2.png */ "./src/img/BoyJumpLeft_Sheet2.png");
-/* harmony import */ var _img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../img/WaterDrop_2.png */ "./src/img/WaterDrop_2.png");
-/* harmony import */ var _img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../img/WaterDrop_Splash123456_166x182_60.png */ "./src/img/WaterDrop_Splash123456_166x182_60.png");
-/* harmony import */ var _sounds_splash_mp3__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../sounds/splash.mp3 */ "./src/sounds/splash.mp3");
-/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
-/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
-/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
-/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
+/* harmony import */ var _img_BoyClimb_Sheet2_png__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../img/BoyClimb_Sheet2.png */ "./src/img/BoyClimb_Sheet2.png");
+/* harmony import */ var _img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../img/WaterDrop_2.png */ "./src/img/WaterDrop_2.png");
+/* harmony import */ var _img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../img/WaterDrop_Splash123456_166x182_60.png */ "./src/img/WaterDrop_Splash123456_166x182_60.png");
+/* harmony import */ var _sounds_splash_mp3__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ../sounds/splash.mp3 */ "./src/sounds/splash.mp3");
+/* harmony import */ var _img_spriteRunLeft_png__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ../img/spriteRunLeft.png */ "./src/img/spriteRunLeft.png");
+/* harmony import */ var _img_spriteRunRight_png__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ../img/spriteRunRight.png */ "./src/img/spriteRunRight.png");
+/* harmony import */ var _img_spriteStandLeft_png__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../img/spriteStandLeft.png */ "./src/img/spriteStandLeft.png");
+/* harmony import */ var _img_spriteStandRight_png__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ../img/spriteStandRight.png */ "./src/img/spriteStandRight.png");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -624,6 +639,9 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 
 
 
+
+
+//import { create } from "browser-sync";
 
 var canvas = document.querySelector("canvas");
 var canvasCtx = canvas.getContext("2d");
@@ -703,12 +721,24 @@ var spriteRunRightImage = createImage(_img_BoyWalkRight_Sheet_png__WEBPACK_IMPOR
 var spriteRunLeftImage = createImage(_img_BoyWalkLeft_Sheet_png__WEBPACK_IMPORTED_MODULE_22__["default"]);
 var spriteJumpRightImage = createImage(_img_BoyJumpRight_Sheet2_png__WEBPACK_IMPORTED_MODULE_23__["default"]);
 var spriteJumpLeftImage = createImage(_img_BoyJumpLeft_Sheet2_png__WEBPACK_IMPORTED_MODULE_24__["default"]);
-var waterdropSpriteSheetImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_26__["default"]);
-var waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_25__["default"]);
-var waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_26__["default"]);
-var splashSound = new Audio(_sounds_splash_mp3__WEBPACK_IMPORTED_MODULE_27__["default"]);
+var spriteClimbImage = createImage(_img_BoyClimb_Sheet2_png__WEBPACK_IMPORTED_MODULE_25__["default"]);
+var waterdropSpriteSheetImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_27__["default"]);
+var waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_26__["default"]);
+var waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_27__["default"]);
+var splashSound = new Audio(_sounds_splash_mp3__WEBPACK_IMPORTED_MODULE_28__["default"]);
 //splashSound.src = "../sounds/splash.mp3";
 
+var SpriteState = {
+  STANDING_RIGHT: "STANDING_RIGHT",
+  STANDING_LEFT: "STANDING_LEFT",
+  WALKING_RIGHT: "WALKING_RIGHT",
+  WALKING_LEFT: "WALKING_LEFT",
+  RUNNING_RIGHT: "RUNNING_RIGHT",
+  RUNNING_LEFT: "RUNNING_LEFT",
+  JUMPING_RIGHT: "JUMPING_RIGHT",
+  JUMPING_LEFT: "JUMPING_LEFT",
+  CLIMBING: "CLIMBING"
+};
 function sleep(milliseconds) {
   var date = Date.now();
   var currentDate = null;
@@ -768,6 +798,11 @@ var Player = /*#__PURE__*/function () {
     this.collisiondetection = {
       footadjustment: 11
     };
+    this.state = 0; //Normal state = standing
+    //1 // walking
+    //2 // running
+    //3 // jumping
+    //4 // climbing
     this.frames = 0;
     this.sprites = {
       stand: {
@@ -791,6 +826,13 @@ var Player = /*#__PURE__*/function () {
         cropWidth: 92,
         width: 92,
         cycleframes: true
+      },
+      climb: {
+        image: spriteClimbImage,
+        frames: 6,
+        cropWidth: 84,
+        width: 84,
+        cycleframes: true
       }
     };
     this.currentSprite = this.sprites.stand.left;
@@ -802,8 +844,14 @@ var Player = /*#__PURE__*/function () {
       canvasCtx.drawImage(this.currentSprite, this.currentCropWidth * this.frames, 0, this.currentCropWidth, this.currentSprite.height, this.position.x, this.position.y, this.width, this.height);
     }
   }, {
+    key: "drawClimbing",
+    value: function drawClimbing() {
+      canvasCtx.drawImage(this.sprites.climb.image, this.sprites.climb.cropWidth * this.frames, 0, this.sprites.climb.cropWidth, this.sprites.climb.height, this.position.x, this.position.y, this.width, this.height);
+    }
+  }, {
     key: "update",
     value: function update() {
+      console.log("===============player.state=" + player.state);
       this.frames++;
       this.width = 50;
       this.height = 70;
@@ -820,6 +868,11 @@ var Player = /*#__PURE__*/function () {
         this.frames = 0;
       }
       this.draw();
+      if (this.currentSprite === this.sprites.stand || this.currentSprite === this.sprites.run || this.currentSprite === this.sprites.jump) {
+        this.draw();
+      } else if (this.currentSprite === this.sprites.jump) {
+        this.drawClimbing();
+      }
       this.position.x += this.velocity.x;
       this.position.y += this.velocity.y;
       if (this.position.y + this.height + this.velocity.y <= canvas.height) {
@@ -1066,10 +1119,11 @@ function init() {
   cave2Image = createImage(_img_Mushroom_Cave_L2_png__WEBPACK_IMPORTED_MODULE_13__["default"]);
   cave3Image = createImage(_img_Mushroom_Cave_L3_png__WEBPACK_IMPORTED_MODULE_11__["default"]);
   cave4Image = createImage(_img_Mushroom_Cave_L4_png__WEBPACK_IMPORTED_MODULE_14__["default"]);
-  waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_25__["default"]);
-  waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_26__["default"]);
+  waterdropletHangingFallingImage = createImage(_img_WaterDrop_2_png__WEBPACK_IMPORTED_MODULE_26__["default"]);
+  waterdropletSplashImage = createImage(_img_WaterDrop_Splash123456_166x182_60_png__WEBPACK_IMPORTED_MODULE_27__["default"]);
   spriteJumpRightImage = createImage(_img_BoyJumpRight_Sheet2_png__WEBPACK_IMPORTED_MODULE_23__["default"]);
   spriteJumpLeftImage = createImage(_img_BoyJumpLeft_Sheet2_png__WEBPACK_IMPORTED_MODULE_24__["default"]);
+  spriteClimbImage = createImage(_img_BoyClimb_Sheet2_png__WEBPACK_IMPORTED_MODULE_25__["default"]);
 
   // Load player image
   player = new Player();
@@ -1355,7 +1409,9 @@ function gameLoop() {
       //if(player.currentSprite===player.sprites.run.right || player.currentSprite===player.sprites.stand.right){
       if (player.position.x >= rope.position.x - 65 && player.position.x + 55 <= rope.position.x + 65 && player.position.y <= rope.position.y + 120) {
         console.log("========================CLIMB ROPE");
-        player.position.y = rope.position.y + 10;
+        lastKey = "jump";
+        player.currentSprite = spriteClimbImage;
+        player.position.y = rope.position.y + 60;
         //player.position.y--;
         player.velocity.y = 0;
       }
@@ -1368,18 +1424,22 @@ function gameLoop() {
 
   //Sprite switching conditional
   if (keys.right.pressed && lastKey === "right" && player.currentSprite !== player.sprites.run.right) {
+    player.state = 2;
     player.currentSprite = player.sprites.run.right;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
   } else if (keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.run.left) {
+    player.state = 2;
     player.currentSprite = player.sprites.run.left;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
   } else if (!keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.stand.left) {
+    player.state = 0;
     player.currentSprite = player.sprites.stand.left;
     player.currentCropWidth = player.sprites.stand.cropWidth;
     player.width = player.sprites.stand.width;
   } else if (!keys.right.pressed && lastKey === "right" && player.currentSprite !== player.sprites.stand.right) {
+    player.state = 0;
     player.currentSprite = player.sprites.stand.right;
     player.currentCropWidth = player.sprites.stand.cropWidth;
     player.width = player.sprites.stand.width;
@@ -1391,6 +1451,10 @@ function gameLoop() {
     player.currentSprite = player.sprites.jump.left;
     player.currentCropWidth = player.sprites.jump.cropWidth;
     player.width = player.sprites.jump.width;
+  } else if (keys.up.pressed && (lastKey === "up" || lastKey === "jump") && player.currentSprite !== player.sprites.climb.image) {
+    player.currentSprite = player.sprites.climb.image;
+    player.currentCropWidth = player.sprites.climb.cropWidth;
+    player.width = player.sprites.climb.width;
   }
   if (scrollOffset > platformImage.width * 5 + 300 - 2) {
     console.log("Winner");
@@ -1445,6 +1509,7 @@ addEventListener("keydown", function (_ref6) {
       break;
     case SHIFT:
       console.log("shift");
+      player.state = 2;
       JUMPVELOCITY *= 1.3;
       PLAYERSPEED *= HIGH_SPEED_FACTOR;
       player.speed = PLAYERSPEED;

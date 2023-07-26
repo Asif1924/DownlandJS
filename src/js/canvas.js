@@ -36,6 +36,7 @@ import boywalkrightSrc from "../img/BoyWalkRight_Sheet.png";
 import boywalkleftSrc from "../img/BoyWalkLeft_Sheet.png";
 import boyjumprightSrc from "../img/BoyJumpRight_Sheet2.png";
 import boyjumpleftSrc from "../img/BoyJumpLeft_Sheet2.png";
+import boyclimbSrc from "../img/BoyClimb_Sheet2.png";
 
 
 import waterdropletSrc from "../img/WaterDrop_2.png";
@@ -47,6 +48,7 @@ import spriteRunRight from "../img/spriteRunRight.png";
 
 import spriteStandLeft from "../img/spriteStandLeft.png";
 import spriteStandRight from "../img/spriteStandRight.png";
+//import { create } from "browser-sync";
 
 const canvas = document.querySelector("canvas");
 const canvasCtx = canvas.getContext("2d");
@@ -132,6 +134,7 @@ let spriteRunLeftImage = createImage(boywalkleftSrc);
 
 let spriteJumpRightImage = createImage(boyjumprightSrc);
 let spriteJumpLeftImage = createImage(boyjumpleftSrc);
+let spriteClimbImage = createImage(boyclimbSrc);
 
 let waterdropSpriteSheetImage = createImage(waterdropSpriteSheetSrc);
 let waterdropletHangingFallingImage = createImage(waterdropletSrc);
@@ -139,6 +142,18 @@ let waterdropletSplashImage = createImage(waterdropSpriteSheetSrc);
 
 const splashSound = new Audio(splashMP3);
 //splashSound.src = "../sounds/splash.mp3";
+
+const SpriteState = {
+  STANDING_RIGHT: "STANDING_RIGHT",
+  STANDING_LEFT: "STANDING_LEFT",
+  WALKING_RIGHT: "WALKING_RIGHT",
+  WALKING_LEFT: "WALKING_LEFT",
+  RUNNING_RIGHT: "RUNNING_RIGHT",
+  RUNNING_LEFT: "RUNNING_LEFT",
+  JUMPING_RIGHT: "JUMPING_RIGHT",
+  JUMPING_LEFT: "JUMPING_LEFT",
+  CLIMBING: "CLIMBING"
+};
 
 function sleep(milliseconds) {
   const date = Date.now();
@@ -190,7 +205,11 @@ class Player {
     this.collisiondetection = {
       footadjustment: 11
     }
-
+    this.state = 0 //Normal state = standing
+    //1 // walking
+    //2 // running
+    //3 // jumping
+    //4 // climbing
     this.frames = 0;
     this.sprites = {
       stand: {
@@ -214,6 +233,13 @@ class Player {
         cropWidth: 92,
         width: 92,
         cycleframes: true
+      },
+      climb:{
+        image: spriteClimbImage,
+        frames: 6,
+        cropWidth: 84,
+        width: 84,
+        cycleframes: true
       }
     };
     this.currentSprite = this.sprites.stand.left;
@@ -234,7 +260,22 @@ class Player {
     );
   }
 
+  drawClimbing(){
+    canvasCtx.drawImage(
+      this.sprites.climb.image,
+      this.sprites.climb.cropWidth * this.frames,
+      0,
+      this.sprites.climb.cropWidth,
+      this.sprites.climb.height,
+      this.position.x,
+      this.position.y,
+      this.width,
+      this.height
+    );
+  }
+
   update() {
+    console.log("===============player.state=" + player.state);
     this.frames++;
     this.width = 50;
     this.height = 70;
@@ -252,6 +293,12 @@ class Player {
       this.frames = 0;
     }
     this.draw();
+    if(this.currentSprite===this.sprites.stand || this.currentSprite===this.sprites.run || this.currentSprite===this.sprites.jump){
+      this.draw();
+    }else if(this.currentSprite===this.sprites.jump){
+      this.drawClimbing();
+    }
+
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
     if (this.position.y + this.height + this.velocity.y <= canvas.height) {
@@ -484,6 +531,7 @@ function init() {
 
   spriteJumpRightImage = createImage(boyjumprightSrc);
   spriteJumpLeftImage = createImage(boyjumpleftSrc);
+  spriteClimbImage = createImage(boyclimbSrc);
 
   // Load player image
   player = new Player();
@@ -828,7 +876,9 @@ function gameLoop() {
             player.position.y<=rope.position.y+120
         ){
           console.log("========================CLIMB ROPE");
-          player.position.y=rope.position.y+10;
+          lastKey = "jump";
+          player.currentSprite=spriteClimbImage;
+          player.position.y=rope.position.y+60;
           //player.position.y--;
           player.velocity.y=0;
         }
@@ -841,18 +891,22 @@ function gameLoop() {
 
   //Sprite switching conditional
   if ( keys.right.pressed && lastKey === "right" && player.currentSprite !== player.sprites.run.right) {
+    player.state = 2;
     player.currentSprite = player.sprites.run.right;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
   } else if ( keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.run.left) {
+    player.state = 2;
     player.currentSprite = player.sprites.run.left;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
   } else if ( !keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.stand.left) {
+    player.state = 0;
     player.currentSprite = player.sprites.stand.left;
     player.currentCropWidth = player.sprites.stand.cropWidth; 
     player.width = player.sprites.stand.width;
   } else if ( !keys.right.pressed && lastKey === "right" && player.currentSprite !== player.sprites.stand.right) {
+    player.state = 0;
     player.currentSprite = player.sprites.stand.right;
     player.currentCropWidth = player.sprites.stand.cropWidth;
     player.width = player.sprites.stand.width;
@@ -864,6 +918,10 @@ function gameLoop() {
     player.currentSprite = player.sprites.jump.left;
     player.currentCropWidth = player.sprites.jump.cropWidth;
     player.width = player.sprites.jump.width;
+  } else if( keys.up.pressed && (lastKey==="up" || lastKey==="jump") && player.currentSprite !== player.sprites.climb.image){
+    player.currentSprite = player.sprites.climb.image;
+    player.currentCropWidth = player.sprites.climb.cropWidth;
+    player.width = player.sprites.climb.width;
   }
 
   if (scrollOffset > platformImage.width * 5 + 300 - 2) {
@@ -920,6 +978,7 @@ addEventListener("keydown", ({ keyCode }) => {
       break;
     case SHIFT:
       console.log("shift");
+      player.state = 2;
       JUMPVELOCITY *= 1.3;
       PLAYERSPEED *= HIGH_SPEED_FACTOR;
       player.speed = PLAYERSPEED;
