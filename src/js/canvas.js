@@ -205,7 +205,8 @@ class Player {
     this.collisiondetection = {
       footadjustment: 11
     }
-    this.state = 0 //Normal state = standing
+    this.state = 0 
+    //0 // Normal state = standing
     //1 // walking
     //2 // running
     //3 // jumping
@@ -293,9 +294,9 @@ class Player {
       this.frames = 0;
     }
     this.draw();
-    if(this.currentSprite===this.sprites.stand || this.currentSprite===this.sprites.run || this.currentSprite===this.sprites.jump){
+    if(this.state<4){
       this.draw();
-    }else if(this.currentSprite===this.sprites.jump){
+    }else if(this.state===4){
       this.drawClimbing();
     }
 
@@ -870,7 +871,7 @@ function gameLoop() {
     // console.log("player.height=" + player.height);
     // console.log("player.width=" + player.width);
     //if(player.position.x >= rope.position.x)
-    if(keys.jump.pressed){
+    if(keys.jump.pressed || keys.up.pressed){
       //if(player.currentSprite===player.sprites.run.right || player.currentSprite===player.sprites.stand.right){
         if( player.position.x >= rope.position.x-65 && player.position.x+55 <= rope.position.x+65 &&
             player.position.y<=rope.position.y+120
@@ -881,6 +882,8 @@ function gameLoop() {
           player.position.y=rope.position.y+60;
           //player.position.y--;
           player.velocity.y=0;
+          player.state = 4;
+          return;
         }
       //}
       // else if(player.currentSprite===player.sprites.run.left || player.currentSprite===player.sprites.stand.left){
@@ -911,14 +914,17 @@ function gameLoop() {
     player.currentCropWidth = player.sprites.stand.cropWidth;
     player.width = player.sprites.stand.width;
   } else if( keys.jump.pressed && player.currentSprite !== player.sprites.jump.right){
+    player.state = 3;
     player.currentSprite = player.sprites.jump.right;
     player.currentCropWidth = player.sprites.jump.cropWidth;
     player.width = player.sprites.jump.width;
   } else if( keys.jump.pressed && player.currentSprite !== player.sprites.jump.left){
+    player.state = 3;
     player.currentSprite = player.sprites.jump.left;
     player.currentCropWidth = player.sprites.jump.cropWidth;
     player.width = player.sprites.jump.width;
   } else if( keys.up.pressed && (lastKey==="up" || lastKey==="jump") && player.currentSprite !== player.sprites.climb.image){
+    player.state = 4;
     player.currentSprite = player.sprites.climb.image;
     player.currentCropWidth = player.sprites.climb.cropWidth;
     player.width = player.sprites.climb.width;
