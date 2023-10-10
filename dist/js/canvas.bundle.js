@@ -853,7 +853,7 @@ var Player = /*#__PURE__*/function () {
     key: "drawClimbing",
     value: function drawClimbing() {
       console.log("Player is climbing mode");
-      canvasCtx.drawImage(this.sprites.climb.image, this.sprites.climb.cropWidth * this.frames, 0, 84, 104, this.position.x, this.position.y, this.width, this.height);
+      canvasCtx.drawImage(this.sprites.climb.image, this.sprites.climb.cropWidth * this.frames, 0, this.currentCropWidth, this.currentSprite.height, this.position.x, this.position.y, this.width, this.height);
     }
   }, {
     key: "update",
