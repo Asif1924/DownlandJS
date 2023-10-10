@@ -32,8 +32,13 @@ import harrystandleft from "../img/PitfallHarry_StandLeft.png";
 //576x144, 96x144
 import boystandrightSrc from "../img/BoyStandRight_Sheet.png";
 import boystandleftSrc from "../img/BoyStandLeft_Sheet.png";
+
 import boywalkrightSrc from "../img/BoyWalkRight_Sheet.png";
 import boywalkleftSrc from "../img/BoyWalkLeft_Sheet.png";
+
+// import boywalkrightSrc from "../img/BoyClimb_Sheet2.png";
+// import boywalkleftSrc from "../img/BoyClimb_Sheet2.png";
+
 import boyjumprightSrc from "../img/BoyJumpRight_Sheet2.png";
 import boyjumpleftSrc from "../img/BoyJumpLeft_Sheet2.png";
 import boyclimbSrc from "../img/BoyClimb_Sheet2.png";
@@ -236,8 +241,8 @@ class Player {
         cycleframes: true
       },
       climb:{
-        image: spriteClimbImage,
         frames: 6,
+        image: spriteClimbImage,
         cropWidth: 84,
         width: 84,
         cycleframes: true
@@ -262,12 +267,13 @@ class Player {
   }
 
   drawClimbing(){
+    console.log("Player is climbing mode");
     canvasCtx.drawImage(
       this.sprites.climb.image,
       this.sprites.climb.cropWidth * this.frames,
       0,
-      this.sprites.climb.cropWidth,
-      this.sprites.climb.height,
+      84,
+      104,
       this.position.x,
       this.position.y,
       this.width,
@@ -276,27 +282,29 @@ class Player {
   }
 
   update() {
-    console.log("===============player.state=" + player.state);
+    console.log("===============player.state=" + player.state+ ", franes = " + this.frames) ;
     this.frames++;
     this.width = 50;
     this.height = 70;
     // this.currentCropWidth *=0.5;
     // this.width *= 0.5;
-    if( (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left || this.currentSprite===this.sprites.jump.right || this.currentSprite===this.sprites.jump.left) && this.sprites.stand.cycleframes===false ){
-       this.frames=0;
-    }
 
-    if ( this.frames > STAND_FRAMES && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
-      this.frames = 0;
-    } else if ( this.frames > RUN_FRAMES && (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left)) {
-      this.frames = 0;
-    } else if ( this.frames > this.sprites.jump.frames && ( this.currentSprite===this.sprites.jump.right || this.currentSprite===this.sprites.jump.left)){
-      this.frames = 0;
-    }
-    this.draw();
+    //this.draw();
     if(this.state<4){
+      if( (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left || this.currentSprite===this.sprites.jump.right || this.currentSprite===this.sprites.jump.left) && this.sprites.stand.cycleframes===false ){
+        this.frames=0;
+      } 
+      if ( this.frames > STAND_FRAMES && (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left)) {
+        this.frames = 0;
+      } else if ( this.frames > RUN_FRAMES && (this.currentSprite === this.sprites.run.right || this.currentSprite === this.sprites.run.left)) {
+        this.frames = 0;
+      } else if ( this.frames > this.sprites.jump.frames && ( this.currentSprite===this.sprites.jump.right || this.currentSprite===this.sprites.jump.left)){
+        this.frames = 0;
+      }
       this.draw();
     }else if(this.state===4){
+      if(this.frames>5) this.frames =0;
+      this.currentSprite=this.sprites.climb.image;
       this.drawClimbing();
     }
 
@@ -777,6 +785,8 @@ function init() {
 
 // Game loop function
 function gameLoop() {
+  console.log("=========================player state = " + player.state);
+
   gameTimer++;
   //console.log(gameTimer);
   requestAnimationFrame(gameLoop);
