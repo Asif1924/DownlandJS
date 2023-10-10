@@ -809,6 +809,7 @@ var Player = /*#__PURE__*/function () {
     //3 // jumping
     //4 // climbing
     this.frames = 0;
+    this.cycleframes = true;
     this.sprites = {
       stand: {
         right: spriteStandRightImage,
@@ -837,7 +838,7 @@ var Player = /*#__PURE__*/function () {
         image: spriteClimbImage,
         cropWidth: 84,
         width: 84,
-        cycleframes: true
+        cycleframes: false
       }
     };
     this.currentSprite = this.sprites.stand.left;
@@ -858,7 +859,7 @@ var Player = /*#__PURE__*/function () {
     key: "update",
     value: function update() {
       console.log("===============player.state=" + player.state + ", franes = " + this.frames);
-      this.frames++;
+      if (this.cycleframes) this.frames++;else this.frames = 0;
       this.width = 50;
       this.height = 70;
       // this.currentCropWidth *=0.5;
@@ -866,6 +867,7 @@ var Player = /*#__PURE__*/function () {
 
       //this.draw();
       if (this.state < 4) {
+        this.cycleframes = true;
         if ((this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left || this.currentSprite === this.sprites.jump.right || this.currentSprite === this.sprites.jump.left) && this.sprites.stand.cycleframes === false) {
           this.frames = 0;
         }
@@ -880,6 +882,7 @@ var Player = /*#__PURE__*/function () {
       } else if (this.state === 4) {
         if (this.frames > 5) this.frames = 0;
         this.currentSprite = this.sprites.climb.image;
+        this.cycleframes = false;
         this.drawClimbing();
       }
       this.position.x += this.velocity.x;
