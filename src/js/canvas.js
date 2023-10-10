@@ -726,7 +726,7 @@ function init() {
       x:340,
       y:10,
       image: waterdropletHangingFallingImage,
-      argSplashBottom: 225
+      argSplashBottom: 25
     }),    
     new WaterDroplet({
       x:140,
