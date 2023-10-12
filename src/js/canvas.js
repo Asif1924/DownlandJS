@@ -117,6 +117,8 @@ function createImage(imageSrc) {
 }
 // Player object
 let gravity = 0.5;
+let playerSticky = false;
+const PLAYER_MASS = 1;
 
 // let spriteStandRightImage = createImage(spriteStandRight);
 // let spriteStandLeftImage = createImage(spriteStandLeft);
@@ -147,6 +149,8 @@ let waterdropletSplashImage = createImage(waterdropSpriteSheetSrc);
 
 const splashSound = new Audio(splashMP3);
 //splashSound.src = "../sounds/splash.mp3";
+
+let climbSteps = 0;
 
 const SpriteState = {
   STANDING_RIGHT: "STANDING_RIGHT",
@@ -195,6 +199,7 @@ class BackgroundAsset {
 
 class Player {
   constructor() {
+    this.mass = PLAYER_MASS;
     this.speed = PLAYERSPEED;
     this.position = {
       x: 600,
@@ -283,7 +288,7 @@ class Player {
   }
 
   update() {
-    console.log("===============player.state=" + player.state+ ", franes = " + this.frames) ;
+    console.log("===============player.state = " + player.state+ ", franes = " + this.frames + ", playerSticky = " + playerSticky  + ",climbSteps = " + climbSteps) ;
     if(this.cycleframes)
       this.frames++;
     else
@@ -295,6 +300,7 @@ class Player {
 
     //this.draw();
     if(this.state<4){
+      this.mass = PLAYER_MASS;
       this.cycleframes=true;
       if( (this.currentSprite === this.sprites.stand.right || this.currentSprite === this.sprites.stand.left || this.currentSprite===this.sprites.jump.right || this.currentSprite===this.sprites.jump.left) && this.sprites.stand.cycleframes===false ){
         this.frames=0;
@@ -308,6 +314,7 @@ class Player {
       }
       this.draw();
     }else if(this.state===4){
+      this.mass = 0;
       if(this.frames>5) this.frames =0;
       this.currentSprite=this.sprites.climb.image;
       this.cycleframes = false;
@@ -317,7 +324,7 @@ class Player {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
     if (this.position.y + this.height + this.velocity.y <= canvas.height) {
-      this.velocity.y += gravity;
+      this.velocity.y += gravity * this.mass;
     }
   }
 }
@@ -791,7 +798,7 @@ function init() {
 
 // Game loop function
 function gameLoop() {
-  console.log("=========================player state = " + player.state);
+  //console.log("=========================player state = " + player.state);
 
   gameTimer++;
   //console.log(gameTimer);
@@ -898,6 +905,7 @@ function gameLoop() {
           player.position.y=rope.position.y+60;
           //player.position.y--;
           player.velocity.y=0;
+          //gravity = 0;
           player.state = 4;
           return;
         }
@@ -911,36 +919,44 @@ function gameLoop() {
   //Sprite switching conditional
   if ( keys.right.pressed && lastKey === "right" && player.currentSprite !== player.sprites.run.right) {
     player.state = 2;
+    playerSticky = false;
     player.currentSprite = player.sprites.run.right;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
   } else if ( keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.run.left) {
     player.state = 2;
+    playerSticky = false;
     player.currentSprite = player.sprites.run.left;
     player.currentCropWidth = player.sprites.run.cropWidth;
     player.width = player.sprites.run.width;
   } else if ( !keys.left.pressed && lastKey === "left" && player.currentSprite !== player.sprites.stand.left) {
     player.state = 0;
+    playerSticky = false;
     player.currentSprite = player.sprites.stand.left;
     player.currentCropWidth = player.sprites.stand.cropWidth; 
     player.width = player.sprites.stand.width;
   } else if ( !keys.right.pressed && lastKey === "right" && player.currentSprite !== player.sprites.stand.right) {
     player.state = 0;
+    playerSticky = false;
     player.currentSprite = player.sprites.stand.right;
     player.currentCropWidth = player.sprites.stand.cropWidth;
     player.width = player.sprites.stand.width;
   } else if( keys.jump.pressed && player.currentSprite !== player.sprites.jump.right){
     player.state = 3;
+    playerSticky = false;
     player.currentSprite = player.sprites.jump.right;
     player.currentCropWidth = player.sprites.jump.cropWidth;
     player.width = player.sprites.jump.width;
   } else if( keys.jump.pressed && player.currentSprite !== player.sprites.jump.left){
     player.state = 3;
+    playerSticky = false;
     player.currentSprite = player.sprites.jump.left;
     player.currentCropWidth = player.sprites.jump.cropWidth;
     player.width = player.sprites.jump.width;
   } else if( keys.up.pressed && (lastKey==="up" || lastKey==="jump") && player.currentSprite !== player.sprites.climb.image){
     player.state = 4;
+    //gravity = 0;
+    playerSticky = true;
     player.currentSprite = player.sprites.climb.image;
     player.currentCropWidth = player.sprites.climb.cropWidth;
     player.width = player.sprites.climb.width;
@@ -967,16 +983,15 @@ addEventListener("keydown", ({ keyCode }) => {
       console.log("up");
       keys.up.pressed = true;
       lastKey = "up";
+      climbSteps++;
+      //player.position.y--;
       break;
     case DOWNARROW:
       console.log("down");
       keys.down.pressed = true;
-      lastKey = "down";
-      break;
-    case UPARROW:
-      console.log("up");
-      keys.up.pressed = true;
-      lastKey = "up";
+      lastKey = "down";      
+      climbSteps--;
+      //player.position.y++;
       break;
     case LEFTARROW:
       console.log("left");
