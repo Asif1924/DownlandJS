@@ -898,7 +898,7 @@ var Player = /*#__PURE__*/function () {
         this.mass = 0;
         if (this.frames > 5) this.frames = 0;
         this.currentSprite = this.sprites.climb.image;
-        this.cycleframes = false;
+        this.cycleframes = true;
         this.drawClimbing();
       }
       this.position.x += this.velocity.x;
