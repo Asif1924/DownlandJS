@@ -258,7 +258,17 @@ class Player {
     this.currentCropWidth=STAND_IMAGE_WIDTH;    
   }
 
+  drawCommon(){
+    //canvasCtx.fillStyle = "green";
+    //canvasCtx.fillRect(this.position.x, this.position.y, this.width, this.height);
+
+  }
+
   draw() {
+    console.log("=============================Player is NOT in climbing mode");
+    climbSteps=0;
+
+    this.drawCommon();
     canvasCtx.drawImage(
       this.currentSprite,
       this.currentCropWidth * this.frames,
@@ -273,7 +283,9 @@ class Player {
   }
 
   drawClimbing(){
-    console.log("Player is climbing mode");
+    console.log("============================Player is in climbing mode");
+    this.drawCommon();
+
     canvasCtx.drawImage(
       this.sprites.climb.image,
       this.sprites.climb.cropWidth * this.frames,
@@ -281,7 +293,7 @@ class Player {
       this.currentCropWidth,
       this.currentSprite.height,
       this.position.x,
-      this.position.y,
+      this.position.y-(climbSteps+1),
       this.width,
       this.height
     );
@@ -687,13 +699,6 @@ function init() {
 
   ropes = [
     new Rope({
-      x: 220,
-      y: 300,
-      argHeight: 125,
-      image: ropeImage,
-      argFoothold: 125
-    }),
-    new Rope({
       x: 260,
       y: 300,
       argHeight: 125,
@@ -896,9 +901,7 @@ function gameLoop() {
     //if(player.position.x >= rope.position.x)
     if(keys.jump.pressed || keys.up.pressed){
       //if(player.currentSprite===player.sprites.run.right || player.currentSprite===player.sprites.stand.right){
-        if( player.position.x >= rope.position.x-65 && player.position.x+55 <= rope.position.x+65 &&
-            player.position.y<=rope.position.y+120
-        ){
+        if( player.position.x >= rope.position.x-65 && player.position.x+55 <= rope.position.x+65 && player.position.y<=rope.position.y+120 ){
           console.log("========================CLIMB ROPE");
           lastKey = "jump";
           player.currentSprite=spriteClimbImage;
@@ -915,6 +918,16 @@ function gameLoop() {
       // }
     }
   });
+
+  waterdroplets.forEach( (thisDroplet) => {
+    //if( player.position.x >= thisDroplet.position.x && thisDroplet.currentSprite.width<= player.position.x+player.currentSprite.width ){
+      // if( thisDroplet.position.y+thisDroplet.currentSprite.height>=player.position.y ){      
+    if( player.position.x >= thisDroplet.position.x && thisDroplet.currentSprite.width<= player.position.x+player.currentSprite.width && thisDroplet.position.y+thisDroplet.currentSprite.height>=player.position.y ){      
+        console.log("========================DECREASE LIFE");      
+    }
+  });
+
+
 
   //Sprite switching conditional
   if ( keys.right.pressed && lastKey === "right" && player.currentSprite !== player.sprites.run.right) {
@@ -957,9 +970,9 @@ function gameLoop() {
     player.state = 4;
     //gravity = 0;
     playerSticky = true;
-    player.currentSprite = player.sprites.climb.image;
-    player.currentCropWidth = player.sprites.climb.cropWidth;
-    player.width = player.sprites.climb.width;
+    //player.currentSprite = player.sprites.climb.image;
+    //player.currentCropWidth = player.sprites.climb.cropWidth;
+    //player.width = player.sprites.climb.width;
   }
 
   if (scrollOffset > platformImage.width * 5 + 300 - 2) {
