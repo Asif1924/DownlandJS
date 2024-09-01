@@ -293,7 +293,7 @@ class Player {
       this.currentCropWidth,
       this.currentSprite.height,
       this.position.x,
-      this.position.y-(climbSteps+1),
+      this.position.y-(climbSteps)-5,
       this.width,
       this.height
     );
@@ -329,7 +329,7 @@ class Player {
       this.mass = 0;
       if(this.frames>5) this.frames =0;
       this.currentSprite=this.sprites.climb.image;
-      this.cycleframes = true;
+      this.cycleframes = false;
       this.drawClimbing();
     }
 
@@ -997,6 +997,7 @@ addEventListener("keydown", ({ keyCode }) => {
       keys.up.pressed = true;
       lastKey = "up";
       climbSteps++;
+      player.cycleframes=true;
       //player.position.y--;
       break;
     case DOWNARROW:
@@ -1004,6 +1005,7 @@ addEventListener("keydown", ({ keyCode }) => {
       keys.down.pressed = true;
       lastKey = "down";      
       climbSteps--;
+      player.cycleframes=true;
       //player.position.y++;
       break;
     case LEFTARROW:

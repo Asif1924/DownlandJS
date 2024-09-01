@@ -867,7 +867,7 @@ var Player = /*#__PURE__*/function () {
     value: function drawClimbing() {
       console.log("============================Player is in climbing mode");
       this.drawCommon();
-      canvasCtx.drawImage(this.sprites.climb.image, this.sprites.climb.cropWidth * this.frames, 0, this.currentCropWidth, this.currentSprite.height, this.position.x, this.position.y - (climbSteps + 1), this.width, this.height);
+      canvasCtx.drawImage(this.sprites.climb.image, this.sprites.climb.cropWidth * this.frames, 0, this.currentCropWidth, this.currentSprite.height, this.position.x, this.position.y - climbSteps - 5, this.width, this.height);
     }
   }, {
     key: "update",
@@ -898,7 +898,7 @@ var Player = /*#__PURE__*/function () {
         this.mass = 0;
         if (this.frames > 5) this.frames = 0;
         this.currentSprite = this.sprites.climb.image;
-        this.cycleframes = true;
+        this.cycleframes = false;
         this.drawClimbing();
       }
       this.position.x += this.velocity.x;
@@ -1524,6 +1524,7 @@ addEventListener("keydown", function (_ref6) {
       keys.up.pressed = true;
       lastKey = "up";
       climbSteps++;
+      player.cycleframes = true;
       //player.position.y--;
       break;
     case DOWNARROW:
@@ -1531,6 +1532,7 @@ addEventListener("keydown", function (_ref6) {
       keys.down.pressed = true;
       lastKey = "down";
       climbSteps--;
+      player.cycleframes = true;
       //player.position.y++;
       break;
     case LEFTARROW:
